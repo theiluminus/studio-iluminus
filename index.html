@@ -98,9 +98,11 @@
     }
 
     h1 {
-      font-size: clamp(3.1rem, 10vw, 6.8rem);
-      line-height: 0.9;
-      max-width: 8.8ch;
+      font-size: clamp(3.1rem, 10vw, 7rem);
+      line-height: 0.88;
+      max-width: 8.2ch;
+      text-transform: uppercase;
+      letter-spacing: 0.015em;
     }
 
     h2 {
@@ -141,16 +143,61 @@
       align-items: center;
       overflow: hidden;
       border-top: none;
+      isolation: isolate;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('/obsidian-hero.jpg');
+      background-size: cover;
+      background-position: center right;
+      filter: brightness(0.36) contrast(1.12) saturate(0.88);
+      transform: scale(1.06);
+      z-index: 0;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        radial-gradient(circle at 72% 24%, rgba(255,255,255,0.12), transparent 16%),
+        radial-gradient(circle at 63% 34%, rgba(255,255,255,0.035), transparent 24%),
+        linear-gradient(90deg, rgba(0,0,0,0.94) 0%, rgba(0,0,0,0.72) 34%, rgba(0,0,0,0.46) 58%, rgba(0,0,0,0.26) 100%),
+        linear-gradient(180deg, rgba(0,0,0,0.14) 0%, rgba(0,0,0,0.82) 100%);
+    }
+
+    .hero-depth {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.14) 46%, rgba(0,0,0,0.4) 100%);
+      mix-blend-mode: normal;
     }
 
     .hero-glow {
       position: absolute;
       inset: 0;
-      z-index: 0;
-      background:
-        radial-gradient(circle at 74% 24%, rgba(255,255,255,0.06), transparent 15%),
-        radial-gradient(circle at 64% 34%, rgba(255,255,255,0.025), transparent 18%);
+      z-index: 1;
       pointer-events: none;
+      background:
+        radial-gradient(circle at 61% 29%, rgba(255,255,255,0.08), transparent 10%),
+        radial-gradient(circle at 68% 48%, rgba(115,140,255,0.06), transparent 18%);
+      filter: blur(18px);
+      opacity: 0.7;
+    }
+
+    .hero-fade {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 180px;
+      z-index: 1;
+      background: linear-gradient(to bottom, transparent, #000 82%);
     }
 
     .hero-grid {
@@ -158,11 +205,26 @@
       display: grid;
       align-items: end;
       padding: 26px 0 28px;
+      position: relative;
+      z-index: 2;
     }
 
     .hero-copy {
       max-width: 860px;
       padding: 24px 0 64px;
+    }
+
+    .hero-copy h1 {
+      text-shadow:
+        0 0 18px rgba(255,255,255,0.05),
+        0 14px 50px rgba(0,0,0,0.52);
+    }
+
+    .hero-copy h1 .muted {
+      display: block;
+      color: rgba(244,239,231,0.66);
+      margin-top: 12px;
+      font-weight: 500;
     }
 
     .hero-copy p {
@@ -177,6 +239,45 @@
       color: var(--text);
       font-size: 0.95rem;
       line-height: 1.65;
+    }
+
+    .hero-actions {
+      margin-top: 28px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 20px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      transition: transform .22s ease, background .22s ease, border-color .22s ease;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .cta:hover {
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,0.24);
+    }
+
+    .cta.soft {
+      border-color: rgba(255,255,255,0.08);
+      color: var(--text-soft);
+      background: rgba(255,255,255,0.015);
+    }
+
+    .cta.soft:hover {
+      border-color: rgba(255,255,255,0.12);
+      color: var(--text);
     }
 
     .ghost-band {
@@ -278,6 +379,8 @@
       font-size: 2rem;
       line-height: 1;
       margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.01em;
     }
 
     .card p {
@@ -296,36 +399,6 @@
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
-    }
-
-    .cta {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 0 20px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.18);
-      font-size: 12px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      transition: transform .22s ease, background .22s ease, border-color .22s ease;
-    }
-
-    .cta:hover {
-      background: rgba(255,255,255,0.08);
-      transform: translateY(-1px);
-    }
-
-    .cta.soft {
-      border-color: rgba(255,255,255,0.08);
-      color: var(--text-soft);
-      background: rgba(255,255,255,0.02);
-    }
-
-    .cta.soft:hover {
-      border-color: rgba(255,255,255,0.12);
-      color: var(--text);
     }
 
     .statement-grid {
@@ -429,10 +502,28 @@
     }
 
     @media (max-width: 767px) {
+      .hero-bg {
+        background-position: 68% center;
+        transform: scale(1.04);
+      }
+
+      .hero-overlay {
+        background:
+          radial-gradient(circle at 62% 20%, rgba(255,255,255,0.1), transparent 16%),
+          linear-gradient(180deg, rgba(0,0,0,0.56) 0%, rgba(0,0,0,0.76) 34%, rgba(0,0,0,0.9) 100%),
+          linear-gradient(90deg, rgba(0,0,0,0.86) 0%, rgba(0,0,0,0.58) 46%, rgba(0,0,0,0.4) 100%);
+      }
+
       .hero-copy h1 {
-        max-width: 7.4ch;
-        font-size: clamp(2.9rem, 12vw, 4.5rem);
-        line-height: 0.94;
+        max-width: 7.2ch;
+        font-size: clamp(2.7rem, 12vw, 4.4rem);
+        line-height: 0.92;
+        letter-spacing: 0.01em;
+      }
+
+      .hero-copy p,
+      .hero-copy .pressure {
+        max-width: 100%;
       }
 
       .ghost-band {
@@ -451,7 +542,8 @@
       }
 
       .card-actions,
-      .closing-actions {
+      .closing-actions,
+      .hero-actions {
         flex-direction: column;
       }
 
@@ -475,15 +567,19 @@
 
   <main>
     <section class="hero" id="topo">
+      <div class="hero-bg"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-depth"></div>
       <div class="hero-glow"></div>
+      <div class="hero-fade"></div>
 
       <div class="container hero-grid">
         <div class="hero-copy fade-up">
           <div class="eyebrow">Studio Iluminus</div>
 
           <h1>
-            Você não está sendo subvalorizado.
-            <span style="display:block; color:var(--text-soft); margin-top:10px;">Você está sendo mal interpretado.</span>
+            VOCÊ NÃO ESTÁ SENDO SUBVALORIZADO.
+            <span class="muted">VOCÊ ESTÁ SENDO MAL INTERPRETADO.</span>
           </h1>
 
           <p>
@@ -493,6 +589,11 @@
           <p class="pressure">
             Antes da sua explicação, o mercado já formou uma conclusão. A diferença entre ter valor e ser lido como alguém de valor muda preço, respeito, confiança e decisão.
           </p>
+
+          <div class="hero-actions">
+            <a href="https://pay.kiwify.com.br/0gcrvZb" class="cta" target="_blank" rel="noopener noreferrer">COMEÇAR PELO CÓDIGO</a>
+            <a href="https://pay.kiwify.com.br/gc4afe1" class="cta soft" target="_blank" rel="noopener noreferrer">IR DIRETO PARA O OBSIDIAN</a>
+          </div>
         </div>
       </div>
     </section>
@@ -551,8 +652,8 @@
             </p>
 
             <div class="card-actions">
-              <a href="/codigo" class="cta">Acessar</a>
-              <a href="/codigo" class="cta soft">Ler diagnóstico</a>
+              <a href="https://pay.kiwify.com.br/0gcrvZb" class="cta" target="_blank" rel="noopener noreferrer">ACESSAR</a>
+              <a href="/codigo" class="cta soft">LER DIAGNÓSTICO</a>
             </div>
           </div>
 
@@ -567,8 +668,8 @@
             </p>
 
             <div class="card-actions">
-              <a href="/obsidian" class="cta">Entrar</a>
-              <a href="/obsidian" class="cta soft">Ver protocolo</a>
+              <a href="https://pay.kiwify.com.br/gc4afe1" class="cta" target="_blank" rel="noopener noreferrer">ENTRAR</a>
+              <a href="/obsidian" class="cta soft">VER PROTOCOLO</a>
             </div>
           </div>
         </div>
@@ -617,8 +718,8 @@
           </p>
 
           <div class="closing-actions">
-            <a href="/codigo" class="cta">Começar pelo Código</a>
-            <a href="/obsidian" class="cta soft">Ir direto para o Obsidian</a>
+            <a href="https://pay.kiwify.com.br/0gcrvZb" class="cta" target="_blank" rel="noopener noreferrer">COMEÇAR PELO CÓDIGO</a>
+            <a href="https://pay.kiwify.com.br/gc4afe1" class="cta soft" target="_blank" rel="noopener noreferrer">IR DIRETO PARA O OBSIDIAN</a>
           </div>
 
           <div class="footer-note">Studio Iluminus</div>
@@ -630,9 +731,7 @@
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-        }
+        if (entry.isIntersecting) entry.target.classList.add("visible");
       });
     }, { threshold: 0.14 });
 
