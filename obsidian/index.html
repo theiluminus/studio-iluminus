@@ -265,6 +265,7 @@
       transition: transform .22s ease, background .22s ease, border-color .22s ease, color .22s ease;
       background: rgba(255,255,255,0.03);
       white-space: nowrap;
+      cursor: pointer;
     }
 
     .cta:hover {
@@ -442,7 +443,15 @@
       transform: scale(1);
     }
 
+    .check-actions {
+      margin-top: 18px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
     .check-result {
+      display: none;
       margin-top: 18px;
       padding: 16px 16px;
       border-radius: 18px;
@@ -452,16 +461,24 @@
       line-height: 1.7;
     }
 
+    .check-result.show {
+      display: block;
+    }
+
     .check-result strong {
       color: var(--text);
       font-weight: 600;
     }
 
     .check-cta {
+      display: none;
       margin-top: 18px;
-      display: flex;
       flex-wrap: wrap;
       gap: 12px;
+    }
+
+    .check-cta.show {
+      display: flex;
     }
 
     .grid {
@@ -507,20 +524,6 @@
 
     .card p {
       max-width: 32rem;
-    }
-
-    .card .card-pressure {
-      margin-top: 14px;
-      color: var(--text);
-      font-size: 0.93rem;
-      line-height: 1.6;
-    }
-
-    .card-actions {
-      margin-top: 22px;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
     }
 
     .statement-grid {
@@ -657,10 +660,10 @@
         color: rgba(255,255,255,0.038);
       }
 
-      .card-actions,
-      .closing-actions,
       .hero-actions,
-      .check-cta {
+      .check-actions,
+      .check-cta,
+      .closing-actions {
         flex-direction: column;
       }
 
@@ -799,11 +802,13 @@
             </label>
           </div>
 
-          <div class="check-result" id="checkResult">
-            <strong>Diagnóstico inicial:</strong> se mais de 2 itens não forem verdade para você, o problema não parece ser falta de esforço. Parece ser leitura errada.
+          <div class="check-actions">
+            <button class="cta" id="diagnosisButton" type="button">VER MEU DIAGNÓSTICO</button>
           </div>
 
-          <div class="check-cta">
+          <div class="check-result" id="checkResult"></div>
+
+          <div class="check-cta" id="checkCta">
             <a href="https://pay.kiwify.com.br/gc4afe1" class="cta" target="_blank" rel="noopener noreferrer">CORRIGIR MINHA LEITURA</a>
           </div>
         </div>
@@ -963,19 +968,33 @@
 
     const checklistItems = document.querySelectorAll('.check-item');
     const checklistInputs = document.querySelectorAll('.check-item input');
+    const diagnosisButton = document.getElementById('diagnosisButton');
     const resultBox = document.getElementById('checkResult');
+    const checkCta = document.getElementById('checkCta');
 
-    function updateChecklist() {
-      let checked = 0;
-
+    function syncChecklistVisual() {
       checklistItems.forEach((item) => {
         const input = item.querySelector('input');
         if (input.checked) {
           item.classList.add('checked');
-          checked++;
         } else {
           item.classList.remove('checked');
         }
+      });
+    }
+
+    checklistInputs.forEach((input) => {
+      input.addEventListener('change', syncChecklistVisual);
+    });
+
+    syncChecklistVisual();
+
+    diagnosisButton.addEventListener('click', () => {
+      let checked = 0;
+
+      checklistItems.forEach((item) => {
+        const input = item.querySelector('input');
+        if (input.checked) checked++;
       });
 
       if (checked <= 2) {
@@ -985,13 +1004,11 @@
       } else {
         resultBox.innerHTML = '<strong>Diagnóstico:</strong> você já sustenta parte importante da leitura correta. O Obsidian pode aprofundar isso e transformar estabilidade em domínio.';
       }
-    }
 
-    checklistInputs.forEach((input) => {
-      input.addEventListener('change', updateChecklist);
+      resultBox.classList.add('show');
+      checkCta.classList.add('show');
+      resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     });
-
-    updateChecklist();
   </script>
 </body>
 </html>
