@@ -144,8 +144,8 @@
       inset: 0;
       background-image: url('/obsidian-hero.jpg');
       background-size: cover;
-      background-position: 70% center;
-      filter: brightness(0.56) contrast(1.08) saturate(0.95);
+      background-position: 72% center;
+      filter: brightness(0.6) contrast(1.1) saturate(0.95);
       transform: scale(1.04);
       z-index: 0;
     }
@@ -155,9 +155,9 @@
       inset: 0;
       z-index: 1;
       background:
-        radial-gradient(circle at 70% 30%, rgba(255,255,255,0.08), transparent 18%),
-        linear-gradient(90deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.58) 38%, rgba(0,0,0,0.28) 100%),
-        linear-gradient(180deg, rgba(0,0,0,0.20) 0%, rgba(0,0,0,0.78) 100%);
+        radial-gradient(circle at 70% 28%, rgba(255,255,255,0.09), transparent 16%),
+        linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.56) 40%, rgba(0,0,0,0.22) 100%),
+        linear-gradient(180deg, rgba(0,0,0,0.16) 0%, rgba(0,0,0,0.8) 100%);
     }
 
     .hero-depth {
@@ -166,7 +166,7 @@
       z-index: 1;
       pointer-events: none;
       background:
-        linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.12) 44%, rgba(0,0,0,0.36) 100%);
+        linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.1) 44%, rgba(0,0,0,0.36) 100%);
     }
 
     .hero-glow {
@@ -175,8 +175,8 @@
       z-index: 1;
       pointer-events: none;
       background:
-        radial-gradient(circle at 63% 30%, rgba(255,255,255,0.06), transparent 10%),
-        radial-gradient(circle at 69% 48%, rgba(120,140,255,0.04), transparent 18%);
+        radial-gradient(circle at 63% 29%, rgba(255,255,255,0.06), transparent 10%),
+        radial-gradient(circle at 69% 46%, rgba(120,140,255,0.04), transparent 18%);
       filter: blur(18px);
       opacity: 0.6;
     }
@@ -201,15 +201,15 @@
     }
 
     .hero-copy {
-      max-width: 920px;
+      max-width: 960px;
       padding: 24px 0 64px;
     }
 
     .hero-copy h1 {
-      font-size: clamp(2.8rem, 6vw, 5.8rem);
-      line-height: 1.02;
+      font-size: clamp(2.8rem, 6vw, 6rem);
+      line-height: 1;
       letter-spacing: -0.035em;
-      max-width: 16ch;
+      max-width: 13ch;
       text-transform: uppercase;
       text-shadow:
         0 0 12px rgba(255,255,255,0.06),
@@ -222,23 +222,23 @@
       margin-top: 10px;
     }
 
-    .hero-copy .hero-kicker {
+    .hero-kicker {
       margin-top: 18px;
       max-width: 34rem;
       color: var(--text);
-      font-size: 1rem;
+      font-size: 1.02rem;
       line-height: 1.62;
     }
 
-    .hero-copy .hero-body {
+    .hero-body {
       margin-top: 16px;
-      max-width: 36rem;
+      max-width: 38rem;
       font-size: 1rem;
     }
 
-    .hero-copy .micro-pressure {
+    .hero-micro {
       margin-top: 14px;
-      max-width: 32rem;
+      max-width: 34rem;
       font-size: 0.86rem;
       line-height: 1.6;
       color: rgba(244,239,231,0.52);
@@ -322,8 +322,7 @@
       to { transform: translateX(-33.333%); }
     }
 
-    .impact-panel,
-    .tension-panel,
+    .panel,
     .closing-panel {
       border: 1px solid rgba(255,255,255,0.08);
       background:
@@ -333,25 +332,12 @@
       text-align: center;
     }
 
-    .impact-panel {
-      padding: 34px 24px;
-    }
-
-    .impact-panel p {
-      margin: 20px auto 0;
-      max-width: 38rem;
-    }
-
-    .tension-panel {
+    .panel {
       padding: 36px 24px;
     }
 
-    .tension-panel h2 {
-      max-width: 10ch;
-    }
-
-    .tension-panel p {
-      margin: 18px auto 0;
+    .panel p {
+      margin: 20px auto 0;
       max-width: 42rem;
     }
 
@@ -378,6 +364,7 @@
         linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.012));
       box-shadow: var(--shadow);
       transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+      text-align: left;
     }
 
     .card:hover {
@@ -507,11 +494,7 @@
         padding: 118px 0;
       }
 
-      .impact-panel,
-      .tension-panel {
-        padding: 40px 36px;
-      }
-
+      .panel,
       .closing-panel {
         padding: 48px 36px;
       }
@@ -519,14 +502,14 @@
 
     @media (max-width: 767px) {
       .hero-bg {
-        background-position: 74% center;
+        background-position: 76% center;
         transform: scale(1.02);
       }
 
       .hero-overlay {
         background:
           radial-gradient(circle at 62% 20%, rgba(255,255,255,0.08), transparent 16%),
-          linear-gradient(180deg, rgba(0,0,0,0.46) 0%, rgba(0,0,0,0.74) 34%, rgba(0,0,0,0.88) 100%),
+          linear-gradient(180deg, rgba(0,0,0,0.44) 0%, rgba(0,0,0,0.74) 34%, rgba(0,0,0,0.88) 100%),
           linear-gradient(90deg, rgba(0,0,0,0.84) 0%, rgba(0,0,0,0.54) 46%, rgba(0,0,0,0.34) 100%);
       }
 
@@ -537,9 +520,9 @@
         letter-spacing: -0.03em;
       }
 
-      .hero-copy .hero-kicker,
-      .hero-copy .hero-body,
-      .hero-copy .micro-pressure {
+      .hero-kicker,
+      .hero-body,
+      .hero-micro {
         max-width: 100%;
       }
 
@@ -612,7 +595,7 @@
             <a href="https://pay.kiwify.com.br/gc4afe1" class="cta soft" target="_blank" rel="noopener noreferrer">IR DIRETO PARA O OBSIDIAN</a>
           </div>
 
-          <p class="micro-pressure">
+          <p class="hero-micro">
             Você pode continuar tentando convencer… ou corrigir a forma como está sendo lido.
           </p>
         </div>
@@ -638,7 +621,7 @@
 
     <section class="section center">
       <div class="container fade-up">
-        <div class="impact-panel">
+        <div class="panel">
           <h2>
             Antes da sua explicação, já existe uma conclusão.
           </h2>
@@ -652,7 +635,7 @@
 
     <section class="section center">
       <div class="container fade-up">
-        <div class="tension-panel">
+        <div class="panel">
           <div class="eyebrow" style="justify-content:center;">Custo invisível</div>
           <h2 style="margin-top:14px;">
             Enquanto isso não corrige, você continua sendo lido abaixo do que vale.
