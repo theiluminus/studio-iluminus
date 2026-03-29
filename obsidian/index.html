@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Obsidian Method</title>
   <meta
     name="description"
@@ -11,29 +11,26 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  >
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
       --bg: #000000;
       --bg-soft: #050505;
-      --surface: rgba(255,255,255,0.03);
-      --surface-2: rgba(255,255,255,0.018);
-      --line: rgba(255,255,255,0.08);
-      --line-strong: rgba(255,255,255,0.14);
       --text: #f4efe7;
       --text-soft: rgba(244,239,231,0.72);
-      --text-dim: rgba(244,239,231,0.52);
-      --text-faint: rgba(244,239,231,0.38);
-      --ok: rgba(255,255,255,0.92);
+      --text-dim: rgba(244,239,231,0.54);
+      --text-faint: rgba(244,239,231,0.36);
+      --line: rgba(255,255,255,0.08);
+      --line-strong: rgba(255,255,255,0.14);
+      --surface: rgba(255,255,255,0.028);
+      --surface-2: rgba(255,255,255,0.018);
+      --radius: 22px;
+      --radius-lg: 28px;
       --shadow: 0 24px 90px rgba(0,0,0,0.46);
-      --radius: 24px;
-      --max: 1240px;
       --serif: "Cormorant Garamond", serif;
       --sans: "DM Sans", sans-serif;
+      --max: 1180px;
     }
 
     * {
@@ -50,7 +47,7 @@
     body {
       background:
         radial-gradient(circle at 80% 10%, rgba(255,255,255,0.045), transparent 18%),
-        radial-gradient(circle at 18% 45%, rgba(255,255,255,0.03), transparent 18%),
+        radial-gradient(circle at 18% 42%, rgba(255,255,255,0.025), transparent 18%),
         linear-gradient(180deg, #020202 0%, #000000 100%);
       color: var(--text);
       font-family: var(--sans);
@@ -78,7 +75,7 @@
       inset: 0;
       pointer-events: none;
       z-index: 0;
-      box-shadow: inset 0 0 180px rgba(0,0,0,0.55);
+      box-shadow: inset 0 0 180px rgba(0,0,0,0.56);
     }
 
     .container {
@@ -86,6 +83,31 @@
       margin: 0 auto;
       position: relative;
       z-index: 2;
+    }
+
+    .section {
+      position: relative;
+      padding: 104px 0;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--serif);
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+
+    h2 {
+      font-size: clamp(2.2rem, 7vw, 4.3rem);
+      line-height: 1.02;
+      max-width: 11ch;
+      margin-inline: auto;
+    }
+
+    p {
+      color: var(--text-soft);
+      line-height: 1.78;
     }
 
     .eyebrow {
@@ -107,66 +129,25 @@
       display: block;
     }
 
-    .button-primary,
-    .button-secondary {
-      min-height: 54px;
-      border-radius: 999px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 22px;
-      font-size: 0.77rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      transition: transform 220ms ease, background 220ms ease, border-color 220ms ease, color 220ms ease, opacity 220ms ease;
-      cursor: pointer;
-      white-space: nowrap;
-    }
-
-    .button-primary {
-      background: rgba(255,255,255,0.09);
-      border: 1px solid rgba(255,255,255,0.18);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.06),
-        0 10px 30px rgba(0,0,0,0.18);
-    }
-
-    .button-primary:hover {
-      background: rgba(255,255,255,0.13);
-      transform: translateY(-1px);
-    }
-
-    .button-secondary {
-      border: 1px solid rgba(255,255,255,0.08);
-      color: var(--text-soft);
-      background: rgba(255,255,255,0.02);
-    }
-
-    .button-secondary:hover {
-      background: rgba(255,255,255,0.04);
-      border-color: rgba(255,255,255,0.12);
-      color: var(--text);
-      transform: translateY(-1px);
-    }
-
     .hero {
       position: relative;
       min-height: 100vh;
       display: flex;
       align-items: center;
       overflow: hidden;
+      border-top: none;
+      isolation: isolate;
     }
 
     .hero-bg {
       position: absolute;
       inset: 0;
-      background-image: url('obsidiana-hero.jpg');
+      background-image: url('/obsidian-hero.jpg');
       background-size: cover;
-      background-position: center;
-      filter: brightness(0.32) contrast(1.12) saturate(0.9);
+      background-position: 72% center;
+      filter: brightness(0.58) contrast(1.08) saturate(0.95);
       transform: scale(1.04);
       z-index: 0;
-      will-change: transform;
     }
 
     .hero-overlay {
@@ -174,9 +155,30 @@
       inset: 0;
       z-index: 1;
       background:
-        radial-gradient(circle at 72% 24%, rgba(255,255,255,0.10), transparent 16%),
-        linear-gradient(90deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.62) 38%, rgba(0,0,0,0.46) 100%),
-        linear-gradient(180deg, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.84) 100%);
+        radial-gradient(circle at 70% 28%, rgba(255,255,255,0.09), transparent 16%),
+        linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.54) 40%, rgba(0,0,0,0.20) 100%),
+        linear-gradient(180deg, rgba(0,0,0,0.16) 0%, rgba(0,0,0,0.82) 100%);
+    }
+
+    .hero-depth {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.10) 44%, rgba(0,0,0,0.38) 100%);
+    }
+
+    .hero-glow {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 63% 29%, rgba(255,255,255,0.06), transparent 10%),
+        radial-gradient(circle at 69% 46%, rgba(120,140,255,0.04), transparent 18%);
+      filter: blur(18px);
+      opacity: 0.6;
     }
 
     .hero-fade {
@@ -186,7 +188,7 @@
       bottom: 0;
       height: 180px;
       z-index: 1;
-      background: linear-gradient(to bottom, transparent, #000 80%);
+      background: linear-gradient(to bottom, transparent, #000 82%);
     }
 
     .hero-grid {
@@ -194,45 +196,52 @@
       display: grid;
       align-items: end;
       padding: 26px 0 28px;
+      position: relative;
+      z-index: 2;
     }
 
     .hero-copy {
-      max-width: 820px;
-      padding: 20px 0 56px;
+      max-width: 960px;
+      padding: 24px 0 64px;
     }
 
     .hero-copy h1 {
-      margin-top: 20px;
-      font-family: var(--serif);
-      font-weight: 600;
-      font-size: clamp(3rem, 11vw, 6.6rem);
-      line-height: 0.92;
-      letter-spacing: -0.04em;
-      max-width: 8.8ch;
-      text-wrap: balance;
+      font-size: clamp(2.9rem, 6vw, 6.1rem);
+      line-height: 0.98;
+      letter-spacing: -0.035em;
+      max-width: 13ch;
+      text-transform: uppercase;
+      text-shadow:
+        0 0 12px rgba(255,255,255,0.06),
+        0 10px 40px rgba(0,0,0,0.55);
     }
 
     .hero-copy h1 .muted {
       display: block;
-      color: var(--text-soft);
+      color: rgba(244,239,231,0.72);
       margin-top: 10px;
-      font-weight: 500;
     }
 
-    .hero-description {
+    .hero-kicker {
       margin-top: 18px;
-      max-width: 38rem;
-      color: var(--text-soft);
-      font-size: 1rem;
-      line-height: 1.76;
-    }
-
-    .hero-subpressure {
-      margin-top: 18px;
-      max-width: 35rem;
+      max-width: 34rem;
       color: var(--text);
-      font-size: 0.95rem;
+      font-size: 1.02rem;
       line-height: 1.62;
+    }
+
+    .hero-body {
+      margin-top: 16px;
+      max-width: 38rem;
+      font-size: 1rem;
+    }
+
+    .hero-micro {
+      margin-top: 14px;
+      max-width: 34rem;
+      font-size: 0.86rem;
+      line-height: 1.6;
+      color: rgba(244,239,231,0.52);
     }
 
     .hero-actions {
@@ -242,47 +251,37 @@
       flex-wrap: wrap;
     }
 
-    .hero-meta {
-      margin-top: 30px;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-      max-width: 760px;
-    }
-
-    .meta-card,
-    .impact-band,
-    .text-panel,
-    .pillar,
-    .proof-card,
-    .offer-card,
-    .who-card,
-    .checklist-shell {
-      border: 1px solid rgba(255,255,255,0.08);
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015));
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(8px);
-    }
-
-    .meta-card {
-      padding: 14px 16px;
-      border-radius: 18px;
-    }
-
-    .meta-card small {
-      display: block;
-      font-size: 0.68rem;
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      font-size: 12px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--text-faint);
-      margin-bottom: 6px;
+      transition: transform .22s ease, background .22s ease, border-color .22s ease, color .22s ease;
+      background: rgba(255,255,255,0.03);
+      white-space: nowrap;
     }
 
-    .meta-card p {
+    .cta:hover {
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,0.24);
+    }
+
+    .cta.soft {
+      border-color: rgba(255,255,255,0.08);
       color: var(--text-soft);
-      font-size: 0.9rem;
-      line-height: 1.55;
+      background: rgba(255,255,255,0.015);
+    }
+
+    .cta.soft:hover {
+      border-color: rgba(255,255,255,0.12);
+      color: var(--text);
     }
 
     .ghost-band {
@@ -293,26 +292,22 @@
       border-top: 1px solid rgba(255,255,255,0.03);
       border-bottom: 1px solid rgba(255,255,255,0.03);
       padding: 14px 0;
-      background: linear-gradient(
-        180deg,
-        rgba(255,255,255,0.006),
-        rgba(255,255,255,0.002)
-      );
+      background: linear-gradient(180deg, rgba(255,255,255,0.006), rgba(255,255,255,0.002));
     }
 
     .ghost-track {
       display: flex;
       align-items: center;
-      gap: 42px;
+      gap: 44px;
       width: max-content;
       animation: ghostScroll 42s linear infinite;
       will-change: transform;
     }
 
     .ghost-track span {
-      font-size: clamp(0.88rem, 2vw, 1.05rem);
+      font-size: clamp(0.85rem, 2vw, 1.02rem);
       font-weight: 500;
-      letter-spacing: 0.26em;
+      letter-spacing: 0.24em;
       text-transform: uppercase;
       color: rgba(255,255,255,0.032);
       white-space: nowrap;
@@ -324,242 +319,56 @@
       to { transform: translateX(-33.333%); }
     }
 
-    .section {
-      position: relative;
-      padding: 96px 0;
-      border-top: 1px solid rgba(255,255,255,0.04);
-    }
-
-    .impact-band {
-      padding: 30px 24px;
-      border-radius: 24px;
-      text-align: center;
-    }
-
-    .impact-band h2 {
-      font-family: var(--serif);
-      font-size: clamp(2rem, 6.5vw, 3.6rem);
-      line-height: 1.03;
-      letter-spacing: -0.035em;
-      font-weight: 600;
-      max-width: 11ch;
-      margin: 0 auto;
-      text-wrap: balance;
-    }
-
-    .impact-center {
-      text-align: center;
-    }
-
-    .impact-center h2 {
-      font-family: var(--serif);
-      font-size: clamp(2.2rem, 7vw, 4.4rem);
-      line-height: 1.02;
-      letter-spacing: -0.04em;
-      font-weight: 600;
-      max-width: 10ch;
-      margin: 14px auto 0;
-      text-wrap: balance;
-    }
-
-    .impact-center p {
-      margin: 18px auto 0;
-      max-width: 42rem;
-      color: var(--text-soft);
-      font-size: 0.98rem;
-      line-height: 1.75;
-    }
-
-    .split-premium {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 22px;
-      align-items: stretch;
-    }
-
-    .visual-panel,
-    .text-panel {
-      position: relative;
-      border-radius: 26px;
-      overflow: hidden;
+    .panel,
+    .closing-panel,
+    .checklist-shell {
       border: 1px solid rgba(255,255,255,0.08);
       background:
         linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015));
       box-shadow: var(--shadow);
+      border-radius: var(--radius-lg);
     }
 
-    .visual-panel {
-      min-height: 360px;
-      isolation: isolate;
-      background-color: #030303;
-    }
-
-    .visual-panel::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: url('obsidiana-hero.jpg');
-      background-size: cover;
-      background-position: center;
-      filter: grayscale(0.08) brightness(0.64) contrast(1.08);
-      transform: scale(1.03);
-      z-index: 0;
-    }
-
-    .visual-panel::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 72% 24%, rgba(255,255,255,0.1), transparent 16%),
-        linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.44));
-      z-index: 1;
-    }
-
-    .visual-panel .floating-line {
-      position: absolute;
-      left: 20px;
-      right: 20px;
-      bottom: 20px;
-      z-index: 2;
-      padding: 16px 18px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(0,0,0,0.38);
-      backdrop-filter: blur(10px);
-    }
-
-    .floating-line small {
-      display: block;
-      color: var(--text-faint);
-      font-size: 0.68rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-
-    .floating-line p {
-      color: var(--text);
-      font-family: var(--serif);
-      font-size: clamp(1.5rem, 4.6vw, 2.4rem);
-      line-height: 1;
-      letter-spacing: -0.03em;
-      font-weight: 600;
-      max-width: 14ch;
-    }
-
-    .text-panel {
-      padding: 26px 22px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .text-panel h3,
-    .section-title {
-      margin-top: 14px;
-      font-family: var(--serif);
-      font-size: clamp(2rem, 5.5vw, 3.2rem);
-      line-height: 1.02;
-      letter-spacing: -0.035em;
-      font-weight: 600;
-      max-width: 10ch;
-      text-wrap: balance;
-    }
-
-    .text-panel p {
-      color: var(--text-soft);
-      font-size: 0.96rem;
-      line-height: 1.8;
-    }
-
-    .text-panel p strong {
-      color: var(--text);
-      font-weight: 500;
-    }
-
-    .text-blocks {
-      display: grid;
-      gap: 12px;
-    }
-
-    .micro-proof,
-    .who-grid,
-    .offer-grid {
-      display: grid;
-      gap: 12px;
-      grid-template-columns: 1fr;
-    }
-
-    .proof-card,
-    .who-card,
-    .offer-card {
-      padding: 16px 16px;
-      border-radius: 18px;
-    }
-
-    .proof-card small,
-    .who-card small,
-    .offer-card small {
-      display: block;
-      color: var(--text-faint);
-      font-size: 0.68rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-
-    .proof-card p,
-    .who-card p,
-    .offer-card p {
-      color: var(--text-soft);
-      font-size: 0.9rem;
-      line-height: 1.6;
-    }
-
-    .two-col-center {
+    .panel {
+      padding: 40px 24px;
       text-align: center;
     }
 
-    .two-col-center p.lead {
-      margin: 18px auto 0;
-      max-width: 44rem;
-      color: var(--text-soft);
-      font-size: 0.98rem;
-      line-height: 1.78;
+    .panel p {
+      margin: 20px auto 0;
+      max-width: 42rem;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .center p {
+      margin: 20px auto 0;
+      max-width: 42rem;
     }
 
     .checklist-shell {
       margin-top: 32px;
-      border-radius: 22px;
-      padding: 20px 18px;
+      padding: 22px 18px;
       text-align: left;
     }
 
-    .checklist-intro {
-      margin-bottom: 18px;
-    }
-
     .checklist-intro h3 {
-      font-family: var(--serif);
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
       line-height: 1.02;
-      letter-spacing: -0.03em;
-      font-weight: 600;
       max-width: 12ch;
     }
 
     .checklist-intro p {
       margin-top: 10px;
-      color: var(--text-soft);
-      line-height: 1.7;
       max-width: 42rem;
     }
 
     .checklist-list {
       display: grid;
       gap: 12px;
+      margin-top: 20px;
     }
 
     .check-item {
@@ -629,7 +438,7 @@
     }
 
     .check-item.checked .check-mark::after {
-      background: var(--ok);
+      background: rgba(255,255,255,0.92);
       transform: scale(1);
     }
 
@@ -641,7 +450,6 @@
       background: rgba(255,255,255,0.02);
       color: var(--text-soft);
       line-height: 1.7;
-      transition: opacity 240ms ease, transform 240ms ease;
     }
 
     .check-result strong {
@@ -656,98 +464,113 @@
       gap: 12px;
     }
 
-    .pillars-intro {
-      text-align: center;
-      margin-bottom: 32px;
-    }
-
-    .pillars-intro h2 {
-      font-family: var(--serif);
-      font-size: clamp(2.2rem, 7vw, 4.2rem);
-      line-height: 1.04;
-      letter-spacing: -0.04em;
-      font-weight: 600;
-      max-width: 12ch;
-      margin: 14px auto 0;
-      text-wrap: balance;
-    }
-
-    .pillars {
+    .grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
+      gap: 18px;
+      margin-top: 40px;
     }
 
-    .pillar {
-      padding: 18px 18px 20px;
-      border-radius: 20px;
-      transition: transform 220ms ease, background 220ms ease, border-color 220ms ease;
-    }
-
-    .pillar:hover {
-      transform: translateY(-2px);
+    .card {
+      padding: 30px 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
       background:
-        linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.022));
-      border-color: rgba(255,255,255,0.12);
+        linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.012));
+      box-shadow: var(--shadow);
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+      text-align: left;
     }
 
-    .pillar small {
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255,255,255,0.15);
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.016));
+    }
+
+    .card small {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .card h3 {
+      font-size: 2rem;
+      line-height: 1;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.01em;
+    }
+
+    .card p {
+      max-width: 32rem;
+    }
+
+    .card .card-pressure {
+      margin-top: 14px;
+      color: var(--text);
+      font-size: 0.93rem;
+      line-height: 1.6;
+    }
+
+    .card-actions {
+      margin-top: 22px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .statement-grid {
+      display: grid;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .statement {
+      padding: 18px 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.02);
+      text-align: left;
+    }
+
+    .statement small {
       display: block;
       color: var(--text-faint);
       font-size: 0.68rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
-    .pillar h4 {
-      font-family: var(--serif);
-      font-size: 1.85rem;
-      line-height: 0.98;
-      font-weight: 600;
-      margin-bottom: 10px;
-      letter-spacing: -0.03em;
-    }
-
-    .pillar p {
+    .statement p {
       color: var(--text-soft);
-      font-size: 0.93rem;
-      line-height: 1.7;
+      line-height: 1.65;
     }
 
-    .closing {
+    .closing-panel {
+      padding: 40px 24px;
       text-align: center;
     }
 
-    .closing h2 {
-      font-family: var(--serif);
-      font-size: clamp(2.4rem, 7.5vw, 4.8rem);
-      line-height: 1.02;
-      letter-spacing: -0.04em;
-      font-weight: 600;
-      max-width: 9ch;
-      margin: 14px auto 0;
-      text-wrap: balance;
-    }
-
-    .closing p {
-      margin: 18px auto 0;
+    .closing-panel p {
+      margin: 20px auto 0;
       max-width: 40rem;
-      color: var(--text-soft);
-      font-size: 0.98rem;
-      line-height: 1.8;
     }
 
     .closing-actions {
-      margin-top: 28px;
+      margin-top: 26px;
       display: flex;
       justify-content: center;
       gap: 12px;
       flex-wrap: wrap;
     }
 
-    .closing-note {
-      margin-top: 26px;
+    .footer-note {
+      margin-top: 24px;
       color: var(--text-faint);
       font-size: 0.74rem;
       letter-spacing: 0.18em;
@@ -765,35 +588,58 @@
       transform: translateY(0);
     }
 
-    @keyframes heroZoom {
-      0% { transform: scale(1.04); }
-      100% { transform: scale(1.08); }
+    @media (min-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .statement-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      .container {
+        width: min(calc(100% - 56px), var(--max));
+      }
+
+      .hero-copy {
+        padding: 26px 0 72px;
+      }
+
+      .section {
+        padding: 118px 0;
+      }
+
+      .panel,
+      .closing-panel,
+      .checklist-shell {
+        padding: 48px 36px;
+      }
     }
 
-    @media (max-width: 759px) {
+    @media (max-width: 767px) {
+      .hero-bg {
+        background-position: 76% center;
+        transform: scale(1.02);
+      }
+
+      .hero-overlay {
+        background:
+          radial-gradient(circle at 62% 20%, rgba(255,255,255,0.08), transparent 16%),
+          linear-gradient(180deg, rgba(0,0,0,0.44) 0%, rgba(0,0,0,0.74) 34%, rgba(0,0,0,0.88) 100%),
+          linear-gradient(90deg, rgba(0,0,0,0.84) 0%, rgba(0,0,0,0.54) 46%, rgba(0,0,0,0.34) 100%);
+      }
+
       .hero-copy h1 {
-        max-width: 7.2ch;
-        font-size: clamp(2.8rem, 12vw, 4.3rem);
-        line-height: 0.94;
+        max-width: 10ch;
+        font-size: clamp(2.5rem, 10vw, 4rem);
+        line-height: 1;
+        letter-spacing: -0.03em;
       }
 
-      .hero-copy h1 .muted {
-        margin-top: 12px;
-      }
-
-      .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .button-primary,
-      .button-secondary {
-        width: 100%;
-      }
-
-      .hero-description {
-        font-size: 1rem;
-        line-height: 1.72;
+      .hero-kicker,
+      .hero-body,
+      .hero-micro {
+        max-width: 100%;
       }
 
       .ghost-band {
@@ -811,83 +657,15 @@
         color: rgba(255,255,255,0.038);
       }
 
-      .check-item {
-        grid-template-columns: 22px 1fr;
-      }
-    }
-
-    @media (min-width: 760px) {
-      .container {
-        width: min(calc(100% - 56px), var(--max));
+      .card-actions,
+      .closing-actions,
+      .hero-actions,
+      .check-cta {
+        flex-direction: column;
       }
 
-      .hero-copy {
-        padding: 26px 0 68px;
-      }
-
-      .hero-meta {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .hero-bg {
-        animation: heroZoom 18s ease-in-out infinite alternate;
-      }
-
-      .impact-band {
-        padding: 38px 36px;
-      }
-
-      .split-premium {
-        grid-template-columns: 1.04fr 0.96fr;
-        gap: 20px;
-      }
-
-      .text-panel {
-        padding: 36px 30px;
-      }
-
-      .micro-proof,
-      .who-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .offer-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .pillars {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .section {
-        padding: 118px 0;
-      }
-    }
-
-    @media (min-width: 1100px) {
-      .hero-copy h1 {
-        font-size: clamp(4.8rem, 7vw, 7.1rem);
-      }
-
-      .hero-description,
-      .closing p,
-      .impact-center p,
-      .two-col-center p.lead,
-      .checklist-intro p {
-        font-size: 1.03rem;
-      }
-
-      .text-panel {
-        padding: 42px 36px;
-      }
-
-      .visual-panel {
-        min-height: 520px;
-      }
-
-      .who-grid,
-      .offer-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+      .cta {
+        width: 100%;
       }
     }
 
@@ -908,6 +686,8 @@
     <section class="hero" id="topo">
       <div class="hero-bg"></div>
       <div class="hero-overlay"></div>
+      <div class="hero-depth"></div>
+      <div class="hero-glow"></div>
       <div class="hero-fade"></div>
 
       <div class="container hero-grid">
@@ -915,44 +695,26 @@
           <div class="eyebrow">Obsidian Method</div>
 
           <h1>
-            Você já entendeu o problema.
-            <span class="muted">Agora precisa parar de sustentar uma leitura errada.</span>
+            VOCÊ NÃO PRECISA DE MAIS CONTEÚDO.
+            <span class="muted">PRECISA CORRIGIR A LEITURA.</span>
           </h1>
 
-          <p class="hero-description">
-            O Obsidian não é sobre aprender mais. É sobre corrigir a forma como o mercado lê seu valor antes de qualquer explicação.
+          <p class="hero-kicker">
+            O problema não é o seu valor. É o que o mercado conclui antes de te ouvir.
           </p>
 
-          <p class="hero-subpressure">
-            Quando a leitura está errada, competência não vira preço, esforço não vira reconhecimento e consistência não vira autoridade.
+          <p class="hero-body">
+            Enquanto essa leitura estiver errada, você continua sendo ignorado, mal pago ou subestimado — mesmo sendo bom.
           </p>
 
           <div class="hero-actions">
-            <a
-              href="https://pay.kiwify.com.br/0gcrvZb"
-              class="button-primary"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Entrar no Obsidian
-            </a>
-
-            <a href="#checklist" class="button-secondary">
-              Fazer leitura rápida
-            </a>
+            <a href="https://pay.kiwify.com.br/gc4afe1" class="cta" target="_blank" rel="noopener noreferrer">ENTRAR NO OBSIDIAN</a>
+            <a href="#checklist" class="cta soft">FAZER LEITURA RÁPIDA</a>
           </div>
 
-          <div class="hero-meta">
-            <div class="meta-card">
-              <small>Função</small>
-              <p>Corrigir a forma como sua presença instala ou sabota valor percebido.</p>
-            </div>
-
-            <div class="meta-card">
-              <small>Consequência</small>
-              <p>Sem isso, você continua tentando compensar com esforço o que já foi decidido antes da sua fala.</p>
-            </div>
-          </div>
+          <p class="hero-micro">
+            Você pode continuar tentando convencer… ou corrigir a forma como está sendo lido.
+          </p>
         </div>
       </div>
     </section>
@@ -974,82 +736,38 @@
       </div>
     </div>
 
-    <section class="section">
+    <section class="section center">
       <div class="container fade-up">
-        <div class="impact-band">
-          <h2>Não é sobre melhorar o que você faz.</h2>
+        <div class="panel">
+          <h2>
+            O problema não está só no que você faz.
+          </h2>
+
+          <p>
+            Está no que sua presença faz os outros concluírem antes de você abrir a boca.
+          </p>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container impact-center fade-up">
-        <div class="eyebrow" style="justify-content:center;">Quebra de ilusão</div>
-        <h2>Não é sobre trabalhar mais. Nem explicar melhor.</h2>
+    <section class="section center" id="checklist">
+      <div class="container fade-up">
+        <div class="eyebrow" style="justify-content:center;">Diagnóstico</div>
+        <h2 style="margin-top:14px;">
+          Faça uma leitura rápida da sua percepção atual.
+        </h2>
+
         <p>
-          Não é sobre parecer mais profissional, produzir mais ou organizar melhor sua comunicação.
-          Tudo isso acontece depois. O problema está antes: na forma como você é lido.
-        </p>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container split-premium">
-        <div class="visual-panel fade-up">
-          <div class="floating-line">
-            <small>Diagnóstico</small>
-            <p>Você não precisa de mais esforço. Precisa corrigir a leitura.</p>
-          </div>
-        </div>
-
-        <div class="text-panel fade-up">
-          <div>
-            <div class="eyebrow">Mecanismo</div>
-            <h3>Percepção. Leitura. Valor.</h3>
-          </div>
-
-          <div class="text-blocks">
-            <p>
-              O mercado primeiro capta sinais. Depois forma uma conclusão silenciosa. E só então decide quanto peso atribui ao que você entrega.
-            </p>
-
-            <p>
-              <strong>Percepção é o que ele capta.</strong>
-              <strong>Leitura é a conclusão que ele forma.</strong>
-              <strong>Valor é a consequência comercial dessa conclusão.</strong>
-            </p>
-          </div>
-
-          <div class="micro-proof">
-            <div class="proof-card">
-              <small>Sem correção</small>
-              <p>Sua competência continua dependendo de explicação, contexto e insistência.</p>
-            </div>
-
-            <div class="proof-card">
-              <small>Com correção</small>
-              <p>Sua presença começa a sustentar autoridade antes do esforço de defesa.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="checklist">
-      <div class="container two-col-center fade-up">
-        <div class="eyebrow" style="justify-content:center;">Leitura rápida</div>
-        <h2 class="section-title" style="max-width: 10ch; margin: 14px auto 0;">Faça uma leitura da sua percepção atual.</h2>
-        <p class="lead">
           Isso leva menos de 30 segundos. Mas pode explicar por que seu valor não está sendo reconhecido na velocidade que deveria.
         </p>
 
         <div class="checklist-shell">
           <div class="checklist-intro">
-            <h3>Marque o que já é verdade para você.</h3>
-            <p>Não marque o que você gostaria que fosse verdade. Marque apenas o que já acontece sem esforço ou explicação excessiva.</p>
+            <h3>Marque apenas o que já é verdade para você.</h3>
+            <p>Não marque o que você gostaria que fosse verdade. Marque só o que já acontece sem esforço ou justificativa excessiva.</p>
           </div>
 
-          <div class="checklist-list" id="checklistList">
+          <div class="checklist-list">
             <label class="check-item">
               <input type="checkbox" />
               <span class="check-mark"></span>
@@ -1082,151 +800,154 @@
           </div>
 
           <div class="check-result" id="checkResult">
-            <strong>Diagnóstico inicial:</strong> se mais de 2 itens não forem verdade para você, o problema não está no seu esforço. Está na forma como você está sendo lido.
+            <strong>Diagnóstico inicial:</strong> se mais de 2 itens não forem verdade para você, o problema não parece ser falta de esforço. Parece ser leitura errada.
           </div>
 
           <div class="check-cta">
-            <a
-              href="https://pay.kiwify.com.br/0gcrvZb"
-              class="button-primary"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Corrigir minha leitura
-            </a>
+            <a href="https://pay.kiwify.com.br/gc4afe1" class="cta" target="_blank" rel="noopener noreferrer">CORRIGIR MINHA LEITURA</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container two-col-center fade-up">
-        <div class="eyebrow" style="justify-content:center;">Para quem é</div>
-        <h2 class="section-title" style="max-width: 11ch; margin: 14px auto 0;">Para quem já tem competência, mas ainda não sustenta o valor que deveria.</h2>
-        <p class="lead">
-          O Obsidian foi construído para quem sente que entrega mais do que recebe, explica demais para convencer e ainda assim não instala autoridade na mesma velocidade em que tem capacidade.
-        </p>
+    <section class="section center">
+      <div class="container fade-up">
+        <div class="panel">
+          <div class="eyebrow" style="justify-content:center;">Custo invisível</div>
+          <h2 style="margin-top:14px;">
+            Enquanto isso não corrige, você continua sustentando uma leitura abaixo do seu nível.
+          </h2>
 
-        <div class="who-grid" style="margin-top:32px;">
-          <div class="who-card">
-            <small>Cenário 1</small>
-            <p>Você sente que trabalha muito, entrega bem e mesmo assim continua sendo comparado a profissionais medianos.</p>
+          <p>
+            Isso reduz reconhecimento, enfraquece autoridade, empurra seu preço para baixo e prolonga um padrão de muito esforço para pouca sustentação de valor.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section center">
+      <div class="container fade-up">
+        <div class="eyebrow" style="justify-content:center;">O que é</div>
+        <h2 style="margin-top:14px;">
+          Um protocolo para corrigir percepção antes do discurso.
+        </h2>
+
+        <p>
+          O Obsidian não é mais um conteúdo sobre posicionamento. É uma estrutura para ajustar a forma como o mercado lê você antes de qualquer explicação.
+        </p>
+      </div>
+    </section>
+
+    <section class="section center">
+      <div class="container fade-up">
+        <div class="eyebrow" style="justify-content:center;">O que muda</div>
+        <h2 style="margin-top:14px;">
+          Você deixa de explicar demais o que deveria ser evidente.
+        </h2>
+
+        <div class="statement-grid">
+          <div class="statement">
+            <small>Antes</small>
+            <p>Seu valor depende de contexto, justificativa e insistência.</p>
           </div>
 
-          <div class="who-card">
+          <div class="statement">
+            <small>Depois</small>
+            <p>Sua leitura começa a acontecer com mais clareza antes da defesa.</p>
+          </div>
+
+          <div class="statement">
+            <small>Resultado</small>
+            <p>Preço, respeito e autoridade deixam de depender só do seu esforço.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section center">
+      <div class="container fade-up">
+        <div class="eyebrow" style="justify-content:center;">O que você recebe</div>
+        <h2 style="margin-top:14px;">
+          Estrutura aplicável. Não só uma ideia bonita.
+        </h2>
+
+        <div class="grid">
+          <div class="card">
+            <small>Entrega 1</small>
+            <h3>Percepção</h3>
+            <p>Um framework para identificar onde sua leitura atual está falhando.</p>
+          </div>
+
+          <div class="card">
+            <small>Entrega 2</small>
+            <h3>Densidade</h3>
+            <p>Critérios para sustentar valor sem excesso de explicação, excesso visual ou carência.</p>
+          </div>
+
+          <div class="card">
+            <small>Entrega 3</small>
+            <h3>Soberania</h3>
+            <p>Uma lógica de autoridade silenciosa para parar de depender de validação externa.</p>
+          </div>
+
+          <div class="card">
+            <small>Entrega 4</small>
+            <h3>Correção</h3>
+            <p>Parâmetros para ajustar coerência entre presença, leitura e preço percebido.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section center">
+      <div class="container fade-up">
+        <div class="eyebrow" style="justify-content:center;">Para quem é</div>
+        <h2 style="margin-top:14px;">
+          Para quem já tem competência, mas ainda não sustenta o valor que deveria.
+        </h2>
+
+        <div class="grid">
+          <div class="card">
+            <small>Cenário 1</small>
+            <p>Você sente que entrega mais do que recebe e continua sendo comparado a profissionais medianos.</p>
+          </div>
+
+          <div class="card">
             <small>Cenário 2</small>
             <p>Você percebe que precisa justificar demais seu valor, seu preço ou seu nível para ser levado a sério.</p>
           </div>
 
-          <div class="who-card">
+          <div class="card">
             <small>Cenário 3</small>
             <p>Você sabe que tem profundidade, mas o mercado ainda lê sua presença abaixo do que ela realmente vale.</p>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <section class="section">
-      <div class="container two-col-center fade-up">
-        <div class="eyebrow" style="justify-content:center;">O que você recebe</div>
-        <h2 class="section-title" style="max-width: 10ch; margin: 14px auto 0;">Uma correção aplicável. Não só uma ideia bonita.</h2>
-        <p class="lead">
-          O Obsidian transforma uma percepção difusa em uma estrutura mais clara para ajustar presença, leitura e sustentação de valor.
-        </p>
-
-        <div class="offer-grid" style="margin-top:32px;">
-          <div class="offer-card">
-            <small>Entrega 1</small>
-            <p>Framework para identificar onde sua leitura atual está falhando.</p>
-          </div>
-
-          <div class="offer-card">
-            <small>Entrega 2</small>
-            <p>Critérios de densidade para parar de emitir sinais de baixo valor sem perceber.</p>
-          </div>
-
-          <div class="offer-card">
-            <small>Entrega 3</small>
-            <p>Lógica de autoridade silenciosa para sustentar valor sem excesso de explicação.</p>
-          </div>
-
-          <div class="offer-card">
-            <small>Entrega 4</small>
-            <p>Parâmetros para corrigir coerência entre presença, leitura e preço.</p>
-          </div>
-
-          <div class="offer-card">
-            <small>Entrega 5</small>
-            <p>Aplicação prática para ajustar sua forma de ser percebido antes do discurso.</p>
-          </div>
-
-          <div class="offer-card">
-            <small>Entrega 6</small>
-            <p>Mais clareza sobre por que o mercado reage do jeito que reage ao que você transmite.</p>
+          <div class="card">
+            <small>Cenário 4</small>
+            <p>Você quer parar de compensar com esforço o que já deveria estar sendo concluído pela sua presença.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container">
-        <div class="pillars-intro fade-up">
-          <div class="eyebrow" style="justify-content:center;">Estrutura</div>
-          <h2>Um sistema para ajustar percepção antes do discurso.</h2>
+    <section class="section center">
+      <div class="container fade-up">
+        <div class="closing-panel">
+          <h2>
+            Continuar sem corrigir a leitura custa caro.
+          </h2>
+
+          <p>
+            Prolonga o mesmo padrão: muito esforço para pouco reconhecimento, muita entrega para pouca sustentação de preço, muita competência para pouca autoridade percebida.
+          </p>
+
+          <div class="closing-actions">
+            <a href="https://pay.kiwify.com.br/gc4afe1" class="cta" target="_blank" rel="noopener noreferrer">ENTRAR NO OBSIDIAN</a>
+            <a href="#topo" class="cta soft">RECOMEÇAR A LEITURA</a>
+          </div>
+
+          <div class="footer-note">Obsidian Method</div>
         </div>
-
-        <div class="pillars">
-          <article class="pillar fade-up">
-            <small>Pilar I</small>
-            <h4>Percepção</h4>
-            <p>
-              O que o mercado conclui sobre você antes de ouvir qualquer justificativa.
-            </p>
-          </article>
-
-          <article class="pillar fade-up">
-            <small>Pilar II</small>
-            <h4>Densidade</h4>
-            <p>
-              O que sustenta valor sem excesso de explicação, excesso visual ou carência.
-            </p>
-          </article>
-
-          <article class="pillar fade-up">
-            <small>Pilar III</small>
-            <h4>Soberania</h4>
-            <p>
-              O ponto em que seu preço deixa de depender de aprovação e passa a depender de estrutura.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container closing fade-up">
-        <div class="eyebrow" style="justify-content:center;">Decisão</div>
-        <h2>Continuar sem corrigir a leitura custa caro.</h2>
-        <p>
-          Prolonga o mesmo padrão: muito esforço para pouco reconhecimento, muita entrega para pouca sustentação de preço, muita competência para pouca autoridade percebida.
-        </p>
-
-        <div class="closing-actions">
-          <a
-            href="https://pay.kiwify.com.br/0gcrvZb"
-            class="button-primary"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Corrigir minha leitura agora
-          </a>
-
-          <a href="#topo" class="button-secondary">
-            Recomeçar a leitura
-          </a>
-        </div>
-
-        <div class="closing-note">Obsidian Method</div>
       </div>
     </section>
   </main>
@@ -1234,9 +955,7 @@
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-        }
+        if (entry.isIntersecting) entry.target.classList.add("visible");
       });
     }, { threshold: 0.14 });
 
