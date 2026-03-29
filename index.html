@@ -11,18 +11,19 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #000;
+      --bg: #000000;
       --bg-soft: #050505;
       --text: #f4efe7;
-      --text-soft: rgba(244,239,231,0.68);
+      --text-soft: rgba(244,239,231,0.72);
+      --text-dim: rgba(244,239,231,0.56);
       --text-faint: rgba(244,239,231,0.38);
       --line: rgba(255,255,255,0.08);
       --line-strong: rgba(255,255,255,0.14);
-      --surface: rgba(255,255,255,0.025);
+      --surface: rgba(255,255,255,0.028);
       --surface-2: rgba(255,255,255,0.018);
       --radius: 22px;
       --radius-lg: 28px;
@@ -144,7 +145,7 @@
       background-image: url('/obsidian-hero.jpg');
       background-size: cover;
       background-position: 70% center;
-      filter: brightness(0.55) contrast(1.08) saturate(0.95);
+      filter: brightness(0.56) contrast(1.08) saturate(0.95);
       transform: scale(1.04);
       z-index: 0;
     }
@@ -156,7 +157,7 @@
       background:
         radial-gradient(circle at 70% 30%, rgba(255,255,255,0.08), transparent 18%),
         linear-gradient(90deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.58) 38%, rgba(0,0,0,0.28) 100%),
-        linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.75) 100%);
+        linear-gradient(180deg, rgba(0,0,0,0.20) 0%, rgba(0,0,0,0.78) 100%);
     }
 
     .hero-depth {
@@ -165,7 +166,7 @@
       z-index: 1;
       pointer-events: none;
       background:
-        linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.12) 44%, rgba(0,0,0,0.34) 100%);
+        linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.12) 44%, rgba(0,0,0,0.36) 100%);
     }
 
     .hero-glow {
@@ -200,7 +201,7 @@
     }
 
     .hero-copy {
-      max-width: 860px;
+      max-width: 920px;
       padding: 24px 0 64px;
     }
 
@@ -221,18 +222,26 @@
       margin-top: 10px;
     }
 
-    .hero-copy p {
-      margin-top: 24px;
-      max-width: 35rem;
-      font-size: 1rem;
-    }
-
-    .hero-copy .pressure {
+    .hero-copy .hero-kicker {
       margin-top: 18px;
       max-width: 34rem;
       color: var(--text);
-      font-size: 0.95rem;
-      line-height: 1.65;
+      font-size: 1rem;
+      line-height: 1.62;
+    }
+
+    .hero-copy .hero-body {
+      margin-top: 16px;
+      max-width: 36rem;
+      font-size: 1rem;
+    }
+
+    .hero-copy .micro-pressure {
+      margin-top: 14px;
+      max-width: 32rem;
+      font-size: 0.86rem;
+      line-height: 1.6;
+      color: rgba(244,239,231,0.52);
     }
 
     .hero-actions {
@@ -313,19 +322,37 @@
       to { transform: translateX(-33.333%); }
     }
 
-    .impact-panel {
+    .impact-panel,
+    .tension-panel,
+    .closing-panel {
       border: 1px solid rgba(255,255,255,0.08);
       background:
         linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015));
       box-shadow: var(--shadow);
       border-radius: var(--radius-lg);
-      padding: 34px 24px;
       text-align: center;
+    }
+
+    .impact-panel {
+      padding: 34px 24px;
     }
 
     .impact-panel p {
       margin: 20px auto 0;
       max-width: 38rem;
+    }
+
+    .tension-panel {
+      padding: 36px 24px;
+    }
+
+    .tension-panel h2 {
+      max-width: 10ch;
+    }
+
+    .tension-panel p {
+      margin: 18px auto 0;
+      max-width: 42rem;
     }
 
     .center {
@@ -424,13 +451,7 @@
     }
 
     .closing-panel {
-      border: 1px solid rgba(255,255,255,0.08);
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015));
-      box-shadow: var(--shadow);
-      border-radius: var(--radius-lg);
       padding: 40px 24px;
-      text-align: center;
     }
 
     .closing-panel p {
@@ -486,7 +507,8 @@
         padding: 118px 0;
       }
 
-      .impact-panel {
+      .impact-panel,
+      .tension-panel {
         padding: 40px 36px;
       }
 
@@ -515,8 +537,9 @@
         letter-spacing: -0.03em;
       }
 
-      .hero-copy p,
-      .hero-copy .pressure {
+      .hero-copy .hero-kicker,
+      .hero-copy .hero-body,
+      .hero-copy .micro-pressure {
         max-width: 100%;
       }
 
@@ -576,18 +599,22 @@
             <span class="muted">VOCÊ ESTÁ SENDO MAL INTERPRETADO.</span>
           </h1>
 
-          <p>
-            O Studio Iluminus não cria aparência. Ele organiza percepção, estrutura e leitura de valor para quem não quer mais ser lido abaixo do que realmente vale.
+          <p class="hero-kicker">
+            O problema não é o seu valor. É o que o mercado conclui antes de te ouvir.
           </p>
 
-          <p class="pressure">
-            Antes da sua explicação, o mercado já formou uma conclusão. A diferença entre ter valor e ser lido como alguém de valor muda preço, respeito, confiança e decisão.
+          <p class="hero-body">
+            Enquanto essa leitura estiver errada, você continua sendo ignorado, mal pago ou subestimado — mesmo sendo bom.
           </p>
 
           <div class="hero-actions">
             <a href="https://pay.kiwify.com.br/0gcrvZb" class="cta" target="_blank" rel="noopener noreferrer">COMEÇAR PELO CÓDIGO</a>
             <a href="https://pay.kiwify.com.br/gc4afe1" class="cta soft" target="_blank" rel="noopener noreferrer">IR DIRETO PARA O OBSIDIAN</a>
           </div>
+
+          <p class="micro-pressure">
+            Você pode continuar tentando convencer… ou corrigir a forma como está sendo lido.
+          </p>
         </div>
       </div>
     </section>
@@ -625,6 +652,21 @@
 
     <section class="section center">
       <div class="container fade-up">
+        <div class="tension-panel">
+          <div class="eyebrow" style="justify-content:center;">Custo invisível</div>
+          <h2 style="margin-top:14px;">
+            Enquanto isso não corrige, você continua sendo lido abaixo do que vale.
+          </h2>
+
+          <p>
+            Isso reduz reconhecimento, enfraquece autoridade e empurra seu valor para uma faixa inferior à que sua competência realmente sustenta.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section center">
+      <div class="container fade-up">
         <div class="eyebrow" style="justify-content:center;">Arquitetura</div>
         <h2 style="margin-top:14px;">
           Um ecossistema para abrir consciência e corrigir leitura.
@@ -647,7 +689,7 @@
 
             <div class="card-actions">
               <a href="https://pay.kiwify.com.br/0gcrvZb" class="cta" target="_blank" rel="noopener noreferrer">ACESSAR</a>
-              <a href="/codigo" class="cta soft">LER DIAGNÓSTICO</a>
+              <a href="/codigo" class="cta soft">ENTENDER O PROBLEMA</a>
             </div>
           </div>
 
@@ -663,7 +705,7 @@
 
             <div class="card-actions">
               <a href="https://pay.kiwify.com.br/gc4afe1" class="cta" target="_blank" rel="noopener noreferrer">ENTRAR</a>
-              <a href="/obsidian" class="cta soft">VER PROTOCOLO</a>
+              <a href="/obsidian" class="cta soft">CORRIGIR A LEITURA</a>
             </div>
           </div>
         </div>
