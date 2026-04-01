@@ -6,7 +6,7 @@
   <title>Studio Iluminus</title>
   <meta
     name="description"
-    content="O Studio Iluminus organiza percepção, estrutura e leitura de valor. Um ecossistema para quem não quer mais ser interpretado abaixo do que vale."
+    content="O Studio Iluminus corrige a forma como o mercado lê você antes de qualquer explicação. Um ecossistema para quem não quer mais ser interpretado abaixo do que vale."
   />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -224,7 +224,7 @@
 
     .hero-kicker {
       margin-top: 18px;
-      max-width: 34rem;
+      max-width: 38rem;
       color: var(--text);
       font-size: 1.02rem;
       line-height: 1.62;
@@ -232,7 +232,7 @@
 
     .hero-body {
       margin-top: 16px;
-      max-width: 38rem;
+      max-width: 40rem;
       font-size: 1rem;
     }
 
@@ -338,7 +338,7 @@
 
     .panel p {
       margin: 20px auto 0;
-      max-width: 42rem;
+      max-width: 46rem;
     }
 
     .center {
@@ -347,7 +347,7 @@
 
     .center p {
       margin: 20px auto 0;
-      max-width: 42rem;
+      max-width: 46rem;
     }
 
     .grid {
@@ -409,13 +409,17 @@
       flex-wrap: wrap;
     }
 
-    .statement-grid {
+    .statement-grid,
+    .symptom-grid,
+    .who-grid {
       display: grid;
       gap: 14px;
       margin-top: 32px;
     }
 
-    .statement {
+    .statement,
+    .symptom,
+    .who-card {
       padding: 18px 18px;
       border-radius: 18px;
       border: 1px solid rgba(255,255,255,0.08);
@@ -423,7 +427,9 @@
       text-align: left;
     }
 
-    .statement small {
+    .statement small,
+    .symptom small,
+    .who-card small {
       display: block;
       color: var(--text-faint);
       font-size: 0.68rem;
@@ -432,9 +438,22 @@
       margin-bottom: 8px;
     }
 
-    .statement p {
+    .statement p,
+    .symptom p,
+    .who-card p {
       color: var(--text-soft);
       line-height: 1.65;
+    }
+
+    .who-card ul {
+      margin-top: 12px;
+      padding-left: 18px;
+      color: var(--text-soft);
+      line-height: 1.75;
+    }
+
+    .who-card li + li {
+      margin-top: 8px;
     }
 
     .closing-panel {
@@ -443,7 +462,7 @@
 
     .closing-panel p {
       margin: 20px auto 0;
-      max-width: 40rem;
+      max-width: 42rem;
     }
 
     .closing-actions {
@@ -478,8 +497,13 @@
         grid-template-columns: 1fr 1fr;
       }
 
-      .statement-grid {
+      .statement-grid,
+      .symptom-grid {
         grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      .who-grid {
+        grid-template-columns: 1fr 1fr;
       }
 
       .container {
@@ -578,16 +602,17 @@
           <div class="eyebrow">Studio Iluminus</div>
 
           <h1>
-            VOCÊ NÃO ESTÁ SENDO SUBVALORIZADO.
-            <span class="muted">VOCÊ ESTÁ SENDO MAL INTERPRETADO.</span>
+            VOCÊ NÃO ESTÁ SENDO MAL PAGO.
+            <span class="muted">VOCÊ ESTÁ SENDO MAL PERCEBIDO.</span>
           </h1>
 
           <p class="hero-kicker">
-            O problema não é o seu valor. É o que o mercado conclui antes de te ouvir.
+            O mercado decide antes de te ouvir. Se a leitura estiver errada, sua competência chega tarde demais.
           </p>
 
           <p class="hero-body">
-            Enquanto essa leitura estiver errada, você continua sendo ignorado, mal pago ou subestimado — mesmo sendo bom.
+            Você pode ser bom, entregar bem e ainda assim parecer comum, confuso ou abaixo do que realmente vale.
+            Enquanto essa leitura não corrige, seu valor continua sendo reduzido antes mesmo da conversa começar.
           </p>
 
           <div class="hero-actions">
@@ -596,7 +621,7 @@
           </div>
 
           <p class="hero-micro">
-            Você pode continuar tentando convencer… ou corrigir a forma como está sendo lido.
+            Você pode continuar tentando convencer. Ou corrigir a forma como o mercado conclui quem você é.
           </p>
         </div>
       </div>
@@ -627,7 +652,11 @@
           </h2>
 
           <p>
-            O mercado não reage ao seu potencial. Reage ao que consegue entender com facilidade, coerência e precisão.
+            O mercado não reage primeiro ao seu talento. Reage ao que consegue ler com rapidez, clareza e coerência.
+          </p>
+
+          <p>
+            É por isso que tanta gente boa continua sendo subestimada, ignorada ou colocada numa faixa inferior à que realmente sustenta.
           </p>
         </div>
       </div>
@@ -638,11 +667,15 @@
         <div class="panel">
           <div class="eyebrow" style="justify-content:center;">Custo invisível</div>
           <h2 style="margin-top:14px;">
-            Enquanto isso não corrige, você continua sendo lido abaixo do que vale.
+            Quando a leitura está errada, você paga por isso em silêncio.
           </h2>
 
           <p>
-            Isso reduz reconhecimento, enfraquece autoridade e empurra seu valor para uma faixa inferior à que sua competência realmente sustenta.
+            Você explica mais do que deveria. Seu preço gera atrito antes da análise. Sua presença não sustenta a sua entrega. E outras pessoas, com menos competência, parecem valer mais.
+          </p>
+
+          <p>
+            O problema não começa no preço. Começa na forma como você está sendo interpretado.
           </p>
         </div>
       </div>
@@ -650,13 +683,54 @@
 
     <section class="section center">
       <div class="container fade-up">
-        <div class="eyebrow" style="justify-content:center;">Arquitetura</div>
+        <div class="eyebrow" style="justify-content:center;">Sintomas</div>
         <h2 style="margin-top:14px;">
-          Um ecossistema para abrir consciência e corrigir leitura.
+          Você provavelmente está vivendo pelo menos um destes sinais.
+        </h2>
+
+        <div class="symptom-grid">
+          <div class="symptom">
+            <small>Sinal 01</small>
+            <p>Seu trabalho é bom, mas não parece no nível que entrega.</p>
+          </div>
+
+          <div class="symptom">
+            <small>Sinal 02</small>
+            <p>Você sente que precisa explicar demais para ser levado a sério.</p>
+          </div>
+
+          <div class="symptom">
+            <small>Sinal 03</small>
+            <p>Seu preço ainda provoca dúvida, choque ou comparação antes da decisão.</p>
+          </div>
+
+          <div class="symptom">
+            <small>Sinal 04</small>
+            <p>Sua imagem transmite menos força do que a sua competência sustenta.</p>
+          </div>
+
+          <div class="symptom">
+            <small>Sinal 05</small>
+            <p>Outras pessoas parecem valer mais com menos consistência ou profundidade.</p>
+          </div>
+
+          <div class="symptom">
+            <small>Sinal 06</small>
+            <p>Você já percebeu que existe algo errado, mas ainda não conseguiu nomear com precisão.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section center">
+      <div class="container fade-up">
+        <div class="eyebrow" style="justify-content:center;">Ecossistema</div>
+        <h2 style="margin-top:14px;">
+          Duas etapas para sair da confusão e corrigir a leitura.
         </h2>
 
         <p>
-          O Iluminus organiza duas etapas diferentes do processo: primeiro, a clareza do problema. Depois, a correção estrutural da percepção.
+          O Iluminus organiza esse processo em dois níveis: primeiro, a clareza do problema. Depois, a correção estrutural da percepção.
         </p>
 
         <div class="grid">
@@ -664,10 +738,10 @@
             <small>Entrada</small>
             <h3>Código da Percepção</h3>
             <p>
-              Uma leitura que revela por que seu valor ainda não está sendo reconhecido na velocidade que deveria.
+              A leitura inicial para quem ainda está tentando entender por que continua sendo percebido abaixo do que vale.
             </p>
             <p class="card-pressure">
-              Para quem sente que existe algo errado, mas ainda não consegue nomear com precisão.
+              Aqui você nomeia o erro, identifica os sinais e entende por que sua presença ainda não sustenta sua competência com clareza.
             </p>
 
             <div class="card-actions">
@@ -680,10 +754,10 @@
             <small>Estrutura</small>
             <h3>Obsidian Method</h3>
             <p>
-              O sistema para corrigir a forma como o mercado lê você antes de qualquer explicação.
+              O sistema para corrigir, com estrutura, a forma como o mercado lê você antes de qualquer explicação.
             </p>
             <p class="card-pressure">
-              Para quem já entendeu o problema e agora precisa parar de sustentar uma leitura errada.
+              Para quem já entendeu o problema e agora precisa parar de sustentar uma leitura errada em imagem, posicionamento, presença e valor percebido.
             </p>
 
             <div class="card-actions">
@@ -699,27 +773,61 @@
       <div class="container fade-up">
         <div class="eyebrow" style="justify-content:center;">Princípio</div>
         <h2 style="margin-top:14px;">
-          A leitura vem antes da argumentação.
+          Quem explica demais já entrou em desvantagem.
         </h2>
 
         <p>
-          Quando a percepção está errada, você tenta compensar com mais explicação, mais esforço e mais insistência. Quando a leitura corrige, valor começa a ser assumido mais rápido.
+          Quando a percepção está errada, você tenta compensar com mais explicação, mais esforço e mais insistência.
+          Quando a leitura corrige, valor começa a ser assumido com menos defesa, menos atrito e menos desgaste.
         </p>
 
         <div class="statement-grid">
           <div class="statement">
             <small>Sem estrutura</small>
-            <p>Você explica demais para convencer o mercado do que deveria ser evidente.</p>
+            <p>Você tenta convencer o mercado do que deveria estar evidente na sua presença.</p>
           </div>
 
           <div class="statement">
             <small>Com estrutura</small>
-            <p>Sua presença sustenta mais clareza antes da defesa, da justificativa e do desgaste.</p>
+            <p>Sua imagem, linguagem e posicionamento começam a sustentar valor antes da sua defesa.</p>
           </div>
 
           <div class="statement">
             <small>Resultado</small>
-            <p>Valor deixa de depender apenas de competência e passa a depender também de leitura.</p>
+            <p>Você deixa de depender só da competência e passa a sustentar também a leitura correta dessa competência.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section center">
+      <div class="container fade-up">
+        <div class="eyebrow" style="justify-content:center;">Escolha seu ponto de entrada</div>
+        <h2 style="margin-top:14px;">
+          Nem todo mundo precisa começar no mesmo lugar.
+        </h2>
+
+        <div class="who-grid">
+          <div class="who-card">
+            <small>Comece pelo Código</small>
+            <p>Entre por aqui se você ainda está tentando entender com clareza o que está sabotando a sua leitura de valor.</p>
+            <ul>
+              <li>Você sente desalinhamento, mas ainda não consegue nomear o erro.</li>
+              <li>Quer clareza antes de corrigir.</li>
+              <li>Percebe que sua imagem ainda não sustenta sua entrega.</li>
+              <li>Precisa entender o problema antes de agir em profundidade.</li>
+            </ul>
+          </div>
+
+          <div class="who-card">
+            <small>Entre no Obsidian</small>
+            <p>Vá direto para o método se você já entendeu que está sendo mal percebido e quer corrigir isso com estrutura.</p>
+            <ul>
+              <li>Você já sabe que está sendo lido abaixo do que vale.</li>
+              <li>Já cansou de compensar com mais explicação.</li>
+              <li>Quer corrigir percepção, posição e valor.</li>
+              <li>Precisa de estrutura, não só consciência.</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -729,11 +837,15 @@
       <div class="container fade-up">
         <div class="closing-panel">
           <h2>
-            Existe uma diferença entre ter valor e ser lido como alguém de valor.
+            Enquanto a leitura estiver errada, o mercado continuará concluindo abaixo do que você vale.
           </h2>
 
           <p>
-            O Iluminus existe para corrigir essa diferença e transformar percepção difusa em leitura mais precisa, densa e estratégica.
+            Existe uma diferença entre ter valor e ser lido como alguém de valor. O Iluminus existe para corrigir essa diferença.
+          </p>
+
+          <p>
+            Você pode começar entendendo o erro. Ou entrar direto na correção.
           </p>
 
           <div class="closing-actions">
