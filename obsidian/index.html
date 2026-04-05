@@ -207,9 +207,9 @@
 
     .hero-copy h1 {
       font-size: clamp(2.9rem, 6vw, 6.1rem);
-      line-height: 0.98;
-      letter-spacing: -0.035em;
-      max-width: 11ch;
+      line-height: 0.94;
+      letter-spacing: -0.04em;
+      max-width: 10ch;
       text-transform: uppercase;
       text-shadow:
         0 0 12px rgba(255,255,255,0.06),
@@ -219,7 +219,11 @@
     .hero-copy h1 .muted {
       display: block;
       color: rgba(244,239,231,0.72);
-      margin-top: 10px;
+      margin-top: 8px;
+    }
+
+    .hero-copy h1 .strong-line {
+      color: var(--text);
     }
 
     .hero-kicker {
@@ -241,6 +245,21 @@
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
+    }
+
+    .hero-info-line {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      color: rgba(244,239,231,0.74);
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    .hero-info-line .sep {
+      color: rgba(244,239,231,0.32);
     }
 
     .hero-note {
@@ -716,9 +735,9 @@
       }
 
       .hero-copy h1 {
-        max-width: 10ch;
+        max-width: 9ch;
         font-size: clamp(2.5rem, 10vw, 4rem);
-        line-height: 1;
+        line-height: 0.96;
         letter-spacing: -0.03em;
       }
 
@@ -726,6 +745,12 @@
       .hero-body,
       .hero-note {
         max-width: 100%;
+      }
+
+      .hero-info-line {
+        gap: 6px;
+        font-size: 0.8rem;
+        line-height: 1.5;
       }
 
       .ghost-band {
@@ -785,8 +810,10 @@
           <div class="eyebrow">Obsidian Method</div>
 
           <h1>
-            VOCÊ NÃO ESTÁ SENDO MAL PAGO.
-            <span class="muted">ESTÁ SENDO MAL INTERPRETADO.</span>
+            VOCÊ NÃO ESTÁ
+            <span class="muted strong-line">SENDO MAL PAGO.</span>
+            <span class="muted">ESTÁ SENDO</span>
+            <span class="strong-line">MAL INTERPRETADO.</span>
           </h1>
 
           <p class="hero-kicker">
@@ -797,13 +824,23 @@
             O Obsidian Method foi criado para identificar e corrigir os sinais que fazem você ser percebido abaixo do que realmente entrega, alinhando sua presença ao valor, à autoridade e ao posicionamento que seu trabalho exige.
           </p>
 
+          <div class="hero-info-line">
+            <span>Método digital</span>
+            <span class="sep">|</span>
+            <span>Acesso imediato</span>
+            <span class="sep">|</span>
+            <span>Garantia de 7 dias</span>
+            <span class="sep">|</span>
+            <span>R$ 697 à vista ou 12x</span>
+          </div>
+
           <div class="hero-actions">
             <a href="https://pay.kiwify.com.br/gc4afe1" class="cta" target="_blank" rel="noopener noreferrer">ENTRAR NO OBSIDIAN</a>
             <a href="#recebe" class="cta soft">VER O QUE VOCÊ RECEBE</a>
           </div>
 
           <p class="hero-note">
-            Método digital com acesso imediato. Garantia de 7 dias. R$ 697 à vista ou parcelado em 12x. Este não é um método para parecer mais sofisticado. É um método para entender como sua presença está sendo lida, corrigir incoerências e parar de sustentar no argumento o que já deveria ser concluído antes da conversa existir.
+            Este não é um método para parecer mais sofisticado. É um método para entender como sua presença está sendo lida, corrigir incoerências e parar de sustentar no argumento o que já deveria ser concluído antes da conversa existir.
           </p>
         </div>
       </div>
