@@ -232,7 +232,7 @@
 
     .hero-body {
       margin-top: 16px;
-      max-width: 42rem;
+      max-width: 43rem;
       font-size: 1rem;
     }
 
@@ -287,6 +287,7 @@
       background: rgba(255,255,255,0.03);
       white-space: nowrap;
       cursor: pointer;
+      color: var(--text);
     }
 
     .cta:hover {
@@ -343,7 +344,8 @@
 
     .panel,
     .closing-panel,
-    .checklist-shell {
+    .checklist-shell,
+    .faq-shell {
       border: 1px solid rgba(255,255,255,0.08);
       background:
         linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015));
@@ -370,21 +372,102 @@
       max-width: 46rem;
     }
 
+    .grid {
+      display: grid;
+      gap: 18px;
+      margin-top: 40px;
+    }
+
+    .card {
+      padding: 30px 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.012));
+      box-shadow: var(--shadow);
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+      text-align: left;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255,255,255,0.15);
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.016));
+    }
+
+    .card small {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .card h3 {
+      font-size: 2rem;
+      line-height: 1;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.01em;
+    }
+
+    .card p {
+      max-width: 34rem;
+    }
+
+    .statement-grid {
+      display: grid;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .statement {
+      padding: 18px 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.02);
+      text-align: left;
+    }
+
+    .statement small {
+      display: block;
+      color: var(--text-faint);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .statement p {
+      color: var(--text-soft);
+      line-height: 1.65;
+    }
+
     .checklist-shell {
       margin-top: 32px;
-      padding: 22px 18px;
+      padding: 28px 22px;
       text-align: left;
+    }
+
+    .checklist-intro {
+      display: block !important;
+      text-align: center;
+      max-width: 820px;
+      margin: 0 auto 24px;
     }
 
     .checklist-intro h3 {
       font-size: clamp(1.9rem, 4vw, 2.8rem);
       line-height: 1.02;
       max-width: 12ch;
+      margin: 0 auto;
     }
 
     .checklist-intro p {
-      margin-top: 10px;
-      max-width: 42rem;
+      margin: 12px auto 0;
+      max-width: 46rem;
     }
 
     .checklist-list {
@@ -467,8 +550,20 @@
     .check-actions {
       margin-top: 18px;
       display: flex;
+      justify-content: center;
       gap: 12px;
       flex-wrap: wrap;
+    }
+
+    .check-actions .cta {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(255,255,255,0.18);
+      color: var(--text);
+    }
+
+    .check-actions .cta:hover {
+      background: rgba(255,255,255,0.09);
+      border-color: rgba(255,255,255,0.24);
     }
 
     .check-result {
@@ -496,83 +591,70 @@
       margin-top: 18px;
       flex-wrap: wrap;
       gap: 12px;
+      justify-content: center;
     }
 
     .check-cta.show {
       display: flex;
     }
 
-    .grid {
-      display: grid;
-      gap: 18px;
-      margin-top: 40px;
-    }
-
-    .card {
-      padding: 30px 28px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background:
-        linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.012));
-      box-shadow: var(--shadow);
-      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
-      text-align: left;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(255,255,255,0.15);
-      background:
-        linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.016));
-    }
-
-    .card small {
-      display: block;
-      margin-bottom: 10px;
-      font-size: 12px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.4);
-    }
-
-    .card h3 {
-      font-size: 2rem;
-      line-height: 1;
-      margin-bottom: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.01em;
-    }
-
-    .card p {
-      max-width: 34rem;
-    }
-
-    .statement-grid {
-      display: grid;
-      gap: 14px;
+    .faq-shell {
       margin-top: 32px;
-    }
-
-    .statement {
-      padding: 18px 18px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.02);
+      padding: 18px;
       text-align: left;
     }
 
-    .statement small {
-      display: block;
-      color: var(--text-faint);
-      font-size: 0.68rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      margin-bottom: 8px;
+    .faq-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 10px;
     }
 
-    .statement p {
+    .faq-item {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.018);
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      background: transparent;
+      color: var(--text);
+      border: none;
+      text-align: left;
+      padding: 18px 18px;
+      font: inherit;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .faq-question span:last-child {
+      color: var(--text-faint);
+      font-size: 1.1rem;
+      transition: transform 220ms ease;
+      flex-shrink: 0;
+    }
+
+    .faq-item.active .faq-question span:last-child {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 260ms ease;
+    }
+
+    .faq-answer-inner {
+      padding: 0 18px 18px;
       color: var(--text-soft);
-      line-height: 1.65;
+      line-height: 1.72;
     }
 
     .closing-panel {
@@ -635,7 +717,8 @@
 
       .panel,
       .closing-panel,
-      .checklist-shell {
+      .checklist-shell,
+      .faq-shell {
         padding: 48px 36px;
       }
     }
@@ -693,6 +776,10 @@
       .meta-pill {
         width: 100%;
       }
+
+      .faq-question {
+        align-items: flex-start;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -721,8 +808,8 @@
           <div class="eyebrow">Obsidian Method</div>
 
           <h1>
-            VOCÊ NÃO ESTÁ SENDO MAL PAGO.
-            <span class="muted">ESTÁ SENDO MAL INTERPRETADO.</span>
+            VOCÊ NÃO PRECISA DE MAIS CONTEÚDO.
+            <span class="muted">PRECISA CORRIGIR A LEITURA.</span>
           </h1>
 
           <p class="hero-kicker">
@@ -746,7 +833,7 @@
           </div>
 
           <p class="hero-micro">
-            Este não é um curso para parecer mais sofisticado. É um método para entender como sua presença está sendo lida, corrigir incoerências e parar de sustentar no discurso o que já deveria ser concluído antes da conversa existir.
+            Este não é um método para parecer mais sofisticado. É um método para entender como sua presença está sendo lida, corrigir incoerências e parar de sustentar no argumento o que já deveria ser concluído antes da conversa existir.
           </p>
         </div>
       </div>
@@ -1073,8 +1160,105 @@
           </h2>
 
           <p>
-            Se dentro desse período você entender que o Obsidian Method não faz sentido para o seu momento, poderá solicitar o reembolso dentro do prazo. Isso reduz risco de compra sem inflar promessa.
+            Se dentro desse período você entender que o Obsidian Method não faz sentido para o seu momento, poderá solicitar o reembolso dentro do prazo.
           </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section center" id="faq">
+      <div class="container fade-up">
+        <div class="eyebrow" style="justify-content:center;">Perguntas frequentes</div>
+        <h2 style="margin-top:14px;">
+          O que costuma travar a decisão antes da compra.
+        </h2>
+
+        <div class="faq-shell">
+          <div class="faq-list">
+            <div class="faq-item active">
+              <button class="faq-question" type="button">
+                <span>O que é o Obsidian Method?</span>
+                <span>+</span>
+              </button>
+              <div class="faq-answer" style="max-height: 220px;">
+                <div class="faq-answer-inner">
+                  O Obsidian Method é um método de percepção, posicionamento e correção de sinais. Ele foi criado para ajudar profissionais a entender como estão sendo lidos pelo mercado, identificar o que reduz seu valor percebido e corrigir essa leitura com mais coerência, clareza e autoridade.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" type="button">
+                <span>O que eu recebo ao entrar?</span>
+                <span>+</span>
+              </button>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">
+                  Você recebe acesso ao método em formato digital, com estrutura voltada para diagnóstico, leitura de sinais, correção de incoerências e alinhamento entre presença, comunicação e posicionamento.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" type="button">
+                <span>Isso é para quem está começando?</span>
+                <span>+</span>
+              </button>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">
+                  Não necessariamente. O Obsidian foi pensado principalmente para quem já tem competência, entrega ou repertório, mas percebe que ainda não sustenta isso na forma como é lido pelo mercado.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" type="button">
+                <span>Isso é sobre imagem ou sobre posicionamento?</span>
+                <span>+</span>
+              </button>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">
+                  Os dois, mas não de forma superficial. O foco do Obsidian não é parecer mais sofisticado. É entender como sua presença comunica valor, autoridade e coerência — e corrigir o que hoje enfraquece essa leitura.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" type="button">
+                <span>Preciso trabalhar com redes sociais para isso fazer sentido?</span>
+                <span>+</span>
+              </button>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">
+                  Não. O método não depende de Instagram ou produção de conteúdo. Ele faz sentido para qualquer profissional ou empreendedor cuja percepção de valor influencie preço, autoridade, confiança e posicionamento.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" type="button">
+                <span>O acesso é imediato?</span>
+                <span>+</span>
+              </button>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">
+                  Sim. Após a confirmação da compra, o acesso é liberado no ambiente do produto.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" type="button">
+                <span>Existe garantia?</span>
+                <span>+</span>
+              </button>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">
+                  Sim. Você terá 7 dias de garantia para avaliar se o Obsidian Method faz sentido para o seu momento. Dentro desse prazo, poderá solicitar reembolso.
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1134,11 +1318,7 @@
     function syncChecklistVisual() {
       checklistItems.forEach((item) => {
         const input = item.querySelector('input');
-        if (input.checked) {
-          item.classList.add('checked');
-        } else {
-          item.classList.remove('checked');
-        }
+        item.classList.toggle('checked', input.checked);
       });
     }
 
@@ -1167,6 +1347,27 @@
       resultBox.classList.add('show');
       checkCta.classList.add('show');
       resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach((item) => {
+      const button = item.querySelector('.faq-question');
+      const answer = item.querySelector('.faq-answer');
+
+      button.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+
+        faqItems.forEach((otherItem) => {
+          otherItem.classList.remove('active');
+          otherItem.querySelector('.faq-answer').style.maxHeight = null;
+        });
+
+        if (!isActive) {
+          item.classList.add('active');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+      });
     });
   </script>
 </body>
