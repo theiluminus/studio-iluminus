@@ -6,7 +6,7 @@
   <title>Obsidian Method</title>
   <meta
     name="description"
-    content="Obsidian Method é um método para identificar e corrigir os sinais que fazem o mercado perceber você abaixo do que realmente entrega."
+    content="Obsidian Method é um protocolo digital de reposicionamento perceptivo para profissionais que entregam muito, mas ainda são lidos abaixo do valor que realmente sustentam."
   />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -62,7 +62,7 @@
       inset: 0;
       pointer-events: none;
       z-index: 50;
-      opacity: 0.03;
+      opacity: 0.025;
       background-image:
         url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
     }
@@ -142,7 +142,7 @@
       background-image: url('./obsidiana-hero.jpg');
       background-size: cover;
       background-position: 72% center;
-      filter: brightness(0.58) contrast(1.08) saturate(0.95);
+      filter: brightness(0.68) contrast(1.05) saturate(0.96);
       transform: scale(1.04);
       z-index: 0;
     }
@@ -152,9 +152,9 @@
       inset: 0;
       z-index: 1;
       background:
-        radial-gradient(circle at 70% 28%, rgba(255,255,255,0.09), transparent 16%),
-        linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.54) 40%, rgba(0,0,0,0.20) 100%),
-        linear-gradient(180deg, rgba(0,0,0,0.16) 0%, rgba(0,0,0,0.82) 100%);
+        radial-gradient(circle at 70% 28%, rgba(255,255,255,0.07), transparent 16%),
+        linear-gradient(90deg, rgba(0,0,0,0.76) 0%, rgba(0,0,0,0.38) 40%, rgba(0,0,0,0.14) 100%),
+        linear-gradient(180deg, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.58) 100%);
     }
 
     .hero-depth {
@@ -163,19 +163,7 @@
       z-index: 1;
       pointer-events: none;
       background:
-        linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.10) 44%, rgba(0,0,0,0.38) 100%);
-    }
-
-    .hero-glow {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      pointer-events: none;
-      background:
-        radial-gradient(circle at 63% 29%, rgba(255,255,255,0.06), transparent 10%),
-        radial-gradient(circle at 69% 46%, rgba(120,140,255,0.04), transparent 18%);
-      filter: blur(18px);
-      opacity: 0.6;
+        linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.08) 44%, rgba(0,0,0,0.34) 100%);
     }
 
     .hero-fade {
@@ -207,57 +195,72 @@
       flex-direction: column;
       align-items: flex-start;
       gap: 0;
-      font-family: var(--serif);
       font-size: clamp(2.9rem, 6vw, 6.1rem);
-      line-height: 0.9;
+      line-height: 0.92;
       letter-spacing: -0.04em;
       text-transform: uppercase;
       text-shadow:
         0 0 12px rgba(255,255,255,0.06),
         0 10px 40px rgba(0,0,0,0.55);
+      max-width: 12ch;
     }
 
     .hero-title span {
       display: block;
-      white-space: nowrap;
     }
 
-    .hero-title span:nth-child(1),
-    .hero-title span:nth-child(2),
-    .hero-title span:nth-child(4) {
-      color: var(--text);
-    }
-
-    .hero-title span:nth-child(3) {
+    .hero-title .muted {
       color: rgba(244,239,231,0.72);
+      margin-top: 8px;
     }
 
     .hero-kicker {
       margin-top: 18px;
-      max-width: 39rem;
+      max-width: 42rem;
       color: var(--text);
-      font-size: 1.04rem;
+      font-size: 1.02rem;
       line-height: 1.62;
     }
 
     .hero-body {
       margin-top: 16px;
-      max-width: 43rem;
+      max-width: 44rem;
       font-size: 1rem;
     }
 
-    .hero-info-line {
+    .hero-points {
       margin-top: 18px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
+      display: grid;
       gap: 10px;
+      max-width: 42rem;
+    }
+
+    .hero-point {
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+      color: var(--text-soft);
+      line-height: 1.55;
+    }
+
+    .hero-point strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .hero-meta-line {
+      margin-top: 18px;
       color: rgba(244,239,231,0.74);
       font-size: 0.88rem;
       line-height: 1.6;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
     }
 
-    .hero-info-line .sep {
+    .hero-meta-line .sep {
       color: rgba(244,239,231,0.32);
     }
 
@@ -348,8 +351,8 @@
 
     .panel,
     .closing-panel,
-    .checklist-shell,
-    .faq-shell {
+    .faq-shell,
+    .risk-shell {
       border: 1px solid rgba(255,255,255,0.08);
       background:
         linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015));
@@ -376,31 +379,32 @@
       max-width: 46rem;
     }
 
-    .grid {
+    .grid,
+    .proof-grid,
+    .transform-grid,
+    .risk-grid {
       display: grid;
       gap: 18px;
       margin-top: 40px;
     }
 
-    .card {
-      padding: 30px 28px;
+    .card,
+    .proof-card,
+    .transform-card,
+    .risk-card {
+      padding: 28px 24px;
       border: 1px solid var(--line);
       border-radius: var(--radius);
       background:
         linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.012));
       box-shadow: var(--shadow);
-      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
       text-align: left;
     }
 
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(255,255,255,0.15);
-      background:
-        linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.016));
-    }
-
-    .card small {
+    .card small,
+    .proof-card small,
+    .transform-card small,
+    .risk-card small {
       display: block;
       margin-bottom: 10px;
       font-size: 12px;
@@ -409,25 +413,56 @@
       color: rgba(255,255,255,0.4);
     }
 
-    .card h3 {
-      font-size: 2rem;
+    .card h3,
+    .transform-card h3 {
+      font-size: 1.95rem;
       line-height: 1;
       margin-bottom: 12px;
       text-transform: uppercase;
       letter-spacing: 0.01em;
     }
 
-    .card p {
-      max-width: 34rem;
+    .card .card-pressure,
+    .transform-card .card-pressure {
+      margin-top: 14px;
+      color: var(--text);
+      font-size: 0.93rem;
+      line-height: 1.62;
     }
 
-    .statement-grid {
+    .micro-list {
+      margin-top: 14px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .micro-list span {
+      color: var(--text-soft);
+      line-height: 1.6;
+      position: relative;
+      padding-left: 18px;
+    }
+
+    .micro-list span::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.48);
+      position: absolute;
+      left: 0;
+      top: 10px;
+    }
+
+    .statement-grid,
+    .who-grid {
       display: grid;
       gap: 14px;
       margin-top: 32px;
     }
 
-    .statement {
+    .statement,
+    .who-card {
       padding: 18px 18px;
       border-radius: 18px;
       border: 1px solid rgba(255,255,255,0.08);
@@ -435,7 +470,8 @@
       text-align: left;
     }
 
-    .statement small {
+    .statement small,
+    .who-card small {
       display: block;
       color: var(--text-faint);
       font-size: 0.68rem;
@@ -444,162 +480,33 @@
       margin-bottom: 8px;
     }
 
-    .statement p {
+    .statement p,
+    .who-card p {
       color: var(--text-soft);
       line-height: 1.65;
     }
 
-    .checklist-shell {
-      margin-top: 32px;
-      padding: 28px 22px;
-      text-align: left;
-    }
-
-    .checklist-intro {
-      display: block !important;
-      text-align: center;
-      max-width: 820px;
-      margin: 0 auto 24px;
-    }
-
-    .checklist-intro h3 {
-      font-size: clamp(1.9rem, 4vw, 2.8rem);
-      line-height: 1.02;
-      max-width: 12ch;
-      margin: 0 auto;
-    }
-
-    .checklist-intro p {
-      margin: 12px auto 0;
-      max-width: 46rem;
-    }
-
-    .checklist-list {
-      display: grid;
-      gap: 12px;
-      margin-top: 20px;
-    }
-
-    .check-item {
-      display: grid;
-      grid-template-columns: 22px 1fr;
-      gap: 14px;
-      align-items: start;
-      padding: 14px 14px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.015);
-      cursor: pointer;
-      transition: background 220ms ease, border-color 220ms ease, transform 220ms ease;
-      user-select: none;
-    }
-
-    .check-item:hover {
-      background: rgba(255,255,255,0.025);
-      border-color: rgba(255,255,255,0.12);
-      transform: translateY(-1px);
-    }
-
-    .check-item input {
-      position: absolute;
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .check-mark {
-      width: 22px;
-      height: 22px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.02);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 1px;
-      transition: all 220ms ease;
-      flex-shrink: 0;
-    }
-
-    .check-mark::after {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: transparent;
-      transition: background 220ms ease, transform 220ms ease;
-      transform: scale(0.7);
-    }
-
-    .check-text {
+    .who-card ul {
+      margin-top: 12px;
+      padding-left: 18px;
       color: var(--text-soft);
-      line-height: 1.65;
-      font-size: 0.96rem;
+      line-height: 1.75;
     }
 
-    .check-item.checked {
-      background: rgba(255,255,255,0.035);
-      border-color: rgba(255,255,255,0.16);
+    .who-card li + li {
+      margin-top: 8px;
     }
 
-    .check-item.checked .check-mark {
-      border-color: rgba(255,255,255,0.4);
-      background: rgba(255,255,255,0.06);
-    }
-
-    .check-item.checked .check-mark::after {
-      background: rgba(255,255,255,0.92);
-      transform: scale(1);
-    }
-
-    .check-actions {
-      margin-top: 18px;
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .check-actions .cta {
-      background: rgba(255,255,255,0.05);
-      border-color: rgba(255,255,255,0.18);
+    .proof-card p {
       color: var(--text);
+      line-height: 1.72;
     }
 
-    .check-actions .cta:hover {
-      background: rgba(255,255,255,0.09);
-      border-color: rgba(255,255,255,0.24);
-    }
-
-    .check-result {
-      display: none;
-      margin-top: 18px;
-      padding: 16px 16px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.02);
-      color: var(--text-soft);
-      line-height: 1.7;
-    }
-
-    .check-result.show {
-      display: block;
-    }
-
-    .check-result strong {
-      color: var(--text);
-      font-weight: 600;
-    }
-
-    .check-cta {
-      display: none;
-      margin-top: 18px;
-      flex-wrap: wrap;
-      gap: 12px;
-      justify-content: center;
-    }
-
-    .check-cta.show {
-      display: flex;
+    .proof-card .source {
+      margin-top: 12px;
+      color: var(--text-dim);
+      font-size: 0.84rem;
+      line-height: 1.5;
     }
 
     .faq-shell {
@@ -661,6 +568,15 @@
       line-height: 1.72;
     }
 
+    .risk-shell {
+      margin-top: 32px;
+      padding: 22px 18px;
+    }
+
+    .risk-grid {
+      margin-top: 0;
+    }
+
     .closing-panel {
       padding: 40px 24px;
       text-align: center;
@@ -699,12 +615,16 @@
     }
 
     @media (min-width: 768px) {
-      .grid {
+      .grid,
+      .proof-grid,
+      .transform-grid,
+      .risk-grid {
         grid-template-columns: 1fr 1fr;
       }
 
-      .statement-grid {
-        grid-template-columns: 1fr 1fr 1fr;
+      .statement-grid,
+      .who-grid {
+        grid-template-columns: 1fr 1fr;
       }
 
       .container {
@@ -721,8 +641,8 @@
 
       .panel,
       .closing-panel,
-      .checklist-shell,
-      .faq-shell {
+      .faq-shell,
+      .risk-shell {
         padding: 48px 36px;
       }
     }
@@ -735,9 +655,9 @@
 
       .hero-overlay {
         background:
-          radial-gradient(circle at 62% 20%, rgba(255,255,255,0.08), transparent 16%),
-          linear-gradient(180deg, rgba(0,0,0,0.44) 0%, rgba(0,0,0,0.74) 34%, rgba(0,0,0,0.88) 100%),
-          linear-gradient(90deg, rgba(0,0,0,0.84) 0%, rgba(0,0,0,0.54) 46%, rgba(0,0,0,0.34) 100%);
+          radial-gradient(circle at 62% 20%, rgba(255,255,255,0.06), transparent 16%),
+          linear-gradient(180deg, rgba(0,0,0,0.40) 0%, rgba(0,0,0,0.70) 34%, rgba(0,0,0,0.88) 100%),
+          linear-gradient(90deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.50) 46%, rgba(0,0,0,0.28) 100%);
       }
 
       .hero-title {
@@ -746,17 +666,14 @@
         letter-spacing: -0.03em;
       }
 
-      .hero-title span {
-        white-space: normal;
-      }
-
       .hero-kicker,
       .hero-body,
-      .hero-note {
+      .hero-note,
+      .hero-points {
         max-width: 100%;
       }
 
-      .hero-info-line {
+      .hero-meta-line {
         gap: 6px;
         font-size: 0.8rem;
         line-height: 1.5;
@@ -778,8 +695,6 @@
       }
 
       .hero-actions,
-      .check-actions,
-      .check-cta,
       .closing-actions {
         flex-direction: column;
       }
@@ -811,7 +726,6 @@
       <div class="hero-bg"></div>
       <div class="hero-overlay"></div>
       <div class="hero-depth"></div>
-      <div class="hero-glow"></div>
       <div class="hero-fade"></div>
 
       <div class="container hero-grid">
@@ -819,37 +733,39 @@
           <div class="eyebrow">Obsidian Method</div>
 
           <h1 class="hero-title">
-            <span>VOCÊ NÃO ESTÁ</span>
-            <span>SENDO MAL PAGO.</span>
-            <span>ESTÁ SENDO</span>
-            <span>MAL INTERPRETADO.</span>
+            <span>VOCÊ NÃO ESTÁ SENDO MAL PAGO.</span>
+            <span class="muted">ESTÁ SENDO MAL INTERPRETADO.</span>
           </h1>
 
           <p class="hero-kicker">
-            O mercado te lê antes de te ouvir — e essa leitura define o valor que atribuem a você antes mesmo da sua entrega ser avaliada.
+            O Obsidian Method é um protocolo digital de reposicionamento perceptivo para profissionais que entregam muito, mas ainda são lidos abaixo do valor que realmente sustentam.
           </p>
 
           <p class="hero-body">
-            O Obsidian Method foi criado para identificar e corrigir os sinais que fazem você ser percebido abaixo do que realmente entrega, alinhando sua presença ao valor, à autoridade e ao posicionamento que seu trabalho exige.
+            Ele foi criado para ajudar você a identificar o erro com precisão, entender o que enfraquece sua leitura de valor e corrigir, com estrutura, os sinais que hoje sabotam autoridade, coerência e posicionamento.
           </p>
 
-          <div class="hero-info-line">
-            <span>Método digital</span>
-            <span class="sep">|</span>
-            <span>Acesso imediato</span>
-            <span class="sep">|</span>
-            <span>Garantia de 7 dias</span>
-            <span class="sep">|</span>
-            <span>R$ 697 à vista ou 12x</span>
+          <div class="hero-points">
+            <div class="hero-point"><strong>Método digital com acesso imediato</strong></div>
+            <div class="hero-point"><strong>Estrutura prática de diagnóstico e correção perceptiva</strong></div>
+            <div class="hero-point"><strong>Para profissionais, consultores, executivos, especialistas e empreendedores</strong></div>
           </div>
 
           <div class="hero-actions">
-            <a href="https://pay.kiwify.com.br/gc4afe1" class="cta" target="_blank" rel="noopener noreferrer">ENTRAR NO OBSIDIAN</a>
-            <a href="#recebe" class="cta soft">VER O QUE VOCÊ RECEBE</a>
+            <a href="https://pay.kiwify.com.br/gc4afe1" class="cta" target="_blank" rel="noopener noreferrer">QUERO CORRIGIR A LEITURA QUE O MERCADO FAZ DE MIM</a>
+            <a href="#recebe" class="cta soft">VER O QUE EU RECEBO</a>
+          </div>
+
+          <div class="hero-meta-line">
+            <span>Acesso imediato</span>
+            <span class="sep">•</span>
+            <span>Garantia de 7 dias</span>
+            <span class="sep">•</span>
+            <span>R$ 697</span>
           </div>
 
           <p class="hero-note">
-            Este não é um método para parecer mais sofisticado. É um método para entender como sua presença está sendo lida, corrigir incoerências e parar de sustentar no argumento o que já deveria ser concluído antes da conversa existir.
+            Este não é um método para parecer mais sofisticado. É um método para corrigir a forma como sua presença, imagem, coerência e valor estão sendo lidos.
           </p>
         </div>
       </div>
@@ -875,89 +791,17 @@
     <section class="section center">
       <div class="container fade-up">
         <div class="panel">
-          <h2>
-            O seu problema não é falta de competência.
-          </h2>
-
-          <p>
-            É a distância entre o que você realmente entrega e o que a sua presença faz o mercado concluir sobre você.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section center" id="checklist">
-      <div class="container fade-up">
-        <div class="eyebrow" style="justify-content:center;">Diagnóstico</div>
-        <h2 style="margin-top:14px;">
-          Faça uma leitura rápida da sua percepção atual.
-        </h2>
-
-        <p>
-          Isso leva menos de 30 segundos. Mas pode revelar por que sua autoridade ainda não está sendo assumida com a força que deveria.
-        </p>
-
-        <div class="checklist-shell">
-          <div class="checklist-intro">
-            <h3>Marque apenas o que já é verdade sem esforço.</h3>
-            <p>Não marque o que você gostaria que fosse verdade. Marque apenas o que já acontece sem explicação excessiva, insistência ou tentativa de provar valor.</p>
-          </div>
-
-          <div class="checklist-list">
-            <label class="check-item">
-              <input type="checkbox" />
-              <span class="check-mark"></span>
-              <span class="check-text">As pessoas entendem seu nível rapidamente, sem você precisar justificar muito.</span>
-            </label>
-
-            <label class="check-item">
-              <input type="checkbox" />
-              <span class="check-mark"></span>
-              <span class="check-text">Seu preço raramente vira discussão, comparação ou pedido de desconto.</span>
-            </label>
-
-            <label class="check-item">
-              <input type="checkbox" />
-              <span class="check-mark"></span>
-              <span class="check-text">Sua presença transmite clareza, critério e segurança no primeiro contato.</span>
-            </label>
-
-            <label class="check-item">
-              <input type="checkbox" />
-              <span class="check-mark"></span>
-              <span class="check-text">Você não sente necessidade de convencer demais para ser levado a sério.</span>
-            </label>
-
-            <label class="check-item">
-              <input type="checkbox" />
-              <span class="check-mark"></span>
-              <span class="check-text">Sua comunicação sustenta autoridade em vez de pedir validação.</span>
-            </label>
-          </div>
-
-          <div class="check-actions">
-            <button class="cta" id="diagnosisButton" type="button">VER MEU DIAGNÓSTICO</button>
-          </div>
-
-          <div class="check-result" id="checkResult"></div>
-
-          <div class="check-cta" id="checkCta">
-            <a href="https://pay.kiwify.com.br/gc4afe1" class="cta" target="_blank" rel="noopener noreferrer">CORRIGIR MINHA LEITURA</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section center">
-      <div class="container fade-up">
-        <div class="panel">
-          <div class="eyebrow" style="justify-content:center;">O custo</div>
+          <div class="eyebrow" style="justify-content:center;">O problema</div>
           <h2 style="margin-top:14px;">
-            Quando a leitura está errada, o esforço precisa compensar o que a presença não sustenta.
+            O mercado não espera a sua explicação para concluir o seu nível.
           </h2>
 
           <p>
-            Você trabalha mais para justificar. Explica mais para convencer. Entrega mais para tentar sustentar um valor que deveria ser percebido antes do discurso.
+            Antes de confiar em você, o mercado interpreta sinais. Antes de valorizar, compara. Antes de decidir, forma uma leitura.
+          </p>
+
+          <p>
+            Quando essa leitura está errada, seu preço sofre, sua autoridade enfraquece e sua competência perde força antes mesmo da conversa começar.
           </p>
         </div>
       </div>
@@ -965,68 +809,26 @@
 
     <section class="section center">
       <div class="container fade-up">
-        <div class="eyebrow" style="justify-content:center;">Revelação</div>
+        <div class="eyebrow" style="justify-content:center;">O que é</div>
         <h2 style="margin-top:14px;">
-          O cliente não decide depois de entender você.
+          O Obsidian é a correção profunda do problema, não só a consciência dele.
         </h2>
 
         <p>
-          Ele interpreta sinais, forma uma leitura e só depois usa lógica para justificar a decisão. É por isso que tanta gente competente continua sendo tratada como opção — e não como escolha óbvia.
-        </p>
-
-        <div class="statement-grid">
-          <div class="statement">
-            <small>Primeiro</small>
-            <p>O mercado capta sinais silenciosos de presença, clareza, ritmo, critério e controle.</p>
-          </div>
-
-          <div class="statement">
-            <small>Depois</small>
-            <p>Forma uma conclusão sobre seu valor antes da sua explicação começar.</p>
-          </div>
-
-          <div class="statement">
-            <small>Resultado</small>
-            <p>Seu preço, sua autoridade e seu nível passam a ser aceitos… ou questionados.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section center">
-      <div class="container fade-up">
-        <div class="eyebrow" style="justify-content:center;">O método</div>
-        <h2 style="margin-top:14px;">
-          O Obsidian não ensina você a vender melhor.
-        </h2>
-
-        <p>
-          Ele corrige a estrutura invisível que define como você é lido antes da venda existir.
+          O Obsidian Method é o método principal do ecossistema. Ele não foi criado para ensinar truques de aparência, mas para diagnosticar com precisão onde sua leitura quebra e corrigir os sinais que hoje reduzem seu valor percebido.
         </p>
 
         <div class="grid">
           <div class="card">
-            <small>Eixo 1</small>
-            <h3>Percepção</h3>
-            <p>Você entende como sua presença está sendo lida hoje e onde essa leitura ainda reduz seu valor percebido.</p>
+            <small>Função</small>
+            <h3>Diagnosticar</h3>
+            <p>Identificar onde sua presença, comunicação, coerência e sinais estão fazendo o mercado concluir menos do que você realmente entrega.</p>
           </div>
 
           <div class="card">
-            <small>Eixo 2</small>
-            <h3>Densidade</h3>
-            <p>Você aprende a substituir ruído, excesso e tentativa por mais critério, presença e consistência.</p>
-          </div>
-
-          <div class="card">
-            <small>Eixo 3</small>
-            <h3>Soberania</h3>
-            <p>Você para de colapsar em objeção, comparação e pressão e passa a sustentar posição com mais clareza.</p>
-          </div>
-
-          <div class="card">
-            <small>Eixo 4</small>
-            <h3>Correção</h3>
-            <p>Você reorganiza sinais de presença, comunicação e posicionamento para que preço e autoridade pareçam coerentes.</p>
+            <small>Função</small>
+            <h3>Corrigir</h3>
+            <p>Reorganizar os pontos que sabotam percepção de valor, autoridade, consistência de leitura e força de posicionamento.</p>
           </div>
         </div>
       </div>
@@ -1036,36 +838,40 @@
       <div class="container fade-up">
         <div class="eyebrow" style="justify-content:center;">O que você recebe</div>
         <h2 style="margin-top:14px;">
-          Um método para diagnosticar, corrigir e sustentar percepção de valor com mais coerência.
+          Um trajeto claro para entender, corrigir e sustentar uma leitura mais forte.
         </h2>
 
         <p>
-          O Obsidian Method não entrega frases prontas nem estética vazia. Ele entrega uma estrutura para revisar os sinais que compõem sua leitura no mercado e corrigir o que hoje enfraquece sua autoridade.
+          Ao entrar no Obsidian, você recebe uma estrutura digital de diagnóstico e correção perceptiva para identificar o erro, reorganizar os sinais e sustentar uma leitura mais coerente com o valor que realmente entrega.
         </p>
 
         <div class="grid">
           <div class="card">
-            <small>Inclui</small>
-            <h3>Diagnóstico</h3>
-            <p>Leitura dos sinais que hoje fazem sua presença ser percebida abaixo do que realmente entrega.</p>
+            <small>Etapa 1</small>
+            <h3>Leitura do erro</h3>
+            <p>Você identifica onde sua presença, comunicação e sinais estão fazendo o mercado concluir menos do que você realmente sustenta.</p>
+            <p class="card-pressure">Aqui o objetivo é parar de operar no escuro.</p>
           </div>
 
           <div class="card">
-            <small>Inclui</small>
-            <h3>Correção</h3>
-            <p>Direção prática para ajustar incoerências entre imagem, comunicação, presença e posicionamento.</p>
+            <small>Etapa 2</small>
+            <h3>Diagnóstico perceptivo</h3>
+            <p>Você entende com precisão o que está desalinhado entre competência real, imagem, coerência e leitura social.</p>
+            <p class="card-pressure">Aqui o erro deixa de ser sensação e vira diagnóstico.</p>
           </div>
 
           <div class="card">
-            <small>Inclui</small>
-            <h3>Estrutura</h3>
-            <p>Uma lógica clara para entender o que sustenta autoridade e o que reduz valor percebido no primeiro contato.</p>
+            <small>Etapa 3</small>
+            <h3>Correção estrutural</h3>
+            <p>Você recebe direção para ajustar os sinais que sabotam autoridade, valor percebido e força de presença.</p>
+            <p class="card-pressure">Aqui a proposta deixa de ser consciência e vira correção.</p>
           </div>
 
           <div class="card">
-            <small>Inclui</small>
-            <h3>Aplicação</h3>
-            <p>Critérios para parar de compensar com explicação o que já deveria estar sendo lido com clareza antes da conversa.</p>
+            <small>Etapa 4</small>
+            <h3>Sustentação</h3>
+            <p>Você entende como consolidar uma leitura mais coerente, mais estável e menos dependente de explicação constante.</p>
+            <p class="card-pressure">Aqui o objetivo é reduzir atrito e aumentar coerência de percepção.</p>
           </div>
         </div>
       </div>
@@ -1073,29 +879,32 @@
 
     <section class="section center">
       <div class="container fade-up">
-        <div class="eyebrow" style="justify-content:center;">Transformação</div>
+        <div class="eyebrow" style="justify-content:center;">O que começa a mudar</div>
         <h2 style="margin-top:14px;">
-          Você para de explicar o que deveria ser concluído.
+          Quando a leitura começa a trabalhar a seu favor, a dinâmica muda.
         </h2>
 
-        <p>
-          A proposta do Obsidian não é prometer reação externa garantida. É fazer você entender como está sendo percebido, identificar os sinais que reduzem seu valor e corrigir essa leitura com mais coerência, clareza e autoridade no mercado.
-        </p>
-
-        <div class="statement-grid">
-          <div class="statement">
+        <div class="transform-grid">
+          <div class="transform-card">
             <small>Antes</small>
-            <p>Seu valor depende de contexto, justificativa e defesa constante.</p>
+            <h3>Desgaste</h3>
+            <div class="micro-list">
+              <span>você explica demais para ser levado a sério</span>
+              <span>seu preço encontra resistência antes da sua entrega ser vista</span>
+              <span>sua presença não sustenta a profundidade que você realmente tem</span>
+              <span>profissionais mais rasos ocupam mais espaço do que você</span>
+            </div>
           </div>
 
-          <div class="statement">
+          <div class="transform-card">
             <small>Depois</small>
-            <p>Sua presença passa a sustentar melhor sua leitura com mais clareza antes da conversa.</p>
-          </div>
-
-          <div class="statement">
-            <small>Efeito</small>
-            <p>Preço, respeito e autoridade deixam de depender apenas do seu esforço para serem considerados.</p>
+            <h3>Coerência</h3>
+            <div class="micro-list">
+              <span>sua imagem e presença começam a sustentar melhor o valor que você entrega</span>
+              <span>o mercado precisa de menos esforço para concluir autoridade</span>
+              <span>sua percepção deixa de depender apenas de contexto ou defesa verbal</span>
+              <span>sua presença começa a reduzir ruído e aumentar coerência</span>
+            </div>
           </div>
         </div>
       </div>
@@ -1105,32 +914,31 @@
       <div class="container fade-up">
         <div class="eyebrow" style="justify-content:center;">Para quem é</div>
         <h2 style="margin-top:14px;">
-          Para quem já tem competência, mas ainda não sustenta a leitura que deveria.
+          O Obsidian é para quem já entendeu que competência sozinha não basta.
         </h2>
 
-        <p>
-          O Obsidian foi pensado para profissionais, especialistas, executivos, consultores e empreendedores que já têm entrega real, mas percebem que sua imagem, presença e comunicação ainda não sustentam o valor que poderiam ocupar no mercado.
-        </p>
-
-        <div class="grid">
-          <div class="card">
-            <small>Cenário 1</small>
-            <p>Você sente que entrega mais do que recebe e continua sendo comparado a profissionais medianos.</p>
+        <div class="who-grid">
+          <div class="who-card">
+            <small>Entre aqui se</small>
+            <p>O Obsidian é para você se:</p>
+            <ul>
+              <li>você sabe que entrega mais do que sua presença hoje comunica</li>
+              <li>seu preço ou autoridade encontram resistência antes da sua entrega ser vista</li>
+              <li>você sente que precisa justificar demais o próprio valor</li>
+              <li>você quer corrigir leitura, não performar personagem</li>
+              <li>você já entendeu que competência sozinha não garante percepção correta</li>
+            </ul>
           </div>
 
-          <div class="card">
-            <small>Cenário 2</small>
-            <p>Você percebe que precisa justificar demais seu valor, seu preço ou seu nível para ser levado a sério.</p>
-          </div>
-
-          <div class="card">
-            <small>Cenário 3</small>
-            <p>Você sabe que tem profundidade, mas o mercado ainda lê sua presença abaixo do que ela realmente vale.</p>
-          </div>
-
-          <div class="card">
-            <small>Cenário 4</small>
-            <p>Você quer parar de compensar com esforço o que já deveria estar sendo concluído pela sua presença.</p>
+          <div class="who-card">
+            <small>Não entre aqui se</small>
+            <p>O Obsidian não é para você se:</p>
+            <ul>
+              <li>você quer apenas parecer sofisticado sem sustentar profundidade</li>
+              <li>procura truques estéticos sem estrutura</li>
+              <li>quer atalhos de imagem sem correção real de coerência</li>
+              <li>ainda nem consegue nomear o problema e precisa começar pela base</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -1138,30 +946,40 @@
 
     <section class="section center">
       <div class="container fade-up">
-        <div class="eyebrow" style="justify-content:center;">Para quem não é</div>
+        <div class="eyebrow" style="justify-content:center;">O que não é</div>
         <h2 style="margin-top:14px;">
-          O Obsidian não é para quem busca truque superficial.
+          O Obsidian não é sobre parecer caro. É sobre sustentar leitura correta.
         </h2>
 
-        <div class="grid">
-          <div class="card">
+        <div class="statement-grid">
+          <div class="statement">
             <small>Não é</small>
-            <p>Para quem procura atalhos estéticos, fórmulas rasas de parecer mais sofisticado ou uma fachada sem consistência real.</p>
+            <p>parecer caro</p>
           </div>
 
-          <div class="card">
+          <div class="statement">
             <small>Não é</small>
-            <p>Para quem espera que apenas aparência resolva sozinho um problema de percepção, autoridade e posicionamento.</p>
+            <p>copiar códigos visuais vazios</p>
           </div>
 
-          <div class="card">
+          <div class="statement">
             <small>Não é</small>
-            <p>Para quem quer validação rápida sem profundidade, critério, coerência e reposicionamento real.</p>
+            <p>criar fachada sem densidade</p>
           </div>
 
-          <div class="card">
+          <div class="statement">
             <small>Não é</small>
-            <p>Para quem quer apenas parecer mais caro sem revisar os sinais que hoje sabotam a própria leitura no mercado.</p>
+            <p>performar autoridade sem sustentação</p>
+          </div>
+
+          <div class="statement">
+            <small>Não é</small>
+            <p>usar estética como substituto de valor</p>
+          </div>
+
+          <div class="statement">
+            <small>É</small>
+            <p>corrigir percepção, coerência e leitura social com estrutura</p>
           </div>
         </div>
       </div>
@@ -1169,15 +987,33 @@
 
     <section class="section center">
       <div class="container fade-up">
-        <div class="panel">
-          <div class="eyebrow" style="justify-content:center;">Garantia</div>
-          <h2 style="margin-top:14px;">
-            Você terá 7 dias para avaliar o método.
-          </h2>
+        <div class="eyebrow" style="justify-content:center;">Redução de atrito</div>
+        <h2 style="margin-top:14px;">
+          Antes de decidir, isto precisa estar claro.
+        </h2>
 
-          <p>
-            Se dentro desse período você entender que o Obsidian Method não faz sentido para o seu momento, poderá solicitar o reembolso dentro do prazo.
-          </p>
+        <div class="risk-shell">
+          <div class="risk-grid">
+            <div class="risk-card">
+              <small>Acesso</small>
+              <p>acesso imediato após a compra</p>
+            </div>
+
+            <div class="risk-card">
+              <small>Formato</small>
+              <p>produto 100% digital</p>
+            </div>
+
+            <div class="risk-card">
+              <small>Garantia</small>
+              <p>garantia de 7 dias</p>
+            </div>
+
+            <div class="risk-card">
+              <small>Compra</small>
+              <p>pagamento seguro e entrada direta no método principal</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1186,79 +1022,79 @@
       <div class="container fade-up">
         <div class="eyebrow" style="justify-content:center;">Perguntas frequentes</div>
         <h2 style="margin-top:14px;">
-          O que precisa estar claro antes da sua decisão.
+          O que precisa estar claro antes da compra.
         </h2>
 
         <div class="faq-shell">
           <div class="faq-list">
             <div class="faq-item active">
               <button class="faq-question" type="button">
-                <span>O que é o Obsidian Method?</span>
+                <span>O que exatamente eu recebo ao comprar?</span>
                 <span>+</span>
               </button>
-              <div class="faq-answer" style="max-height: 240px;">
+              <div class="faq-answer" style="max-height: 220px;">
                 <div class="faq-answer-inner">
-                  O Obsidian Method é um método de percepção, posicionamento e correção de sinais. Ele foi criado para ajudar profissionais a entender como estão sendo lidos pelo mercado, identificar o que reduz seu valor percebido e corrigir essa leitura com mais coerência, clareza e autoridade.
+                  Você recebe acesso ao Obsidian Method em formato digital, com estrutura voltada para leitura do erro, diagnóstico perceptivo, correção estrutural e sustentação de uma leitura mais coerente.
                 </div>
               </div>
             </div>
 
             <div class="faq-item">
               <button class="faq-question" type="button">
-                <span>O que eu recebo ao entrar?</span>
+                <span>Em quanto tempo eu consigo consumir o material?</span>
                 <span>+</span>
               </button>
               <div class="faq-answer">
                 <div class="faq-answer-inner">
-                  Você recebe acesso ao método em formato digital, com estrutura voltada para diagnóstico, leitura de sinais, correção de incoerências e alinhamento entre presença, comunicação e posicionamento.
+                  Isso depende do seu ritmo, mas a proposta do Obsidian não é ser um material nebuloso ou interminável. Ele foi estruturado para ser aplicável, não apenas admirado.
                 </div>
               </div>
             </div>
 
             <div class="faq-item">
               <button class="faq-question" type="button">
-                <span>Isso é para quem está começando?</span>
+                <span>Esse método é para quem está começando ou para quem já tem carreira?</span>
                 <span>+</span>
               </button>
               <div class="faq-answer">
                 <div class="faq-answer-inner">
-                  Não necessariamente. O Obsidian foi pensado principalmente para quem já tem competência, entrega ou repertório, mas percebe que ainda não sustenta isso na forma como é lido pelo mercado.
+                  Ele faz mais sentido para quem já tem entrega real, repertório, competência ou posicionamento em construção, mas percebe que ainda está sendo lido abaixo do que sustenta.
                 </div>
               </div>
             </div>
 
             <div class="faq-item">
               <button class="faq-question" type="button">
-                <span>Isso é sobre imagem ou sobre posicionamento?</span>
+                <span>Preciso mudar meu estilo ou minha aparência?</span>
                 <span>+</span>
               </button>
               <div class="faq-answer">
                 <div class="faq-answer-inner">
-                  Os dois, mas não de forma superficial. O foco do Obsidian não é parecer mais sofisticado. É entender como sua presença comunica valor, autoridade e coerência — e corrigir o que hoje enfraquece essa leitura.
+                  Não. O foco do Obsidian não é impor uma estética artificial, mas corrigir incoerências entre presença, leitura, coerência e valor percebido.
                 </div>
               </div>
             </div>
 
             <div class="faq-item">
               <button class="faq-question" type="button">
-                <span>Preciso trabalhar com redes sociais para isso fazer sentido?</span>
+                <span>Qual a diferença entre o Código da Percepção e o Obsidian?</span>
                 <span>+</span>
               </button>
               <div class="faq-answer">
                 <div class="faq-answer-inner">
-                  Não. O método não depende de Instagram ou produção de conteúdo. Ele faz sentido para qualquer profissional ou empreendedor cuja percepção de valor influencie preço, autoridade, confiança e posicionamento.
+                  O Código ajuda você a entender com clareza o erro. O Obsidian entra quando a consciência do problema já existe e a prioridade passa a ser a correção profunda da leitura.
                 </div>
               </div>
             </div>
 
             <div class="faq-item">
               <button class="faq-question" type="button">
-                <span>O acesso é imediato?</span>
+                <span>Se eu já sei que meu problema é percepção, faz sentido entrar direto no Obsidian?</span>
                 <span>+</span>
               </button>
               <div class="faq-answer">
                 <div class="faq-answer-inner">
-                  Sim. Após a confirmação da compra, o acesso é liberado no ambiente do produto.
+                  Sim. Se você já entendeu que está sendo mal percebido e não quer mais perder tempo só diagnosticando, o Obsidian é o caminho mais direto.
                 </div>
               </div>
             </div>
@@ -1270,7 +1106,7 @@
               </button>
               <div class="faq-answer">
                 <div class="faq-answer-inner">
-                  Sim. Você terá 7 dias de garantia para avaliar se o Obsidian Method faz sentido para o seu momento. Dentro desse prazo, poderá solicitar reembolso.
+                  Sim. Você terá 7 dias de garantia para avaliar se o Obsidian Method faz sentido para o seu momento.
                 </div>
               </div>
             </div>
@@ -1282,14 +1118,18 @@
     <section class="section center">
       <div class="container fade-up">
         <div class="panel">
-          <div class="eyebrow" style="justify-content:center;">A decisão</div>
+          <div class="eyebrow" style="justify-content:center;">Ainda não sabe exatamente onde está o erro?</div>
           <h2 style="margin-top:14px;">
-            Você pode continuar tentando convencer.
+            Então comece pela base.
           </h2>
 
           <p>
-            Ou pode corrigir a estrutura que está fazendo o mercado decidir abaixo do que você vale antes mesmo da conversa começar.
+            Se você sente o desalinhamento, mas ainda não consegue nomear com precisão o que está sabotando sua leitura de valor, comece pelo Código da Percepção antes de entrar na correção profunda.
           </p>
+
+          <div class="closing-actions">
+            <a href="https://pay.kiwify.com.br/0gcrvZb" class="cta soft" target="_blank" rel="noopener noreferrer">QUERO COMEÇAR PELO CÓDIGO</a>
+          </div>
         </div>
       </div>
     </section>
@@ -1298,16 +1138,16 @@
       <div class="container fade-up">
         <div class="closing-panel">
           <h2>
-            Continuar sem corrigir a leitura custa mais do que parece.
+            Se você já entendeu o erro, o próximo passo não é pensar mais. É corrigir.
           </h2>
 
           <p>
-            Custa autoridade. Custa preço. Custa energia. Custa tempo tentando sustentar no argumento o que já deveria ser percebido antes da explicação existir.
+            O Obsidian Method foi criado para quem já percebeu que está sendo lido abaixo do que vale e quer corrigir isso com mais estrutura, clareza e coerência.
           </p>
 
           <div class="closing-actions">
-            <a href="https://pay.kiwify.com.br/gc4afe1" class="cta" target="_blank" rel="noopener noreferrer">ENTRAR NO OBSIDIAN</a>
-            <a href="#recebe" class="cta soft">VER O QUE VOCÊ RECEBE</a>
+            <a href="https://pay.kiwify.com.br/gc4afe1" class="cta" target="_blank" rel="noopener noreferrer">QUERO ENTRAR NO OBSIDIAN AGORA</a>
+            <a href="#topo" class="cta soft">RELER DO INÍCIO</a>
           </div>
 
           <div class="footer-note">Obsidian Method</div>
@@ -1324,46 +1164,6 @@
     }, { threshold: 0.14 });
 
     document.querySelectorAll(".fade-up").forEach((el) => observer.observe(el));
-
-    const checklistItems = document.querySelectorAll('.check-item');
-    const checklistInputs = document.querySelectorAll('.check-item input');
-    const diagnosisButton = document.getElementById('diagnosisButton');
-    const resultBox = document.getElementById('checkResult');
-    const checkCta = document.getElementById('checkCta');
-
-    function syncChecklistVisual() {
-      checklistItems.forEach((item) => {
-        const input = item.querySelector('input');
-        item.classList.toggle('checked', input.checked);
-      });
-    }
-
-    checklistInputs.forEach((input) => {
-      input.addEventListener('change', syncChecklistVisual);
-    });
-
-    syncChecklistVisual();
-
-    diagnosisButton.addEventListener('click', () => {
-      let checked = 0;
-
-      checklistItems.forEach((item) => {
-        const input = item.querySelector('input');
-        if (input.checked) checked++;
-      });
-
-      if (checked <= 2) {
-        resultBox.innerHTML = '<strong>Diagnóstico:</strong> sua percepção provavelmente não está sustentando seu valor. O problema não parece ser falta de esforço. Parece ser leitura errada.';
-      } else if (checked === 3) {
-        resultBox.innerHTML = '<strong>Diagnóstico:</strong> existe base, mas sua leitura ainda parece instável. Você já tem parte da estrutura, mas ainda não sustenta o valor com consistência.';
-      } else {
-        resultBox.innerHTML = '<strong>Diagnóstico:</strong> você já sustenta parte importante da leitura correta. O Obsidian pode aprofundar isso e transformar estabilidade em domínio.';
-      }
-
-      resultBox.classList.add('show');
-      checkCta.classList.add('show');
-      resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    });
 
     const faqItems = document.querySelectorAll('.faq-item');
 
