@@ -201,24 +201,36 @@
       padding: 20px 0 56px;
     }
 
-    .hero-copy h1 {
+    .hero-title {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
       margin-top: 20px;
       font-family: var(--serif);
       font-weight: 600;
       font-size: clamp(3rem, 10vw, 6.2rem);
-      line-height: 0.94;
-      letter-spacing: 0.01em;
-      max-width: 11ch;
-      text-wrap: balance;
+      line-height: 0.9;
+      letter-spacing: -0.035em;
       text-transform: uppercase;
+      text-shadow:
+        0 0 12px rgba(255,255,255,0.06),
+        0 10px 40px rgba(0,0,0,0.55);
     }
 
-    .hero-copy h1 .muted {
+    .hero-title span {
       display: block;
+      white-space: nowrap;
+    }
+
+    .hero-title span:nth-child(1),
+    .hero-title span:nth-child(2),
+    .hero-title span:nth-child(4) {
+      color: var(--text);
+    }
+
+    .hero-title span:nth-child(3) {
       color: var(--text-soft);
-      margin-top: 10px;
-      font-weight: 500;
-      letter-spacing: 0.01em;
     }
 
     .hero-description {
@@ -237,13 +249,6 @@
       line-height: 1.62;
     }
 
-    .hero-actions {
-      margin-top: 28px;
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
     .hero-meta-line {
       margin-top: 18px;
       color: rgba(244,239,231,0.7);
@@ -254,6 +259,13 @@
     .hero-meta-line .sep {
       color: rgba(244,239,231,0.28);
       margin: 0 8px;
+    }
+
+    .hero-actions {
+      margin-top: 28px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
     .ghost-band {
@@ -551,14 +563,9 @@
     }
 
     @media (max-width: 759px) {
-      .hero-copy h1 {
-        max-width: 10ch;
+      .hero-title {
         font-size: clamp(2.55rem, 10vw, 4rem);
-        line-height: 0.98;
-      }
-
-      .hero-copy h1 .muted {
-        margin-top: 10px;
+        line-height: 0.94;
       }
 
       .hero-actions,
@@ -666,7 +673,7 @@
     }
 
     @media (min-width: 1100px) {
-      .hero-copy h1 {
+      .hero-title {
         font-size: clamp(4.8rem, 7vw, 6.8rem);
       }
 
@@ -711,9 +718,11 @@
         <div class="hero-copy fade-up">
           <div class="eyebrow">O Código da Percepção</div>
 
-          <h1>
-            Você não está sendo mal pago.
-            <span class="muted">Você está sendo mal percebido.</span>
+          <h1 class="hero-title">
+            <span>VOCÊ NÃO ESTÁ</span>
+            <span>SENDO MAL PAGO.</span>
+            <span>VOCÊ ESTÁ</span>
+            <span>SENDO MAL PERCEBIDO.</span>
           </h1>
 
           <p class="hero-description">
