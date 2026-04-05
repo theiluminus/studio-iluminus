@@ -6,7 +6,7 @@
   <title>O Código da Percepção</title>
   <meta
     name="description"
-    content="O Código da Percepção revela como o mercado interpreta seu valor antes mesmo da sua entrega ser avaliada — e quais sinais fazem você ser lido acima ou abaixo do que realmente entrega."
+    content="O Código da Percepção é a porta de entrada para entender por que sua presença, imagem e sinais podem estar fazendo o mercado concluir menos do que você realmente entrega."
   />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -76,7 +76,7 @@
       inset: 0;
       pointer-events: none;
       z-index: 0;
-      box-shadow: inset 0 0 150px rgba(0,0,0,0.46);
+      box-shadow: inset 0 0 155px rgba(0,0,0,0.52);
     }
 
     .container {
@@ -161,7 +161,7 @@
       background-image: url('./obsidiana-hero.jpg');
       background-size: cover;
       background-position: center;
-      filter: brightness(0.30) contrast(1.03) saturate(0.98);
+      filter: brightness(0.72) contrast(1.04) saturate(0.96);
       transform: scale(1.03);
       z-index: 0;
       will-change: transform;
@@ -172,8 +172,8 @@
       inset: 0;
       z-index: 1;
       background:
-        linear-gradient(90deg, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0.12) 42%, rgba(0,0,0,0.04) 100%),
-        linear-gradient(180deg, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.16) 100%);
+        linear-gradient(90deg, rgba(0,0,0,0.34) 0%, rgba(0,0,0,0.14) 42%, rgba(0,0,0,0.04) 100%),
+        linear-gradient(180deg, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.18) 100%);
     }
 
     .hero-fade {
@@ -195,7 +195,7 @@
     }
 
     .hero-copy {
-      max-width: 860px;
+      max-width: 900px;
       padding: 20px 0 56px;
     }
 
@@ -212,28 +212,23 @@
       letter-spacing: -0.035em;
       text-transform: uppercase;
       text-shadow:
-        0 0 10px rgba(255,255,255,0.05),
-        0 8px 26px rgba(0,0,0,0.28);
+        0 0 12px rgba(255,255,255,0.06),
+        0 10px 40px rgba(0,0,0,0.55);
+      max-width: 12ch;
     }
 
     .hero-title span {
       display: block;
-      white-space: nowrap;
     }
 
-    .hero-title span:nth-child(1),
-    .hero-title span:nth-child(2),
-    .hero-title span:nth-child(4) {
-      color: var(--text);
-    }
-
-    .hero-title span:nth-child(3) {
-      color: var(--text-soft);
+    .hero-title .muted {
+      color: rgba(244,239,231,0.72);
+      margin-top: 8px;
     }
 
     .hero-description {
       margin-top: 18px;
-      max-width: 40rem;
+      max-width: 42rem;
       color: var(--text-soft);
       font-size: 1rem;
       line-height: 1.76;
@@ -241,15 +236,36 @@
 
     .hero-subpressure {
       margin-top: 16px;
-      max-width: 36rem;
+      max-width: 40rem;
       color: var(--text);
       font-size: 0.95rem;
       line-height: 1.62;
     }
 
+    .hero-points {
+      margin-top: 18px;
+      display: grid;
+      gap: 10px;
+      max-width: 42rem;
+    }
+
+    .hero-point {
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+      color: var(--text-soft);
+      line-height: 1.55;
+    }
+
+    .hero-point strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
     .hero-meta-line {
       margin-top: 18px;
-      color: rgba(244,239,231,0.7);
+      color: rgba(244,239,231,0.72);
       font-size: 0.88rem;
       line-height: 1.7;
     }
@@ -316,7 +332,8 @@
     .offer-intro,
     .who-intro,
     .faq-intro,
-    .closing {
+    .closing,
+    .routing-intro {
       text-align: center;
     }
 
@@ -326,7 +343,8 @@
     .offer-card,
     .who-card,
     .faq-item,
-    .closing-card {
+    .closing-card,
+    .routing-card {
       border: 1px solid rgba(255,255,255,0.08);
       background:
         linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015));
@@ -344,7 +362,8 @@
     .offer-intro h2,
     .who-intro h2,
     .faq-intro h2,
-    .closing h2 {
+    .closing h2,
+    .routing-intro h2 {
       font-family: var(--serif);
       font-size: clamp(2.1rem, 6vw, 4.1rem);
       line-height: 1.04;
@@ -360,7 +379,8 @@
     .offer-intro p,
     .who-intro p,
     .faq-intro p,
-    .closing p {
+    .closing p,
+    .routing-intro p {
       margin: 18px auto 0;
       max-width: 44rem;
       color: var(--text-soft);
@@ -399,7 +419,7 @@
       background-image: url('./obsidiana-detail.jpg');
       background-size: cover;
       background-position: center;
-      filter: brightness(0.88) contrast(1.02) saturate(0.98);
+      filter: brightness(0.84) contrast(1.03) saturate(0.96);
       transform: scale(1.02);
       z-index: 0;
     }
@@ -408,7 +428,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.04), rgba(0,0,0,0.12));
+      background: linear-gradient(180deg, rgba(0,0,0,0.04), rgba(0,0,0,0.14));
       z-index: 1;
     }
 
@@ -421,8 +441,8 @@
       padding: 16px 18px;
       border-radius: 18px;
       border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(0,0,0,0.28);
-      backdrop-filter: blur(8px);
+      background: rgba(0,0,0,0.34);
+      backdrop-filter: blur(10px);
     }
 
     .floating-line small {
@@ -437,7 +457,7 @@
     .floating-line p {
       color: var(--text);
       font-family: var(--serif);
-      font-size: clamp(1.4rem, 4vw, 2.2rem);
+      font-size: clamp(1.35rem, 4vw, 2.1rem);
       line-height: 1.08;
       letter-spacing: 0.01em;
       font-weight: 600;
@@ -451,6 +471,7 @@
       flex-direction: column;
       justify-content: space-between;
       gap: 24px;
+      text-align: left;
     }
 
     .text-panel h3 {
@@ -484,7 +505,9 @@
     .micro-proof,
     .who-grid,
     .offer-grid,
-    .faq-grid {
+    .faq-grid,
+    .proof-grid,
+    .routing-grid {
       display: grid;
       gap: 12px;
       grid-template-columns: 1fr;
@@ -494,8 +517,9 @@
     .proof-card,
     .who-card,
     .offer-card,
-    .faq-item {
-      padding: 16px 16px;
+    .faq-item,
+    .routing-card {
+      padding: 18px 18px;
       border-radius: 18px;
       text-align: left;
     }
@@ -503,7 +527,8 @@
     .proof-card small,
     .who-card small,
     .offer-card small,
-    .faq-item small {
+    .faq-item small,
+    .routing-card small {
       display: block;
       color: var(--text-faint);
       font-size: 0.68rem;
@@ -515,9 +540,24 @@
     .proof-card p,
     .who-card p,
     .offer-card p,
-    .faq-item p {
+    .faq-item p,
+    .routing-card p {
       color: var(--text-soft);
       font-size: 0.9rem;
+      line-height: 1.65;
+    }
+
+    .proof-card .source {
+      margin-top: 12px;
+      color: var(--text-dim);
+      font-size: 0.84rem;
+      line-height: 1.5;
+    }
+
+    .routing-card .highlight {
+      margin-top: 12px;
+      color: var(--text);
+      font-size: 0.92rem;
       line-height: 1.6;
     }
 
@@ -560,14 +600,10 @@
 
     @media (max-width: 759px) {
       .hero-title {
-        font-size: clamp(2.2rem, 9vw, 3.4rem);
+        font-size: clamp(2.2rem, 9vw, 3.5rem);
         line-height: 0.95;
         letter-spacing: -0.03em;
         max-width: 100%;
-      }
-
-      .hero-title span {
-        white-space: normal;
       }
 
       .hero-actions,
@@ -587,9 +623,16 @@
       .offer-intro p,
       .who-intro p,
       .faq-intro p,
-      .closing p {
+      .closing p,
+      .routing-intro p {
         font-size: 0.98rem;
         line-height: 1.7;
+      }
+
+      .hero-points,
+      .hero-description,
+      .hero-subpressure {
+        max-width: 100%;
       }
 
       .ghost-band {
@@ -612,7 +655,8 @@
       .offer-intro h2,
       .who-intro h2,
       .faq-intro h2,
-      .closing h2 {
+      .closing h2,
+      .routing-intro h2 {
         max-width: 13ch;
         font-size: clamp(1.9rem, 8vw, 2.6rem);
         line-height: 1.08;
@@ -661,12 +705,14 @@
 
       .micro-proof,
       .who-grid,
-      .faq-grid {
+      .faq-grid,
+      .proof-grid,
+      .routing-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .offer-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .section {
@@ -684,7 +730,8 @@
       .impact-center p,
       .offer-intro p,
       .who-intro p,
-      .faq-intro p {
+      .faq-intro p,
+      .routing-intro p {
         font-size: 1.03rem;
       }
 
@@ -721,28 +768,30 @@
           <div class="eyebrow">O Código da Percepção</div>
 
           <h1 class="hero-title">
-            <span>VOCÊ NÃO ESTÁ</span>
-            <span>SENDO MAL PAGO.</span>
-            <span>VOCÊ ESTÁ</span>
-            <span>SENDO MAL PERCEBIDO.</span>
+            <span>VOCÊ NÃO ESTÁ SENDO MAL PAGO.</span>
+            <span class="muted">VOCÊ ESTÁ SENDO MAL PERCEBIDO.</span>
           </h1>
 
           <p class="hero-description">
-            O Código da Percepção mostra como o mercado interpreta o seu valor antes mesmo da sua entrega ser avaliada — e quais sinais fazem você ser lido acima ou abaixo do que realmente entrega.
+            O Código da Percepção é a porta de entrada para entender por que sua presença, imagem e sinais podem estar fazendo o mercado concluir menos do que você realmente entrega.
           </p>
 
           <p class="hero-subpressure">
-            Essa é a porta de entrada para quem precisa entender a lógica invisível da percepção antes de partir para uma correção mais profunda.
+            Este é o primeiro passo para quem ainda não quer corrigir tudo de uma vez, mas precisa enxergar com clareza onde a percepção está quebrando antes de investir numa correção mais profunda.
           </p>
 
+          <div class="hero-points">
+            <div class="hero-point"><strong>Produto digital com acesso imediato</strong></div>
+            <div class="hero-point"><strong>Leitura inicial estruturada</strong></div>
+            <div class="hero-point"><strong>Ideal para quem ainda precisa identificar o erro com clareza</strong></div>
+          </div>
+
           <div class="hero-meta-line">
-            <span>Produto digital</span>
-            <span class="sep">|</span>
-            <span>Acesso imediato</span>
-            <span class="sep">|</span>
             <span>R$ 47</span>
             <span class="sep">|</span>
             <span>Garantia de 7 dias</span>
+            <span class="sep">|</span>
+            <span>Acesso imediato</span>
           </div>
 
           <div class="hero-actions">
@@ -752,11 +801,11 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-              Entrar no código
+              Quero entender onde estou sendo mal percebido
             </a>
 
-            <a href="#estrutura" class="button-secondary">
-              Ver estrutura
+            <a href="#o-que-e" class="button-secondary">
+              Ver como funciona
             </a>
           </div>
         </div>
@@ -780,20 +829,12 @@
       </div>
     </div>
 
-    <section class="section">
-      <div class="container fade-up">
-        <div class="impact-band">
-          <h2>Existe uma lógica por trás da forma como você é lido.</h2>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
+    <section class="section" id="o-que-e">
       <div class="container impact-center fade-up">
-        <div class="eyebrow" style="justify-content:center;">O problema</div>
-        <h2>Seu valor pode estar sendo reduzido antes da conversa começar.</h2>
+        <div class="eyebrow" style="justify-content:center;">O que é</div>
+        <h2>Um primeiro passo claro para quem ainda está tentando nomear o erro.</h2>
         <p>
-          O mercado reage a sinais. Forma uma leitura. E só depois usa lógica para justificar a decisão. É por isso que tanta gente competente continua sendo percebida abaixo do que realmente entrega.
+          O Código da Percepção é um material digital de entrada criado para ajudar você a identificar, com clareza, onde sua percepção de valor está sendo sabotada antes de entrar em uma correção mais profunda.
         </p>
       </div>
     </section>
@@ -802,40 +843,40 @@
       <div class="container split-premium">
         <div class="visual-panel fade-up">
           <div class="floating-line">
-            <small>Leitura central</small>
-            <p>Você não precisa adivinhar por que sua presença ainda não sustenta seu valor.</p>
+            <small>Função central</small>
+            <p>Você não compra o Código para parecer melhor. Compra para entender com precisão o que está quebrando a sua leitura.</p>
           </div>
         </div>
 
-        <div class="text-panel fade-up" id="estrutura">
+        <div class="text-panel fade-up">
           <div>
-            <div class="eyebrow">O que é</div>
-            <h3>Uma leitura inicial para entender o erro antes de tentar corrigi-lo.</h3>
+            <div class="eyebrow">Diagnóstico inicial</div>
+            <h3>Clareza antes da correção completa.</h3>
           </div>
 
           <div class="text-blocks">
             <p>
-              O Código da Percepção não é o método completo. Ele é a entrada para quem precisa primeiro enxergar com clareza o que está acontecendo.
+              O Código não substitui o Obsidian Method. Ele existe para quem ainda precisa entender a lógica do problema antes de investir numa correção mais profunda.
             </p>
 
             <p>
-              Ele organiza a lógica da percepção de valor, mostra como essa leitura acontece e ajuda você a reconhecer os sinais que hoje podem estar reduzindo sua presença no mercado.
+              Em vez de continuar adivinhando o que está sabotando seu valor percebido, você começa identificando com mais precisão o que realmente está acontecendo.
             </p>
 
             <p>
-              <strong>Ele não substitui o Obsidian Method.</strong> Ele prepara o terreno para que a correção depois faça sentido.
+              <strong>Ele organiza o erro.</strong> E isso já muda a qualidade da sua decisão.
             </p>
           </div>
 
           <div class="micro-proof">
             <div class="proof-card">
               <small>O que ele faz</small>
-              <p>Explica a lógica da leitura de valor e revela onde sua percepção atual pode estar falhando.</p>
+              <p>Ajuda você a enxergar o problema com nitidez, separar percepção de competência e entender onde sua presença está quebrando coerência.</p>
             </div>
 
             <div class="proof-card">
               <small>O que ele não faz</small>
-              <p>Não promete reposicionamento completo. Ele entrega entendimento, não implementação profunda.</p>
+              <p>Não promete a correção completa. Ele é a base mais inteligente para quem ainda precisa entender antes de corrigir.</p>
             </div>
           </div>
         </div>
@@ -845,72 +886,133 @@
     <section class="section">
       <div class="container offer-intro fade-up">
         <div class="eyebrow" style="justify-content:center;">O que você recebe</div>
-        <h2>Uma porta de entrada clara para entender sua leitura no mercado.</h2>
+        <h2>Um material simples de comprar e útil para interpretar o erro com clareza.</h2>
         <p>
-          O Código foi construído para dar clareza rápida. Ele revela a lógica do problema, organiza o raciocínio e mostra o que pode estar enfraquecendo sua percepção de valor hoje.
+          Ao entrar no Código, você recebe uma leitura-base para entender como a percepção funciona, onde o erro nasce e quando faz sentido continuar na base ou avançar para a correção profunda.
         </p>
 
         <div class="offer-grid">
           <div class="offer-card">
-            <small>Inclui</small>
-            <p>Uma introdução clara à lógica invisível da percepção de valor.</p>
+            <small>Você recebe</small>
+            <p>Uma explicação clara de como o mercado forma leitura antes de ouvir sua explicação.</p>
           </div>
 
           <div class="offer-card">
-            <small>Inclui</small>
-            <p>Critérios para entender como o mercado pode estar interpretando sua presença antes da sua explicação.</p>
+            <small>Você recebe</small>
+            <p>Os sinais mais comuns que fazem profissionais parecerem abaixo do valor que realmente entregam.</p>
           </div>
 
           <div class="offer-card">
-            <small>Inclui</small>
-            <p>Reconhecimento dos sinais que fazem você ser lido acima ou abaixo do que realmente entrega.</p>
+            <small>Você recebe</small>
+            <p>Uma estrutura inicial para distinguir problema de competência real e problema de percepção.</p>
           </div>
 
           <div class="offer-card">
-            <small>Inclui</small>
-            <p>Mais clareza para diferenciar competência real de valor percebido.</p>
+            <small>Você recebe</small>
+            <p>Uma leitura-base para entender onde sua presença está quebrando coerência.</p>
           </div>
 
           <div class="offer-card">
-            <small>Inclui</small>
-            <p>Uma estrutura inicial para parar de confundir esforço com percepção de autoridade.</p>
+            <small>Você recebe</small>
+            <p>Direção para saber se você precisa apenas de clareza ou de correção profunda.</p>
           </div>
 
           <div class="offer-card">
-            <small>Inclui</small>
-            <p>Base conceitual para quem depois quiser aprofundar a correção no Obsidian Method.</p>
+            <small>Você recebe</small>
+            <p>Um primeiro passo de baixo risco para parar de adivinhar o que está sabotando sua leitura de valor.</p>
           </div>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <div class="container who-intro fade-up">
-        <div class="eyebrow" style="justify-content:center;">Para quem é</div>
-        <h2>Para quem sente que está sendo lido abaixo do que realmente vale.</h2>
+      <div class="container impact-center fade-up">
+        <div class="eyebrow" style="justify-content:center;">Por que isso importa</div>
+        <h2>O problema não é só preço. É leitura errada.</h2>
         <p>
-          O Código da Percepção foi pensado para profissionais, especialistas, consultores e empreendedores que já têm entrega real, mas ainda não entendem com clareza por que sua presença não sustenta o valor que poderia sustentar.
+          O mercado reage a sinais, forma uma leitura e só depois usa lógica para justificar a decisão. É por isso que tanta gente competente continua sendo percebida abaixo do que realmente entrega.
         </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container routing-intro fade-up">
+        <div class="eyebrow" style="justify-content:center;">Qual caminho faz sentido</div>
+        <h2>Comece pelo Código se você ainda não consegue nomear o erro.</h2>
+        <p>
+          Nem todo mundo precisa entrar no Obsidian de imediato. O Código existe justamente para quem ainda precisa clareza antes de aprofundar.
+        </p>
+
+        <div class="routing-grid">
+          <div class="routing-card">
+            <small>Comece pelo Código se</small>
+            <p>você sente que algo está desalinhado, mas ainda não sabe nomear o erro</p>
+            <p>você quer entender a lógica antes de investir na correção completa</p>
+            <p>você precisa de clareza inicial para enxergar o problema com precisão</p>
+            <div class="highlight">Entrada mais leve. Clareza primeiro.</div>
+          </div>
+
+          <div class="routing-card">
+            <small>Vá direto para o Obsidian se</small>
+            <p>você já sabe que sua percepção está sabotando seu valor</p>
+            <p>você não quer só entender, quer corrigir</p>
+            <p>você está pronta para uma intervenção mais profunda</p>
+            <div class="highlight">Método principal. Correção direta.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container impact-center fade-up">
+        <div class="eyebrow" style="justify-content:center;">Urgência racional</div>
+        <h2>O que custa continuar sem essa clareza.</h2>
+        <p>
+          Continuar achando que o problema é só preço. Continuar explicando demais o próprio valor. Continuar confundindo entrega forte com percepção forte. Continuar sem saber por que profissionais menos profundos ocupam mais espaço.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container proof-grid fade-up">
+        <div class="proof-card">
+          <small>Feedback</small>
+          <p>
+            “Me fez entender que eu estava tentando corrigir preço quando o problema era leitura.”
+          </p>
+          <div class="source">— feedback de cliente / aluna</div>
+        </div>
+
+        <div class="proof-card">
+          <small>Feedback</small>
+          <p>
+            “Foi a primeira vez que consegui nomear com clareza o que estava quebrando minha percepção de valor.”
+          </p>
+          <div class="source">— feedback de cliente / aluna</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container who-intro fade-up">
+        <div class="eyebrow" style="justify-content:center;">O que não é</div>
+        <h2>O Código não é a correção completa. É a base certa para começar.</h2>
 
         <div class="who-grid">
           <div class="who-card">
-            <small>Cenário 1</small>
-            <p>Você sente que entrega mais do que recebe, mas ainda não entendeu exatamente onde a leitura está falhando.</p>
+            <small>O Código não é</small>
+            <p>um atalho para parecer sofisticado</p>
+            <p>uma aula vazia de estética</p>
+            <p>a correção completa do Obsidian</p>
+            <p>uma promessa de fachada sem estrutura</p>
           </div>
 
           <div class="who-card">
-            <small>Cenário 2</small>
-            <p>Você sabe que existe um problema de percepção, mas ainda não consegue nomeá-lo com clareza.</p>
-          </div>
-
-          <div class="who-card">
-            <small>Cenário 3</small>
-            <p>Você quer uma entrada mais acessível antes de ir para uma implementação mais profunda.</p>
-          </div>
-
-          <div class="who-card">
-            <small>Cenário 4</small>
-            <p>Você quer entender a lógica antes de corrigir a estrutura completa.</p>
+            <small>O Código é</small>
+            <p>um primeiro passo claro</p>
+            <p>uma leitura-base de baixo risco</p>
+            <p>uma forma de nomear o erro com precisão</p>
+            <p>o começo mais inteligente antes da correção profunda</p>
           </div>
         </div>
       </div>
@@ -919,40 +1021,40 @@
     <section class="section">
       <div class="container faq-intro fade-up">
         <div class="eyebrow" style="justify-content:center;">Perguntas frequentes</div>
-        <h2>O que precisa ficar claro antes da sua entrada.</h2>
+        <h2>O que precisa ficar claro antes da compra.</h2>
         <p>
-          O Código da Percepção é a porta de entrada. Ele revela o problema com clareza — não tenta fingir que já é a correção completa.
+          O Código da Percepção é o ponto de entrada. Ele entrega clareza inicial com menos atrito e ajuda você a decidir o próximo passo com mais segurança.
         </p>
 
         <div class="faq-grid">
           <div class="faq-item">
-            <small>Pergunta 1</small>
-            <p>O que é o Código da Percepção? É uma entrada para entender como a leitura de valor acontece e onde sua presença pode estar sendo interpretada abaixo do que realmente entrega.</p>
+            <small>Pergunta</small>
+            <p><strong>O que exatamente eu recebo ao comprar?</strong><br>Você recebe um material digital de entrada com estrutura inicial para entender como a percepção funciona, onde o erro nasce e como identificar o seu caso.</p>
           </div>
 
           <div class="faq-item">
-            <small>Pergunta 2</small>
-            <p>Isso substitui o Obsidian Method? Não. O Código mostra e organiza o problema. O Obsidian corrige e aprofunda a estrutura.</p>
+            <small>Pergunta</small>
+            <p><strong>Esse material é para quem está começando?</strong><br>Também. Mas funciona especialmente para quem já tem entrega real e ainda não entende com nitidez por que sua presença não sustenta o valor que poderia sustentar.</p>
           </div>
 
           <div class="faq-item">
-            <small>Pergunta 3</small>
-            <p>É para quem está começando? Também. Mas funciona especialmente para quem já tem entrega e ainda não entende por que não sustenta o valor que poderia sustentar.</p>
+            <small>Pergunta</small>
+            <p><strong>Em quanto tempo eu consigo consumir?</strong><br>É um material mais leve e rápido de absorver do que o Obsidian. A proposta é gerar clareza inicial sem exigir alto atrito de entrada.</p>
           </div>
 
           <div class="faq-item">
-            <small>Pergunta 4</small>
-            <p>O acesso é imediato? Sim. Após a confirmação da compra, o acesso é liberado no ambiente do produto.</p>
+            <small>Pergunta</small>
+            <p><strong>O Código resolve meu problema sozinho?</strong><br>Ele resolve a etapa da clareza. Em muitos casos, a correção profunda continua no Obsidian Method.</p>
           </div>
 
           <div class="faq-item">
-            <small>Pergunta 5</small>
-            <p>Existe garantia? Sim. Você terá 7 dias de garantia para avaliar se o Código da Percepção faz sentido para o seu momento.</p>
+            <small>Pergunta</small>
+            <p><strong>Qual a diferença prática entre o Código e o Obsidian?</strong><br>O Código ajuda a identificar e nomear o erro. O Obsidian corrige, com estrutura, a leitura errada que o mercado faz de você.</p>
           </div>
 
           <div class="faq-item">
-            <small>Pergunta 6</small>
-            <p>Esse produto é para parecer mais sofisticado? Não. É para entender como sua presença está sendo lida e por que isso afeta seu valor percebido.</p>
+            <small>Pergunta</small>
+            <p><strong>Se eu já sei que estou sendo mal percebido, ainda vale comprar o Código?</strong><br>Se você já tem clareza suficiente sobre o problema e quer correção, pode fazer mais sentido ir direto para o Obsidian.</p>
           </div>
         </div>
       </div>
@@ -962,9 +1064,9 @@
       <div class="container closing fade-up">
         <div class="closing-card">
           <div class="eyebrow" style="justify-content:center;">Decisão</div>
-          <h2>Você pode continuar tentando adivinhar. Ou pode começar entendendo.</h2>
+          <h2>Este é o primeiro passo mais claro, simples e de baixo risco para parar de adivinhar.</h2>
           <p>
-            O Código da Percepção foi criado para quem precisa clareza antes de profundidade. Primeiro você entende a lógica. Depois decide se quer apenas enxergar melhor — ou corrigir isso em outro nível.
+            O Código da Percepção foi criado para quem ainda precisa entender com precisão o que está sabotando sua leitura de valor antes de entrar na correção completa.
           </p>
 
           <div class="closing-actions">
@@ -974,11 +1076,11 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-              Entrar no código
+              Quero acessar o Código agora
             </a>
 
-            <a href="#topo" class="button-secondary">
-              Reler do início
+            <a href="https://pay.kiwify.com.br/gc4afe1" class="button-secondary" target="_blank" rel="noopener noreferrer">
+              Quero ir direto para o Obsidian
             </a>
           </div>
 
