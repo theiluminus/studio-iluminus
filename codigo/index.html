@@ -158,10 +158,10 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background-image: url('/obsidiana-hero.jpg');
+      background-image: url('./obsidiana-hero.jpg');
       background-size: cover;
       background-position: center;
-      filter: brightness(0.72) contrast(1.03) saturate(1);
+      filter: brightness(0.62) contrast(1.06) saturate(0.96);
       transform: scale(1.04);
       z-index: 0;
       will-change: transform;
@@ -172,8 +172,9 @@
       inset: 0;
       z-index: 1;
       background:
-        linear-gradient(90deg, rgba(0,0,0,0.52) 0%, rgba(0,0,0,0.24) 42%, rgba(0,0,0,0.08) 100%),
-        linear-gradient(180deg, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.34) 100%);
+        radial-gradient(circle at 72% 24%, rgba(255,255,255,0.08), transparent 18%),
+        linear-gradient(90deg, rgba(0,0,0,0.64) 0%, rgba(0,0,0,0.34) 42%, rgba(0,0,0,0.14) 100%),
+        linear-gradient(180deg, rgba(0,0,0,0.04) 0%, rgba(0,0,0,0.42) 100%);
     }
 
     .hero-fade {
@@ -396,10 +397,10 @@
       content: "";
       position: absolute;
       inset: 0;
-      background-image: url('/obsidiana-detail.jpg');
+      background-image: url('./obsidiana-detail.jpg');
       background-size: cover;
       background-position: center;
-      filter: brightness(0.92) contrast(1.02);
+      filter: brightness(0.84) contrast(1.04) saturate(0.98);
       transform: scale(1.03);
       z-index: 0;
     }
@@ -409,7 +410,8 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(180deg, rgba(0,0,0,0.04), rgba(0,0,0,0.18));
+        radial-gradient(circle at 70% 22%, rgba(255,255,255,0.06), transparent 18%),
+        linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.24));
       z-index: 1;
     }
 
