@@ -2,32 +2,35 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Obsidian Method</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>O Código da Percepção</title>
   <meta
     name="description"
-    content="Obsidian Method é um método para identificar e corrigir os sinais que fazem o mercado perceber você abaixo do que realmente entrega."
+    content="O Código da Percepção revela como o mercado interpreta seu valor antes mesmo da sua entrega ser avaliada — e quais sinais fazem você ser lido acima ou abaixo do que realmente entrega."
   />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
     :root {
       --bg: #000000;
-      --bg-soft: #050505;
+      --surface: rgba(255,255,255,0.03);
+      --surface-soft: rgba(255,255,255,0.018);
+      --line: rgba(255,255,255,0.08);
       --text: #f4efe7;
       --text-soft: rgba(244,239,231,0.72);
       --text-dim: rgba(244,239,231,0.54);
-      --text-faint: rgba(244,239,231,0.36);
-      --line: rgba(255,255,255,0.08);
-      --radius: 22px;
-      --radius-lg: 28px;
+      --text-faint: rgba(244,239,231,0.38);
       --shadow: 0 24px 90px rgba(0,0,0,0.46);
+      --radius: 24px;
+      --max: 1240px;
       --serif: "Cormorant Garamond", serif;
       --sans: "DM Sans", sans-serif;
-      --max: 1180px;
     }
 
     * {
@@ -42,9 +45,10 @@
     }
 
     body {
+      background-color: #000;
       background:
         radial-gradient(circle at 80% 10%, rgba(255,255,255,0.045), transparent 18%),
-        radial-gradient(circle at 18% 42%, rgba(255,255,255,0.025), transparent 18%),
+        radial-gradient(circle at 18% 45%, rgba(255,255,255,0.03), transparent 18%),
         linear-gradient(180deg, #020202 0%, #000000 100%);
       color: var(--text);
       font-family: var(--sans);
@@ -62,17 +66,17 @@
       inset: 0;
       pointer-events: none;
       z-index: 50;
-      opacity: 0.03;
+      opacity: 0.008;
       background-image:
         url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
     }
 
-    .vignette {
+    .page-vignette {
       position: fixed;
       inset: 0;
       pointer-events: none;
       z-index: 0;
-      box-shadow: inset 0 0 180px rgba(0,0,0,0.56);
+      box-shadow: inset 0 0 180px rgba(0,0,0,0.55);
     }
 
     .container {
@@ -82,37 +86,12 @@
       z-index: 2;
     }
 
-    .section {
-      position: relative;
-      padding: 104px 0;
-      border-top: 1px solid rgba(255,255,255,0.04);
-    }
-
-    h1, h2, h3, h4 {
-      font-family: var(--serif);
-      letter-spacing: -0.04em;
-      font-weight: 600;
-      text-wrap: balance;
-    }
-
-    h2 {
-      font-size: clamp(2.2rem, 7vw, 4.3rem);
-      line-height: 1.02;
-      max-width: 12ch;
-      margin-inline: auto;
-    }
-
-    p {
-      color: var(--text-soft);
-      line-height: 1.78;
-    }
-
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 10px;
       font-size: 0.72rem;
-      letter-spacing: 0.24em;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--text-faint);
       font-weight: 500;
@@ -126,14 +105,54 @@
       display: block;
     }
 
+    .button-primary,
+    .button-secondary {
+      min-height: 54px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 22px;
+      font-size: 0.77rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      transition: transform 220ms ease, background 220ms ease, border-color 220ms ease, color 220ms ease;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .button-primary {
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.18);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.06),
+        0 10px 30px rgba(0,0,0,0.18);
+    }
+
+    .button-primary:hover {
+      background: rgba(255,255,255,0.13);
+      transform: translateY(-1px);
+    }
+
+    .button-secondary {
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--text-soft);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .button-secondary:hover {
+      background: rgba(255,255,255,0.04);
+      border-color: rgba(255,255,255,0.12);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
     .hero {
       position: relative;
       min-height: 100vh;
       display: flex;
       align-items: center;
       overflow: hidden;
-      border-top: none;
-      isolation: isolate;
     }
 
     .hero-bg {
@@ -141,10 +160,11 @@
       inset: 0;
       background-image: url('./obsidiana-hero.jpg');
       background-size: cover;
-      background-position: 72% center;
-      filter: brightness(0.58) contrast(1.08) saturate(0.95);
+      background-position: center;
+      filter: brightness(0.76) contrast(1.04) saturate(1);
       transform: scale(1.04);
       z-index: 0;
+      will-change: transform;
     }
 
     .hero-overlay {
@@ -152,30 +172,9 @@
       inset: 0;
       z-index: 1;
       background:
-        radial-gradient(circle at 70% 28%, rgba(255,255,255,0.09), transparent 16%),
-        linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.54) 40%, rgba(0,0,0,0.20) 100%),
-        linear-gradient(180deg, rgba(0,0,0,0.16) 0%, rgba(0,0,0,0.82) 100%);
-    }
-
-    .hero-depth {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      pointer-events: none;
-      background:
-        linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.10) 44%, rgba(0,0,0,0.38) 100%);
-    }
-
-    .hero-glow {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      pointer-events: none;
-      background:
-        radial-gradient(circle at 63% 29%, rgba(255,255,255,0.06), transparent 10%),
-        radial-gradient(circle at 69% 46%, rgba(120,140,255,0.04), transparent 18%);
-      filter: blur(18px);
-      opacity: 0.6;
+        radial-gradient(circle at 70% 26%, rgba(255,255,255,0.06), transparent 18%),
+        linear-gradient(90deg, rgba(0,0,0,0.46) 0%, rgba(0,0,0,0.20) 42%, rgba(0,0,0,0.08) 100%),
+        linear-gradient(180deg, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.26) 100%);
     }
 
     .hero-fade {
@@ -185,21 +184,20 @@
       bottom: 0;
       height: 180px;
       z-index: 1;
-      background: linear-gradient(to bottom, transparent, #000 82%);
+      background: linear-gradient(to bottom, transparent, #000 80%);
     }
 
     .hero-grid {
       min-height: 100vh;
       display: grid;
+      grid-template-columns: 1fr;
       align-items: end;
       padding: 26px 0 28px;
-      position: relative;
-      z-index: 2;
     }
 
     .hero-copy {
-      max-width: 980px;
-      padding: 24px 0 64px;
+      max-width: 860px;
+      padding: 20px 0 56px;
     }
 
     .hero-title {
@@ -207,10 +205,12 @@
       flex-direction: column;
       align-items: flex-start;
       gap: 0;
+      margin-top: 20px;
       font-family: var(--serif);
-      font-size: clamp(2.9rem, 6vw, 6.1rem);
+      font-weight: 600;
+      font-size: clamp(3rem, 10vw, 6.2rem);
       line-height: 0.9;
-      letter-spacing: -0.04em;
+      letter-spacing: -0.035em;
       text-transform: uppercase;
       text-shadow:
         0 0 12px rgba(255,255,255,0.06),
@@ -229,36 +229,35 @@
     }
 
     .hero-title span:nth-child(3) {
-      color: rgba(244,239,231,0.72);
+      color: var(--text-soft);
     }
 
-    .hero-kicker {
+    .hero-description {
       margin-top: 18px;
-      max-width: 39rem;
+      max-width: 40rem;
+      color: var(--text-soft);
+      font-size: 1rem;
+      line-height: 1.76;
+    }
+
+    .hero-subpressure {
+      margin-top: 16px;
+      max-width: 36rem;
       color: var(--text);
-      font-size: 1.04rem;
+      font-size: 0.95rem;
       line-height: 1.62;
     }
 
-    .hero-body {
-      margin-top: 16px;
-      max-width: 43rem;
-      font-size: 1rem;
-    }
-
-    .hero-info-line {
+    .hero-meta-line {
       margin-top: 18px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 10px;
-      color: rgba(244,239,231,0.74);
+      color: rgba(244,239,231,0.7);
       font-size: 0.88rem;
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
-    .hero-info-line .sep {
-      color: rgba(244,239,231,0.32);
+    .hero-meta-line .sep {
+      color: rgba(244,239,231,0.28);
+      margin: 0 8px;
     }
 
     .hero-actions {
@@ -266,49 +265,6 @@
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
-    }
-
-    .hero-note {
-      margin-top: 16px;
-      max-width: 42rem;
-      font-size: 0.82rem;
-      line-height: 1.7;
-      color: rgba(244,239,231,0.52);
-    }
-
-    .cta {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 52px;
-      padding: 0 22px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.18);
-      font-size: 12px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      transition: transform .22s ease, background .22s ease, border-color .22s ease, color .22s ease;
-      background: rgba(255,255,255,0.03);
-      white-space: nowrap;
-      cursor: pointer;
-      color: var(--text);
-    }
-
-    .cta:hover {
-      background: rgba(255,255,255,0.08);
-      transform: translateY(-1px);
-      border-color: rgba(255,255,255,0.24);
-    }
-
-    .cta.soft {
-      border-color: rgba(255,255,255,0.08);
-      color: var(--text-soft);
-      background: rgba(255,255,255,0.015);
-    }
-
-    .cta.soft:hover {
-      border-color: rgba(255,255,255,0.12);
-      color: var(--text);
     }
 
     .ghost-band {
@@ -319,22 +275,26 @@
       border-top: 1px solid rgba(255,255,255,0.03);
       border-bottom: 1px solid rgba(255,255,255,0.03);
       padding: 14px 0;
-      background: linear-gradient(180deg, rgba(255,255,255,0.006), rgba(255,255,255,0.002));
+      background: linear-gradient(
+        180deg,
+        rgba(255,255,255,0.006),
+        rgba(255,255,255,0.002)
+      );
     }
 
     .ghost-track {
       display: flex;
       align-items: center;
-      gap: 44px;
+      gap: 42px;
       width: max-content;
       animation: ghostScroll 42s linear infinite;
       will-change: transform;
     }
 
     .ghost-track span {
-      font-size: clamp(0.85rem, 2vw, 1.02rem);
+      font-size: clamp(0.88rem, 2vw, 1.05rem);
       font-weight: 500;
-      letter-spacing: 0.24em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: rgba(255,255,255,0.032);
       white-space: nowrap;
@@ -346,96 +306,129 @@
       to { transform: translateX(-33.333%); }
     }
 
-    .panel,
-    .closing-panel,
-    .checklist-shell,
-    .faq-shell {
+    .section {
+      position: relative;
+      padding: 96px 0;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .impact-band,
+    .impact-center,
+    .offer-intro,
+    .who-intro,
+    .faq-intro,
+    .closing {
+      text-align: center;
+    }
+
+    .impact-band,
+    .text-panel,
+    .proof-card,
+    .offer-card,
+    .who-card,
+    .faq-item,
+    .closing-card {
       border: 1px solid rgba(255,255,255,0.08);
       background:
         linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015));
       box-shadow: var(--shadow);
-      border-radius: var(--radius-lg);
+      backdrop-filter: blur(8px);
     }
 
-    .panel {
-      padding: 40px 24px;
-      text-align: center;
+    .impact-band {
+      padding: 30px 24px;
+      border-radius: 24px;
     }
 
-    .panel p {
-      margin: 20px auto 0;
-      max-width: 46rem;
+    .impact-band h2,
+    .impact-center h2,
+    .offer-intro h2,
+    .who-intro h2,
+    .faq-intro h2,
+    .closing h2 {
+      font-family: var(--serif);
+      font-size: clamp(2.1rem, 6vw, 4.1rem);
+      line-height: 1.04;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      text-wrap: balance;
+      max-width: 16ch;
+      margin-inline: auto;
     }
 
-    .center {
-      text-align: center;
+    .impact-center p,
+    .offer-intro p,
+    .who-intro p,
+    .faq-intro p,
+    .closing p {
+      margin: 18px auto 0;
+      max-width: 44rem;
+      color: var(--text-soft);
+      font-size: 0.98rem;
+      line-height: 1.75;
     }
 
-    .center p {
-      margin: 20px auto 0;
-      max-width: 46rem;
-    }
-
-    .grid {
+    .split-premium {
       display: grid;
-      gap: 18px;
-      margin-top: 40px;
+      grid-template-columns: 1fr;
+      gap: 22px;
+      align-items: stretch;
     }
 
-    .card {
-      padding: 30px 28px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
+    .visual-panel,
+    .text-panel {
+      position: relative;
+      border-radius: 26px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
       background:
-        linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.012));
+        linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015));
       box-shadow: var(--shadow);
-      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
-      text-align: left;
     }
 
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(255,255,255,0.15);
+    .visual-panel {
+      min-height: 360px;
+      isolation: isolate;
+      background-color: #030303;
+    }
+
+    .visual-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url('./obsidiana-detail.jpg');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.9) contrast(1.03) saturate(1);
+      transform: scale(1.03);
+      z-index: 0;
+    }
+
+    .visual-panel::after {
+      content: "";
+      position: absolute;
+      inset: 0;
       background:
-        linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.016));
+        radial-gradient(circle at 70% 22%, rgba(255,255,255,0.04), transparent 18%),
+        linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.16));
+      z-index: 1;
     }
 
-    .card small {
-      display: block;
-      margin-bottom: 10px;
-      font-size: 12px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.4);
-    }
-
-    .card h3 {
-      font-size: 2rem;
-      line-height: 1;
-      margin-bottom: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.01em;
-    }
-
-    .card p {
-      max-width: 34rem;
-    }
-
-    .statement-grid {
-      display: grid;
-      gap: 14px;
-      margin-top: 32px;
-    }
-
-    .statement {
-      padding: 18px 18px;
+    .visual-panel .floating-line {
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      bottom: 20px;
+      z-index: 2;
+      padding: 16px 18px;
       border-radius: 18px;
       border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.02);
-      text-align: left;
+      background: rgba(0,0,0,0.38);
+      backdrop-filter: blur(10px);
     }
 
-    .statement small {
+    .floating-line small {
       display: block;
       color: var(--text-faint);
       font-size: 0.68rem;
@@ -444,243 +437,108 @@
       margin-bottom: 8px;
     }
 
-    .statement p {
-      color: var(--text-soft);
-      line-height: 1.65;
-    }
-
-    .checklist-shell {
-      margin-top: 32px;
-      padding: 28px 22px;
-      text-align: left;
-    }
-
-    .checklist-intro {
-      display: block !important;
-      text-align: center;
-      max-width: 820px;
-      margin: 0 auto 24px;
-    }
-
-    .checklist-intro h3 {
-      font-size: clamp(1.9rem, 4vw, 2.8rem);
-      line-height: 1.02;
-      max-width: 12ch;
-      margin: 0 auto;
-    }
-
-    .checklist-intro p {
-      margin: 12px auto 0;
-      max-width: 46rem;
-    }
-
-    .checklist-list {
-      display: grid;
-      gap: 12px;
-      margin-top: 20px;
-    }
-
-    .check-item {
-      display: grid;
-      grid-template-columns: 22px 1fr;
-      gap: 14px;
-      align-items: start;
-      padding: 14px 14px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.015);
-      cursor: pointer;
-      transition: background 220ms ease, border-color 220ms ease, transform 220ms ease;
-      user-select: none;
-    }
-
-    .check-item:hover {
-      background: rgba(255,255,255,0.025);
-      border-color: rgba(255,255,255,0.12);
-      transform: translateY(-1px);
-    }
-
-    .check-item input {
-      position: absolute;
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .check-mark {
-      width: 22px;
-      height: 22px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.02);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 1px;
-      transition: all 220ms ease;
-      flex-shrink: 0;
-    }
-
-    .check-mark::after {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: transparent;
-      transition: background 220ms ease, transform 220ms ease;
-      transform: scale(0.7);
-    }
-
-    .check-text {
-      color: var(--text-soft);
-      line-height: 1.65;
-      font-size: 0.96rem;
-    }
-
-    .check-item.checked {
-      background: rgba(255,255,255,0.035);
-      border-color: rgba(255,255,255,0.16);
-    }
-
-    .check-item.checked .check-mark {
-      border-color: rgba(255,255,255,0.4);
-      background: rgba(255,255,255,0.06);
-    }
-
-    .check-item.checked .check-mark::after {
-      background: rgba(255,255,255,0.92);
-      transform: scale(1);
-    }
-
-    .check-actions {
-      margin-top: 18px;
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .check-actions .cta {
-      background: rgba(255,255,255,0.05);
-      border-color: rgba(255,255,255,0.18);
+    .floating-line p {
       color: var(--text);
+      font-family: var(--serif);
+      font-size: clamp(1.4rem, 4vw, 2.2rem);
+      line-height: 1.08;
+      letter-spacing: 0.01em;
+      font-weight: 600;
+      max-width: 18ch;
+      text-wrap: balance;
     }
 
-    .check-actions .cta:hover {
-      background: rgba(255,255,255,0.09);
-      border-color: rgba(255,255,255,0.24);
+    .text-panel {
+      padding: 26px 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
     }
 
-    .check-result {
-      display: none;
-      margin-top: 18px;
+    .text-panel h3 {
+      margin-top: 14px;
+      font-family: var(--serif);
+      font-size: clamp(1.9rem, 4.8vw, 3rem);
+      line-height: 1.08;
+      font-weight: 600;
+      max-width: 14ch;
+      text-wrap: balance;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .text-panel p {
+      color: var(--text-soft);
+      font-size: 0.96rem;
+      line-height: 1.8;
+    }
+
+    .text-panel p strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .text-blocks {
+      display: grid;
+      gap: 12px;
+    }
+
+    .micro-proof,
+    .who-grid,
+    .offer-grid,
+    .faq-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: 1fr;
+      margin-top: 32px;
+    }
+
+    .proof-card,
+    .who-card,
+    .offer-card,
+    .faq-item {
       padding: 16px 16px;
       border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.02);
-      color: var(--text-soft);
-      line-height: 1.7;
+      text-align: left;
     }
 
-    .check-result.show {
+    .proof-card small,
+    .who-card small,
+    .offer-card small,
+    .faq-item small {
       display: block;
-    }
-
-    .check-result strong {
-      color: var(--text);
-      font-weight: 600;
-    }
-
-    .check-cta {
-      display: none;
-      margin-top: 18px;
-      flex-wrap: wrap;
-      gap: 12px;
-      justify-content: center;
-    }
-
-    .check-cta.show {
-      display: flex;
-    }
-
-    .faq-shell {
-      margin-top: 32px;
-      padding: 18px;
-      text-align: left;
-    }
-
-    .faq-list {
-      display: grid;
-      gap: 12px;
-      margin-top: 10px;
-    }
-
-    .faq-item {
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px;
-      background: rgba(255,255,255,0.018);
-      overflow: hidden;
-    }
-
-    .faq-question {
-      width: 100%;
-      background: transparent;
-      color: var(--text);
-      border: none;
-      text-align: left;
-      padding: 18px 18px;
-      font: inherit;
-      font-weight: 500;
-      letter-spacing: 0.01em;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 18px;
-    }
-
-    .faq-question span:last-child {
       color: var(--text-faint);
-      font-size: 1.1rem;
-      transition: transform 220ms ease;
-      flex-shrink: 0;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
     }
 
-    .faq-item.active .faq-question span:last-child {
-      transform: rotate(45deg);
-    }
-
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 260ms ease;
-    }
-
-    .faq-answer-inner {
-      padding: 0 18px 18px;
+    .proof-card p,
+    .who-card p,
+    .offer-card p,
+    .faq-item p {
       color: var(--text-soft);
-      line-height: 1.72;
+      font-size: 0.9rem;
+      line-height: 1.6;
     }
 
-    .closing-panel {
-      padding: 40px 24px;
-      text-align: center;
-    }
-
-    .closing-panel p {
-      margin: 20px auto 0;
-      max-width: 42rem;
+    .closing-card {
+      padding: 34px 26px;
+      border-radius: 26px;
     }
 
     .closing-actions {
-      margin-top: 26px;
+      margin-top: 28px;
       display: flex;
       justify-content: center;
       gap: 12px;
       flex-wrap: wrap;
     }
 
-    .footer-note {
-      margin-top: 24px;
+    .closing-note {
+      margin-top: 26px;
       color: var(--text-faint);
       font-size: 0.74rem;
       letter-spacing: 0.18em;
@@ -698,68 +556,43 @@
       transform: translateY(0);
     }
 
-    @media (min-width: 768px) {
-      .grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .statement-grid {
-        grid-template-columns: 1fr 1fr 1fr;
-      }
-
-      .container {
-        width: min(calc(100% - 56px), var(--max));
-      }
-
-      .hero-copy {
-        padding: 26px 0 72px;
-      }
-
-      .section {
-        padding: 118px 0;
-      }
-
-      .panel,
-      .closing-panel,
-      .checklist-shell,
-      .faq-shell {
-        padding: 48px 36px;
-      }
+    @keyframes heroZoom {
+      0% { transform: scale(1.04); }
+      100% { transform: scale(1.08); }
     }
 
-    @media (max-width: 767px) {
-      .hero-bg {
-        background-position: 76% center;
-        transform: scale(1.02);
-      }
-
-      .hero-overlay {
-        background:
-          radial-gradient(circle at 62% 20%, rgba(255,255,255,0.08), transparent 16%),
-          linear-gradient(180deg, rgba(0,0,0,0.44) 0%, rgba(0,0,0,0.74) 34%, rgba(0,0,0,0.88) 100%),
-          linear-gradient(90deg, rgba(0,0,0,0.84) 0%, rgba(0,0,0,0.54) 46%, rgba(0,0,0,0.34) 100%);
-      }
-
+    @media (max-width: 759px) {
       .hero-title {
-        font-size: clamp(2.5rem, 10vw, 4rem);
-        line-height: 0.94;
+        font-size: clamp(2.2rem, 9vw, 3.4rem);
+        line-height: 0.95;
         letter-spacing: -0.03em;
+        max-width: 100%;
       }
 
       .hero-title span {
         white-space: normal;
       }
 
-      .hero-kicker,
-      .hero-body,
-      .hero-note {
-        max-width: 100%;
+      .hero-actions,
+      .closing-actions {
+        flex-direction: column;
+        align-items: stretch;
       }
 
-      .hero-info-line {
-        gap: 6px;
-        font-size: 0.8rem;
-        line-height: 1.5;
+      .button-primary,
+      .button-secondary {
+        width: 100%;
+      }
+
+      .hero-description,
+      .hero-subpressure,
+      .impact-center p,
+      .offer-intro p,
+      .who-intro p,
+      .faq-intro p,
+      .closing p {
+        font-size: 0.98rem;
+        line-height: 1.7;
       }
 
       .ghost-band {
@@ -773,23 +606,97 @@
 
       .ghost-track span {
         font-size: 0.82rem;
-        letter-spacing: 0.18em;
+        letter-spacing: 0.16em;
         color: rgba(255,255,255,0.038);
       }
 
-      .hero-actions,
-      .check-actions,
-      .check-cta,
-      .closing-actions {
-        flex-direction: column;
+      .impact-band h2,
+      .impact-center h2,
+      .offer-intro h2,
+      .who-intro h2,
+      .faq-intro h2,
+      .closing h2 {
+        max-width: 13ch;
+        font-size: clamp(1.9rem, 8vw, 2.6rem);
+        line-height: 1.08;
       }
 
-      .cta {
-        width: 100%;
+      .text-panel h3 {
+        max-width: 12ch;
+        font-size: clamp(1.7rem, 7vw, 2.2rem);
+        line-height: 1.08;
       }
 
-      .faq-question {
-        align-items: flex-start;
+      .floating-line p {
+        max-width: 14ch;
+      }
+
+      .hero-meta-line .sep {
+        margin: 0 4px;
+      }
+    }
+
+    @media (min-width: 760px) {
+      .container {
+        width: min(calc(100% - 56px), var(--max));
+      }
+
+      .hero-copy {
+        padding: 26px 0 68px;
+      }
+
+      .hero-bg {
+        animation: heroZoom 18s ease-in-out infinite alternate;
+      }
+
+      .impact-band {
+        padding: 38px 36px;
+      }
+
+      .split-premium {
+        grid-template-columns: 1.04fr 0.96fr;
+        gap: 20px;
+      }
+
+      .text-panel {
+        padding: 36px 30px;
+      }
+
+      .micro-proof,
+      .who-grid,
+      .faq-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .offer-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .section {
+        padding: 118px 0;
+      }
+    }
+
+    @media (min-width: 1100px) {
+      .hero-title {
+        font-size: clamp(4.8rem, 7vw, 6.8rem);
+      }
+
+      .hero-description,
+      .closing p,
+      .impact-center p,
+      .offer-intro p,
+      .who-intro p,
+      .faq-intro p {
+        font-size: 1.03rem;
+      }
+
+      .text-panel {
+        padding: 42px 36px;
+      }
+
+      .visual-panel {
+        min-height: 520px;
       }
     }
 
@@ -804,53 +711,57 @@
 </head>
 <body>
   <div class="noise"></div>
-  <div class="vignette"></div>
+  <div class="page-vignette"></div>
 
   <main>
     <section class="hero" id="topo">
       <div class="hero-bg"></div>
       <div class="hero-overlay"></div>
-      <div class="hero-depth"></div>
-      <div class="hero-glow"></div>
       <div class="hero-fade"></div>
 
       <div class="container hero-grid">
         <div class="hero-copy fade-up">
-          <div class="eyebrow">Obsidian Method</div>
+          <div class="eyebrow">O Código da Percepção</div>
 
           <h1 class="hero-title">
             <span>VOCÊ NÃO ESTÁ</span>
             <span>SENDO MAL PAGO.</span>
-            <span>ESTÁ SENDO</span>
-            <span>MAL INTERPRETADO.</span>
+            <span>VOCÊ ESTÁ</span>
+            <span>SENDO MAL PERCEBIDO.</span>
           </h1>
 
-          <p class="hero-kicker">
-            O mercado te lê antes de te ouvir — e essa leitura define o valor que atribuem a você antes mesmo da sua entrega ser avaliada.
+          <p class="hero-description">
+            O Código da Percepção mostra como o mercado interpreta o seu valor antes mesmo da sua entrega ser avaliada — e quais sinais fazem você ser lido acima ou abaixo do que realmente entrega.
           </p>
 
-          <p class="hero-body">
-            O Obsidian Method foi criado para identificar e corrigir os sinais que fazem você ser percebido abaixo do que realmente entrega, alinhando sua presença ao valor, à autoridade e ao posicionamento que seu trabalho exige.
+          <p class="hero-subpressure">
+            Essa é a porta de entrada para quem precisa entender a lógica invisível da percepção antes de partir para uma correção mais profunda.
           </p>
 
-          <div class="hero-info-line">
-            <span>Método digital</span>
+          <div class="hero-meta-line">
+            <span>Produto digital</span>
             <span class="sep">|</span>
             <span>Acesso imediato</span>
             <span class="sep">|</span>
-            <span>Garantia de 7 dias</span>
+            <span>R$ 47</span>
             <span class="sep">|</span>
-            <span>R$ 697 à vista ou 12x</span>
+            <span>Garantia de 7 dias</span>
           </div>
 
           <div class="hero-actions">
-            <a href="https://pay.kiwify.com.br/gc4afe1" class="cta" target="_blank" rel="noopener noreferrer">ENTRAR NO OBSIDIAN</a>
-            <a href="#recebe" class="cta soft">VER O QUE VOCÊ RECEBE</a>
-          </div>
+            <a
+              href="https://pay.kiwify.com.br/0gcrvZb"
+              class="button-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Entrar no código
+            </a>
 
-          <p class="hero-note">
-            Este não é um método para parecer mais sofisticado. É um método para entender como sua presença está sendo lida, corrigir incoerências e parar de sustentar no argumento o que já deveria ser concluído antes da conversa existir.
-          </p>
+            <a href="#estrutura" class="button-secondary">
+              Ver estrutura
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -858,459 +769,223 @@
     <div class="ghost-band" aria-hidden="true">
       <div class="ghost-track">
         <span>PERCEPÇÃO</span>
-        <span>DENSIDADE</span>
-        <span>SOBERANIA</span>
         <span>LEITURA</span>
-        <span>PRESENÇA</span>
         <span>VALOR</span>
+        <span>CLAREZA</span>
+        <span>PRESENÇA</span>
+        <span>COERÊNCIA</span>
         <span>PERCEPÇÃO</span>
-        <span>DENSIDADE</span>
-        <span>SOBERANIA</span>
         <span>LEITURA</span>
-        <span>PRESENÇA</span>
         <span>VALOR</span>
+        <span>CLAREZA</span>
+        <span>PRESENÇA</span>
+        <span>COERÊNCIA</span>
       </div>
     </div>
 
-    <section class="section center">
+    <section class="section">
       <div class="container fade-up">
-        <div class="panel">
-          <h2>
-            O seu problema não é falta de competência.
-          </h2>
-
-          <p>
-            É a distância entre o que você realmente entrega e o que a sua presença faz o mercado concluir sobre você.
-          </p>
+        <div class="impact-band">
+          <h2>Existe uma lógica por trás da forma como você é lido.</h2>
         </div>
       </div>
     </section>
 
-    <section class="section center" id="checklist">
-      <div class="container fade-up">
-        <div class="eyebrow" style="justify-content:center;">Diagnóstico</div>
-        <h2 style="margin-top:14px;">
-          Faça uma leitura rápida da sua percepção atual.
-        </h2>
-
+    <section class="section">
+      <div class="container impact-center fade-up">
+        <div class="eyebrow" style="justify-content:center;">O problema</div>
+        <h2>Seu valor pode estar sendo reduzido antes da conversa começar.</h2>
         <p>
-          Isso leva menos de 30 segundos. Mas pode revelar por que sua autoridade ainda não está sendo assumida com a força que deveria.
+          O mercado reage a sinais. Forma uma leitura. E só depois usa lógica para justificar a decisão. É por isso que tanta gente competente continua sendo percebida abaixo do que realmente entrega.
         </p>
+      </div>
+    </section>
 
-        <div class="checklist-shell">
-          <div class="checklist-intro">
-            <h3>Marque apenas o que já é verdade sem esforço.</h3>
-            <p>Não marque o que você gostaria que fosse verdade. Marque apenas o que já acontece sem explicação excessiva, insistência ou tentativa de provar valor.</p>
+    <section class="section">
+      <div class="container split-premium">
+        <div class="visual-panel fade-up">
+          <div class="floating-line">
+            <small>Leitura central</small>
+            <p>Você não precisa adivinhar por que sua presença ainda não sustenta seu valor.</p>
+          </div>
+        </div>
+
+        <div class="text-panel fade-up" id="estrutura">
+          <div>
+            <div class="eyebrow">O que é</div>
+            <h3>Uma leitura inicial para entender o erro antes de tentar corrigi-lo.</h3>
           </div>
 
-          <div class="checklist-list">
-            <label class="check-item">
-              <input type="checkbox" />
-              <span class="check-mark"></span>
-              <span class="check-text">As pessoas entendem seu nível rapidamente, sem você precisar justificar muito.</span>
-            </label>
+          <div class="text-blocks">
+            <p>
+              O Código da Percepção não é o método completo. Ele é a entrada para quem precisa primeiro enxergar com clareza o que está acontecendo.
+            </p>
 
-            <label class="check-item">
-              <input type="checkbox" />
-              <span class="check-mark"></span>
-              <span class="check-text">Seu preço raramente vira discussão, comparação ou pedido de desconto.</span>
-            </label>
+            <p>
+              Ele organiza a lógica da percepção de valor, mostra como essa leitura acontece e ajuda você a reconhecer os sinais que hoje podem estar reduzindo sua presença no mercado.
+            </p>
 
-            <label class="check-item">
-              <input type="checkbox" />
-              <span class="check-mark"></span>
-              <span class="check-text">Sua presença transmite clareza, critério e segurança no primeiro contato.</span>
-            </label>
-
-            <label class="check-item">
-              <input type="checkbox" />
-              <span class="check-mark"></span>
-              <span class="check-text">Você não sente necessidade de convencer demais para ser levado a sério.</span>
-            </label>
-
-            <label class="check-item">
-              <input type="checkbox" />
-              <span class="check-mark"></span>
-              <span class="check-text">Sua comunicação sustenta autoridade em vez de pedir validação.</span>
-            </label>
+            <p>
+              <strong>Ele não substitui o Obsidian Method.</strong> Ele prepara o terreno para que a correção depois faça sentido.
+            </p>
           </div>
 
-          <div class="check-actions">
-            <button class="cta" id="diagnosisButton" type="button">VER MEU DIAGNÓSTICO</button>
-          </div>
+          <div class="micro-proof">
+            <div class="proof-card">
+              <small>O que ele faz</small>
+              <p>Explica a lógica da leitura de valor e revela onde sua percepção atual pode estar falhando.</p>
+            </div>
 
-          <div class="check-result" id="checkResult"></div>
-
-          <div class="check-cta" id="checkCta">
-            <a href="https://pay.kiwify.com.br/gc4afe1" class="cta" target="_blank" rel="noopener noreferrer">CORRIGIR MINHA LEITURA</a>
+            <div class="proof-card">
+              <small>O que ele não faz</small>
+              <p>Não promete reposicionamento completo. Ele entrega entendimento, não implementação profunda.</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section center">
-      <div class="container fade-up">
-        <div class="panel">
-          <div class="eyebrow" style="justify-content:center;">O custo</div>
-          <h2 style="margin-top:14px;">
-            Quando a leitura está errada, o esforço precisa compensar o que a presença não sustenta.
-          </h2>
-
-          <p>
-            Você trabalha mais para justificar. Explica mais para convencer. Entrega mais para tentar sustentar um valor que deveria ser percebido antes do discurso.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section center">
-      <div class="container fade-up">
-        <div class="eyebrow" style="justify-content:center;">Revelação</div>
-        <h2 style="margin-top:14px;">
-          O cliente não decide depois de entender você.
-        </h2>
-
-        <p>
-          Ele interpreta sinais, forma uma leitura e só depois usa lógica para justificar a decisão. É por isso que tanta gente competente continua sendo tratada como opção — e não como escolha óbvia.
-        </p>
-
-        <div class="statement-grid">
-          <div class="statement">
-            <small>Primeiro</small>
-            <p>O mercado capta sinais silenciosos de presença, clareza, ritmo, critério e controle.</p>
-          </div>
-
-          <div class="statement">
-            <small>Depois</small>
-            <p>Forma uma conclusão sobre seu valor antes da sua explicação começar.</p>
-          </div>
-
-          <div class="statement">
-            <small>Resultado</small>
-            <p>Seu preço, sua autoridade e seu nível passam a ser aceitos… ou questionados.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section center">
-      <div class="container fade-up">
-        <div class="eyebrow" style="justify-content:center;">O método</div>
-        <h2 style="margin-top:14px;">
-          O Obsidian não ensina você a vender melhor.
-        </h2>
-
-        <p>
-          Ele corrige a estrutura invisível que define como você é lido antes da venda existir.
-        </p>
-
-        <div class="grid">
-          <div class="card">
-            <small>Eixo 1</small>
-            <h3>Percepção</h3>
-            <p>Você entende como sua presença está sendo lida hoje e onde essa leitura ainda reduz seu valor percebido.</p>
-          </div>
-
-          <div class="card">
-            <small>Eixo 2</small>
-            <h3>Densidade</h3>
-            <p>Você aprende a substituir ruído, excesso e tentativa por mais critério, presença e consistência.</p>
-          </div>
-
-          <div class="card">
-            <small>Eixo 3</small>
-            <h3>Soberania</h3>
-            <p>Você para de colapsar em objeção, comparação e pressão e passa a sustentar posição com mais clareza.</p>
-          </div>
-
-          <div class="card">
-            <small>Eixo 4</small>
-            <h3>Correção</h3>
-            <p>Você reorganiza sinais de presença, comunicação e posicionamento para que preço e autoridade pareçam coerentes.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section center" id="recebe">
-      <div class="container fade-up">
+    <section class="section">
+      <div class="container offer-intro fade-up">
         <div class="eyebrow" style="justify-content:center;">O que você recebe</div>
-        <h2 style="margin-top:14px;">
-          Um método para diagnosticar, corrigir e sustentar percepção de valor com mais coerência.
-        </h2>
-
+        <h2>Uma porta de entrada clara para entender sua leitura no mercado.</h2>
         <p>
-          O Obsidian Method não entrega frases prontas nem estética vazia. Ele entrega uma estrutura para revisar os sinais que compõem sua leitura no mercado e corrigir o que hoje enfraquece sua autoridade.
+          O Código foi construído para dar clareza rápida. Ele revela a lógica do problema, organiza o raciocínio e mostra o que pode estar enfraquecendo sua percepção de valor hoje.
         </p>
 
-        <div class="grid">
-          <div class="card">
+        <div class="offer-grid">
+          <div class="offer-card">
             <small>Inclui</small>
-            <h3>Diagnóstico</h3>
-            <p>Leitura dos sinais que hoje fazem sua presença ser percebida abaixo do que realmente entrega.</p>
+            <p>Uma introdução clara à lógica invisível da percepção de valor.</p>
           </div>
 
-          <div class="card">
+          <div class="offer-card">
             <small>Inclui</small>
-            <h3>Correção</h3>
-            <p>Direção prática para ajustar incoerências entre imagem, comunicação, presença e posicionamento.</p>
+            <p>Critérios para entender como o mercado pode estar interpretando sua presença antes da sua explicação.</p>
           </div>
 
-          <div class="card">
+          <div class="offer-card">
             <small>Inclui</small>
-            <h3>Estrutura</h3>
-            <p>Uma lógica clara para entender o que sustenta autoridade e o que reduz valor percebido no primeiro contato.</p>
+            <p>Reconhecimento dos sinais que fazem você ser lido acima ou abaixo do que realmente entrega.</p>
           </div>
 
-          <div class="card">
+          <div class="offer-card">
             <small>Inclui</small>
-            <h3>Aplicação</h3>
-            <p>Critérios para parar de compensar com explicação o que já deveria estar sendo lido com clareza antes da conversa.</p>
+            <p>Mais clareza para diferenciar competência real de valor percebido.</p>
+          </div>
+
+          <div class="offer-card">
+            <small>Inclui</small>
+            <p>Uma estrutura inicial para parar de confundir esforço com percepção de autoridade.</p>
+          </div>
+
+          <div class="offer-card">
+            <small>Inclui</small>
+            <p>Base conceitual para quem depois quiser aprofundar a correção no Obsidian Method.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section center">
-      <div class="container fade-up">
-        <div class="eyebrow" style="justify-content:center;">Transformação</div>
-        <h2 style="margin-top:14px;">
-          Você para de explicar o que deveria ser concluído.
-        </h2>
-
-        <p>
-          A proposta do Obsidian não é prometer reação externa garantida. É fazer você entender como está sendo percebido, identificar os sinais que reduzem seu valor e corrigir essa leitura com mais coerência, clareza e autoridade no mercado.
-        </p>
-
-        <div class="statement-grid">
-          <div class="statement">
-            <small>Antes</small>
-            <p>Seu valor depende de contexto, justificativa e defesa constante.</p>
-          </div>
-
-          <div class="statement">
-            <small>Depois</small>
-            <p>Sua presença passa a sustentar melhor sua leitura com mais clareza antes da conversa.</p>
-          </div>
-
-          <div class="statement">
-            <small>Efeito</small>
-            <p>Preço, respeito e autoridade deixam de depender apenas do seu esforço para serem considerados.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section center">
-      <div class="container fade-up">
+    <section class="section">
+      <div class="container who-intro fade-up">
         <div class="eyebrow" style="justify-content:center;">Para quem é</div>
-        <h2 style="margin-top:14px;">
-          Para quem já tem competência, mas ainda não sustenta a leitura que deveria.
-        </h2>
-
+        <h2>Para quem sente que está sendo lido abaixo do que realmente vale.</h2>
         <p>
-          O Obsidian foi pensado para profissionais, especialistas, executivos, consultores e empreendedores que já têm entrega real, mas percebem que sua imagem, presença e comunicação ainda não sustentam o valor que poderiam ocupar no mercado.
+          O Código da Percepção foi pensado para profissionais, especialistas, consultores e empreendedores que já têm entrega real, mas ainda não entendem com clareza por que sua presença não sustenta o valor que poderia sustentar.
         </p>
 
-        <div class="grid">
-          <div class="card">
+        <div class="who-grid">
+          <div class="who-card">
             <small>Cenário 1</small>
-            <p>Você sente que entrega mais do que recebe e continua sendo comparado a profissionais medianos.</p>
+            <p>Você sente que entrega mais do que recebe, mas ainda não entendeu exatamente onde a leitura está falhando.</p>
           </div>
 
-          <div class="card">
+          <div class="who-card">
             <small>Cenário 2</small>
-            <p>Você percebe que precisa justificar demais seu valor, seu preço ou seu nível para ser levado a sério.</p>
+            <p>Você sabe que existe um problema de percepção, mas ainda não consegue nomeá-lo com clareza.</p>
           </div>
 
-          <div class="card">
+          <div class="who-card">
             <small>Cenário 3</small>
-            <p>Você sabe que tem profundidade, mas o mercado ainda lê sua presença abaixo do que ela realmente vale.</p>
+            <p>Você quer uma entrada mais acessível antes de ir para uma implementação mais profunda.</p>
           </div>
 
-          <div class="card">
+          <div class="who-card">
             <small>Cenário 4</small>
-            <p>Você quer parar de compensar com esforço o que já deveria estar sendo concluído pela sua presença.</p>
+            <p>Você quer entender a lógica antes de corrigir a estrutura completa.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section center">
-      <div class="container fade-up">
-        <div class="eyebrow" style="justify-content:center;">Para quem não é</div>
-        <h2 style="margin-top:14px;">
-          O Obsidian não é para quem busca truque superficial.
-        </h2>
-
-        <div class="grid">
-          <div class="card">
-            <small>Não é</small>
-            <p>Para quem procura atalhos estéticos, fórmulas rasas de parecer mais sofisticado ou uma fachada sem consistência real.</p>
-          </div>
-
-          <div class="card">
-            <small>Não é</small>
-            <p>Para quem espera que apenas aparência resolva sozinho um problema de percepção, autoridade e posicionamento.</p>
-          </div>
-
-          <div class="card">
-            <small>Não é</small>
-            <p>Para quem quer validação rápida sem profundidade, critério, coerência e reposicionamento real.</p>
-          </div>
-
-          <div class="card">
-            <small>Não é</small>
-            <p>Para quem quer apenas parecer mais caro sem revisar os sinais que hoje sabotam a própria leitura no mercado.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section center">
-      <div class="container fade-up">
-        <div class="panel">
-          <div class="eyebrow" style="justify-content:center;">Garantia</div>
-          <h2 style="margin-top:14px;">
-            Você terá 7 dias para avaliar o método.
-          </h2>
-
-          <p>
-            Se dentro desse período você entender que o Obsidian Method não faz sentido para o seu momento, poderá solicitar o reembolso dentro do prazo.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section center" id="faq">
-      <div class="container fade-up">
+    <section class="section">
+      <div class="container faq-intro fade-up">
         <div class="eyebrow" style="justify-content:center;">Perguntas frequentes</div>
-        <h2 style="margin-top:14px;">
-          O que precisa estar claro antes da sua decisão.
-        </h2>
+        <h2>O que precisa ficar claro antes da sua entrada.</h2>
+        <p>
+          O Código da Percepção é a porta de entrada. Ele revela o problema com clareza — não tenta fingir que já é a correção completa.
+        </p>
 
-        <div class="faq-shell">
-          <div class="faq-list">
-            <div class="faq-item active">
-              <button class="faq-question" type="button">
-                <span>O que é o Obsidian Method?</span>
-                <span>+</span>
-              </button>
-              <div class="faq-answer" style="max-height: 240px;">
-                <div class="faq-answer-inner">
-                  O Obsidian Method é um método de percepção, posicionamento e correção de sinais. Ele foi criado para ajudar profissionais a entender como estão sendo lidos pelo mercado, identificar o que reduz seu valor percebido e corrigir essa leitura com mais coerência, clareza e autoridade.
-                </div>
-              </div>
-            </div>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <small>Pergunta 1</small>
+            <p>O que é o Código da Percepção? É uma entrada para entender como a leitura de valor acontece e onde sua presença pode estar sendo interpretada abaixo do que realmente entrega.</p>
+          </div>
 
-            <div class="faq-item">
-              <button class="faq-question" type="button">
-                <span>O que eu recebo ao entrar?</span>
-                <span>+</span>
-              </button>
-              <div class="faq-answer">
-                <div class="faq-answer-inner">
-                  Você recebe acesso ao método em formato digital, com estrutura voltada para diagnóstico, leitura de sinais, correção de incoerências e alinhamento entre presença, comunicação e posicionamento.
-                </div>
-              </div>
-            </div>
+          <div class="faq-item">
+            <small>Pergunta 2</small>
+            <p>Isso substitui o Obsidian Method? Não. O Código mostra e organiza o problema. O Obsidian corrige e aprofunda a estrutura.</p>
+          </div>
 
-            <div class="faq-item">
-              <button class="faq-question" type="button">
-                <span>Isso é para quem está começando?</span>
-                <span>+</span>
-              </button>
-              <div class="faq-answer">
-                <div class="faq-answer-inner">
-                  Não necessariamente. O Obsidian foi pensado principalmente para quem já tem competência, entrega ou repertório, mas percebe que ainda não sustenta isso na forma como é lido pelo mercado.
-                </div>
-              </div>
-            </div>
+          <div class="faq-item">
+            <small>Pergunta 3</small>
+            <p>É para quem está começando? Também. Mas funciona especialmente para quem já tem entrega e ainda não entende por que não sustenta o valor que poderia sustentar.</p>
+          </div>
 
-            <div class="faq-item">
-              <button class="faq-question" type="button">
-                <span>Isso é sobre imagem ou sobre posicionamento?</span>
-                <span>+</span>
-              </button>
-              <div class="faq-answer">
-                <div class="faq-answer-inner">
-                  Os dois, mas não de forma superficial. O foco do Obsidian não é parecer mais sofisticado. É entender como sua presença comunica valor, autoridade e coerência — e corrigir o que hoje enfraquece essa leitura.
-                </div>
-              </div>
-            </div>
+          <div class="faq-item">
+            <small>Pergunta 4</small>
+            <p>O acesso é imediato? Sim. Após a confirmação da compra, o acesso é liberado no ambiente do produto.</p>
+          </div>
 
-            <div class="faq-item">
-              <button class="faq-question" type="button">
-                <span>Preciso trabalhar com redes sociais para isso fazer sentido?</span>
-                <span>+</span>
-              </button>
-              <div class="faq-answer">
-                <div class="faq-answer-inner">
-                  Não. O método não depende de Instagram ou produção de conteúdo. Ele faz sentido para qualquer profissional ou empreendedor cuja percepção de valor influencie preço, autoridade, confiança e posicionamento.
-                </div>
-              </div>
-            </div>
+          <div class="faq-item">
+            <small>Pergunta 5</small>
+            <p>Existe garantia? Sim. Você terá 7 dias de garantia para avaliar se o Código da Percepção faz sentido para o seu momento.</p>
+          </div>
 
-            <div class="faq-item">
-              <button class="faq-question" type="button">
-                <span>O acesso é imediato?</span>
-                <span>+</span>
-              </button>
-              <div class="faq-answer">
-                <div class="faq-answer-inner">
-                  Sim. Após a confirmação da compra, o acesso é liberado no ambiente do produto.
-                </div>
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <button class="faq-question" type="button">
-                <span>Existe garantia?</span>
-                <span>+</span>
-              </button>
-              <div class="faq-answer">
-                <div class="faq-answer-inner">
-                  Sim. Você terá 7 dias de garantia para avaliar se o Obsidian Method faz sentido para o seu momento. Dentro desse prazo, poderá solicitar reembolso.
-                </div>
-              </div>
-            </div>
+          <div class="faq-item">
+            <small>Pergunta 6</small>
+            <p>Esse produto é para parecer mais sofisticado? Não. É para entender como sua presença está sendo lida e por que isso afeta seu valor percebido.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section center">
-      <div class="container fade-up">
-        <div class="panel">
-          <div class="eyebrow" style="justify-content:center;">A decisão</div>
-          <h2 style="margin-top:14px;">
-            Você pode continuar tentando convencer.
-          </h2>
-
+    <section class="section">
+      <div class="container closing fade-up">
+        <div class="closing-card">
+          <div class="eyebrow" style="justify-content:center;">Decisão</div>
+          <h2>Você pode continuar tentando adivinhar. Ou pode começar entendendo.</h2>
           <p>
-            Ou pode corrigir a estrutura que está fazendo o mercado decidir abaixo do que você vale antes mesmo da conversa começar.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section center">
-      <div class="container fade-up">
-        <div class="closing-panel">
-          <h2>
-            Continuar sem corrigir a leitura custa mais do que parece.
-          </h2>
-
-          <p>
-            Custa autoridade. Custa preço. Custa energia. Custa tempo tentando sustentar no argumento o que já deveria ser percebido antes da explicação existir.
+            O Código da Percepção foi criado para quem precisa clareza antes de profundidade. Primeiro você entende a lógica. Depois decide se quer apenas enxergar melhor — ou corrigir isso em outro nível.
           </p>
 
           <div class="closing-actions">
-            <a href="https://pay.kiwify.com.br/gc4afe1" class="cta" target="_blank" rel="noopener noreferrer">ENTRAR NO OBSIDIAN</a>
-            <a href="#recebe" class="cta soft">VER O QUE VOCÊ RECEBE</a>
+            <a
+              href="https://pay.kiwify.com.br/0gcrvZb"
+              class="button-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Entrar no código
+            </a>
+
+            <a href="#topo" class="button-secondary">
+              Reler do início
+            </a>
           </div>
 
-          <div class="footer-note">Obsidian Method</div>
+          <div class="closing-note">O Código da Percepção</div>
         </div>
       </div>
     </section>
@@ -1319,72 +994,13 @@
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) entry.target.classList.add("visible");
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
       });
     }, { threshold: 0.14 });
 
     document.querySelectorAll(".fade-up").forEach((el) => observer.observe(el));
-
-    const checklistItems = document.querySelectorAll('.check-item');
-    const checklistInputs = document.querySelectorAll('.check-item input');
-    const diagnosisButton = document.getElementById('diagnosisButton');
-    const resultBox = document.getElementById('checkResult');
-    const checkCta = document.getElementById('checkCta');
-
-    function syncChecklistVisual() {
-      checklistItems.forEach((item) => {
-        const input = item.querySelector('input');
-        item.classList.toggle('checked', input.checked);
-      });
-    }
-
-    checklistInputs.forEach((input) => {
-      input.addEventListener('change', syncChecklistVisual);
-    });
-
-    syncChecklistVisual();
-
-    diagnosisButton.addEventListener('click', () => {
-      let checked = 0;
-
-      checklistItems.forEach((item) => {
-        const input = item.querySelector('input');
-        if (input.checked) checked++;
-      });
-
-      if (checked <= 2) {
-        resultBox.innerHTML = '<strong>Diagnóstico:</strong> sua percepção provavelmente não está sustentando seu valor. O problema não parece ser falta de esforço. Parece ser leitura errada.';
-      } else if (checked === 3) {
-        resultBox.innerHTML = '<strong>Diagnóstico:</strong> existe base, mas sua leitura ainda parece instável. Você já tem parte da estrutura, mas ainda não sustenta o valor com consistência.';
-      } else {
-        resultBox.innerHTML = '<strong>Diagnóstico:</strong> você já sustenta parte importante da leitura correta. O Obsidian pode aprofundar isso e transformar estabilidade em domínio.';
-      }
-
-      resultBox.classList.add('show');
-      checkCta.classList.add('show');
-      resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    });
-
-    const faqItems = document.querySelectorAll('.faq-item');
-
-    faqItems.forEach((item) => {
-      const button = item.querySelector('.faq-question');
-      const answer = item.querySelector('.faq-answer');
-
-      button.addEventListener('click', () => {
-        const isActive = item.classList.contains('active');
-
-        faqItems.forEach((otherItem) => {
-          otherItem.classList.remove('active');
-          otherItem.querySelector('.faq-answer').style.maxHeight = null;
-        });
-
-        if (!isActive) {
-          item.classList.add('active');
-          answer.style.maxHeight = answer.scrollHeight + 'px';
-        }
-      });
-    });
   </script>
 </body>
 </html>
