@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Studio Iluminus</title>
+  <meta
+    name="description"
+    content="O Studio Iluminus corrige a forma como o mercado lê você antes de qualquer explicação. Um ecossistema para quem não quer mais ser interpretado abaixo do que vale."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #000000;
+      --text: #f4efe7;
+      --text-soft: rgba(244,239,231,0.72);
+      --text-dim: rgba(244,239,231,0.56);
+      --text-faint: rgba(244,239,231,0.38);
+      --line: rgba(255,255,255,0.08);
+      --radius: 22px;
+      --radius-lg: 28px;
+      --shadow: 0 22px 70px rgba(0,0,0,0.42);
+      --serif: "Cormorant Garamond", serif;
+      --sans: "DM Sans", sans-serif;
+      --max: 1180px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      overflow-x: clip;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 82% 10%, rgba(255,255,255,0.04), transparent 18%),
+        radial-gradient(circle at 16% 42%, rgba(255,255,255,0.02), transparent 18%),
+        linear-gradient(180deg, #020202 0%, #000000 100%);
+      color: var(--text);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .noise {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 100;
+      opacity: 0.02;
+      background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    .vignette {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      box-shadow: inset 0 0 170px rgba(0,0,0,0.54);
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .section {
+      position: relative;
+      padding: 104px 0;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+
+    h1, h2, h3 {
+      font-family: var(--serif);
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+
+    h2 {
+      font-size: clamp(2.2rem, 7vw, 4.3rem);
+      line-height: 1.02;
+      max-width: 11ch;
+      margin-inline: auto;
+    }
+
+    p {
+      color: var(--text-soft);
+      line-height: 1.78;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.72rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      font-weight: 500;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: var(--line);
+      display: block;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      border-top: none;
+      isolation: isolate;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('./obsidiana-hero.jpg');
+      background-size: cover;
+      background-position: 72% center;
+      filter: brightness(0.66) contrast(1.05) saturate(0.95);
+      transform: scale(1.035);
+      z-index: 0;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        radial-gradient(circle at 70% 26%, rgba(255,255,255,0.06), transparent 16%),
+        linear-gradient(90deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.34) 40%, rgba(0,0,0,0.12) 100%),
+        linear-gradient(180deg, rgba(0,0,0,0.06) 0%, rgba(0,0,0,0.48) 100%);
+    }
+
+    .hero-depth {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.08) 44%, rgba(0,0,0,0.28) 100%);
+    }
+
+    .hero-glow {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 63% 29%, rgba(255,255,255,0.05), transparent 10%),
+        radial-gradient(circle at 69% 46%, rgba(120,140,255,0.03), transparent 18%);
+      filter: blur(16px);
+      opacity: 0.55;
+    }
+
+    .hero-fade {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 180px;
+      z-index: 1;
+      background: linear-gradient(to bottom, transparent, #000 82%);
+    }
+
+    .hero-grid {
+      min-height: 100vh;
+      display: grid;
+      align-items: end;
+      padding: 26px 0 28px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-copy {
+      max-width: 980px;
+      padding: 24px 0 64px;
+    }
+
+    .hero-title {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+      font-size: clamp(2.8rem, 6vw, 6rem);
+      line-height: 0.95;
+      letter-spacing: -0.035em;
+      text-transform: uppercase;
+      text-shadow:
+        0 0 12px rgba(255,255,255,0.05),
+        0 10px 34px rgba(0,0,0,0.46);
+      max-width: 12ch;
+    }
+
+    .hero-title span {
+      display: block;
+    }
+
+    .hero-title .muted {
+      color: rgba(244,239,231,0.72);
+      margin-top: 10px;
+    }
+
+    .hero-kicker {
+      margin-top: 20px;
+      max-width: 40rem;
+      color: var(--text);
+      font-size: 1.02rem;
+      line-height: 1.62;
+    }
+
+    .hero-body {
+      margin-top: 16px;
+      max-width: 41rem;
+      font-size: 1rem;
+    }
+
+    .hero-micro {
+      margin-top: 14px;
+      max-width: 36rem;
+      font-size: 0.86rem;
+      line-height: 1.6;
+      color: rgba(244,239,231,0.52);
+    }
+
+    .hero-actions {
+      margin-top: 28px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 20px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      transition: transform .22s ease, background .22s ease, border-color .22s ease;
+      background: rgba(255,255,255,0.03);
+      cursor: pointer;
+    }
+
+    .cta:hover {
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,0.24);
+    }
+
+    .cta.soft {
+      border-color: rgba(255,255,255,0.08);
+      color: var(--text-soft);
+      background: rgba(255,255,255,0.015);
+    }
+
+    .cta.soft:hover {
+      border-color: rgba(255,255,255,0.12);
+      color: var(--text);
+    }
+
+    .ghost-band {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      overflow: hidden;
+      border-top: 1px solid rgba(255,255,255,0.03);
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+      padding: 14px 0;
+      background: linear-gradient(
+        180deg,
+        rgba(255,255,255,0.006),
+        rgba(255,255,255,0.002)
+      );
+    }
+
+    .ghost-track {
+      display: flex;
+      align-items: center;
+      gap: 44px;
+      width: max-content;
+      animation: ghostScroll 42s linear infinite;
+      will-change: transform;
+    }
+
+    .ghost-track span {
+      font-size: clamp(0.85rem, 2vw, 1.02rem);
+      font-weight: 500;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.032);
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    @keyframes ghostScroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-33.333%); }
+    }
+
+    .panel,
+    .closing-panel {
+      border: 1px solid rgba(255,255,255,0.08);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015));
+      box-shadow: var(--shadow);
+      border-radius: var(--radius-lg);
+      text-align: center;
+    }
+
+    .panel {
+      padding: 36px 24px;
+    }
+
+    .panel p {
+      margin: 20px auto 0;
+      max-width: 46rem;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .center p {
+      margin: 20px auto 0;
+      max-width: 46rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 18px;
+      margin-top: 40px;
+    }
+
+    .card {
+      padding: 30px 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.012));
+      box-shadow: var(--shadow);
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+      text-align: left;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255,255,255,0.15);
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.016));
+    }
+
+    .card small {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .card h3 {
+      font-size: 2rem;
+      line-height: 1;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.01em;
+    }
+
+    .card p {
+      max-width: 32rem;
+    }
+
+    .card .card-pressure {
+      margin-top: 14px;
+      color: var(--text);
+      font-size: 0.93rem;
+      line-height: 1.6;
+    }
+
+    .card-actions {
+      margin-top: 22px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .statement-grid,
+    .symptom-grid,
+    .who-grid {
+      display: grid;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .statement,
+    .symptom,
+    .who-card {
+      padding: 18px 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.02);
+      text-align: left;
+    }
+
+    .statement small,
+    .symptom small,
+    .who-card small {
+      display: block;
+      color: var(--text-faint);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .statement p,
+    .symptom p,
+    .who-card p {
+      color: var(--text-soft);
+      line-height: 1.65;
+    }
+
+    .who-card ul {
+      margin-top: 12px;
+      padding-left: 18px;
+      color: var(--text-soft);
+      line-height: 1.75;
+    }
+
+    .who-card li + li {
+      margin-top: 8px;
+    }
+
+    .closing-panel {
+      padding: 40px 24px;
+    }
+
+    .closing-panel p {
+      margin: 20px auto 0;
+      max-width: 42rem;
+    }
+
+    .closing-actions {
+      margin-top: 26px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .footer-note {
+      margin-top: 24px;
+      color: var(--text-faint);
+      font-size: 0.74rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (min-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .statement-grid,
+      .symptom-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      .who-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .container {
+        width: min(calc(100% - 56px), var(--max));
+      }
+
+      .hero-copy {
+        padding: 26px 0 72px;
+      }
+
+      .section {
+        padding: 118px 0;
+      }
+
+      .panel,
+      .closing-panel {
+        padding: 48px 36px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .hero-bg {
+        background-position: 76% center;
+        transform: scale(1.02);
+      }
+
+      .hero-overlay {
+        background:
+          radial-gradient(circle at 62% 20%, rgba(255,255,255,0.06), transparent 16%),
+          linear-gradient(180deg, rgba(0,0,0,0.34) 0%, rgba(0,0,0,0.62) 34%, rgba(0,0,0,0.82) 100%),
+          linear-gradient(90deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.44) 46%, rgba(0,0,0,0.24) 100%);
+      }
+
+      .hero-copy {
+        padding: 18px 0 48px;
+      }
+
+      .hero-title {
+        max-width: 100%;
+        font-size: clamp(2.35rem, 9vw, 3.7rem);
+        line-height: 0.96;
+        letter-spacing: -0.03em;
+      }
+
+      .hero-title .muted {
+        margin-top: 8px;
+      }
+
+      .hero-kicker {
+        margin-top: 18px;
+        font-size: 0.98rem;
+        line-height: 1.58;
+      }
+
+      .hero-body {
+        margin-top: 14px;
+        font-size: 0.98rem;
+        line-height: 1.72;
+      }
+
+      .hero-micro {
+        margin-top: 12px;
+      }
+
+      .hero-kicker,
+      .hero-body,
+      .hero-micro {
+        max-width: 100%;
+      }
+
+      .ghost-band {
+        padding: 12px 0;
+      }
+
+      .ghost-track {
+        gap: 24px;
+        animation-duration: 34s;
+      }
+
+      .ghost-track span {
+        font-size: 0.82rem;
+        letter-spacing: 0.18em;
+        color: rgba(255,255,255,0.038);
+      }
+
+      .card-actions,
+      .closing-actions,
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .cta {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="noise"></div>
+  <div class="vignette"></div>
+
+  <main>
+    <section class="hero" id="topo">
+      <div class="hero-bg"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-depth"></div>
+      <div class="hero-glow"></div>
+      <div class="hero-fade"></div>
+
+      <div class="container hero-grid">
+        <div class="hero-copy fade-up">
+          <div class="eyebrow">Studio Iluminus</div>
+
+          <h1 class="hero-title">
+            <span>VOCÊ NÃO ESTÁ SENDO MAL PAGO.</span>
+            <span class="muted">ESTÁ SENDO LIDO ABAIXO DO QUE VALE.</span>
+          </h1>
+
+          <p class="hero-kicker">
+            O mercado conclui seu nível antes da sua explicação começar. Se essa leitura estiver errada, seu preço sofre, sua autoridade enfraquece e sua competência chega tarde demais.
+          </p>
+
+          <p class="hero-body">
+            Você pode continuar tentando compensar isso com mais explicação, mais esforço e mais entrega. Ou pode corrigir a forma como está sendo interpretado antes da conversa acontecer.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#decisao" class="cta">QUERO ENTENDER O ERRO</a>
+            <a href="#decisao" class="cta soft">QUERO CORRIGIR AGORA</a>
+          </div>
+
+          <p class="hero-micro">
+            Existem dois caminhos: clareza primeiro ou correção direta. O que não funciona mais é continuar sendo percebido abaixo do que sustenta.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="ghost-band" aria-hidden="true">
+      <div class="ghost-track">
+        <span>PERCEPÇÃO</span>
+        <span>LEITURA</span>
+        <span>VALOR</span>
+        <span>DENSIDADE</span>
+        <span>ESTRUTURA</span>
+        <span>SOBERANIA</span>
+        <span>PERCEPÇÃO</span>
+        <span>LEITURA</span>
+        <span>VALOR</span>
+        <span>DENSIDADE</span>
+        <span>ESTRUTURA</span>
+        <span>SOBERANIA</span>
+      </div>
+    </div>
+
+    <section class="section center">
+      <div class="container fade-up">
+        <div class="panel">
+          <div class="eyebrow" style="justify-content:center;">O problema</div>
+          <h2 style="margin-top:14px;">
+            O problema não é só imagem. É perda de valor.
+          </h2>
+
+          <p>
+            Quando a leitura está errada, o mercado faz três coisas com você: questiona antes de confiar, compara antes de valorizar e pressiona antes de decidir.
+          </p>
+
+          <p>
+            Na prática, isso significa mais esforço para fechar, mais resistência ao seu preço, menos autoridade no primeiro contato e mais necessidade de justificar o que já deveria estar evidente.
+          </p>
+
+          <p>
+            Enquanto sua leitura estiver fraca, sua competência trabalha em desvantagem.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section center">
+      <div class="container fade-up">
+        <div class="eyebrow" style="justify-content:center;">Sintomas</div>
+        <h2 style="margin-top:14px;">
+          Se você vive isso, já existe um problema de percepção.
+        </h2>
+
+        <div class="symptom-grid">
+          <div class="symptom">
+            <small>Sinal 01</small>
+            <p>Seu trabalho é melhor do que a forma como ele parece.</p>
+          </div>
+
+          <div class="symptom">
+            <small>Sinal 02</small>
+            <p>Você precisa explicar demais para ser levado a sério.</p>
+          </div>
+
+          <div class="symptom">
+            <small>Sinal 03</small>
+            <p>Seu preço gera atrito antes da sua entrega ser compreendida.</p>
+          </div>
+
+          <div class="symptom">
+            <small>Sinal 04</small>
+            <p>Outras pessoas parecem mais fortes com menos profundidade do que você.</p>
+          </div>
+
+          <div class="symptom">
+            <small>Sinal 05</small>
+            <p>Você sente que existe um desalinhamento, mas ainda não consegue nomeá-lo com precisão.</p>
+          </div>
+
+          <div class="symptom">
+            <small>Sinal 06</small>
+            <p>Você já percebeu que não basta ser bom. Também é preciso sustentar a leitura correta disso.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section center" id="decisao">
+      <div class="container fade-up">
+        <div class="eyebrow" style="justify-content:center;">Decisão</div>
+        <h2 style="margin-top:14px;">
+          Escolha com honestidade onde você está.
+        </h2>
+
+        <p>
+          Você não precisa começar no lugar errado. Precisa começar no ponto exato em que o seu problema está.
+        </p>
+
+        <div class="grid">
+          <div class="card">
+            <small>Para quem ainda não nomeou o erro</small>
+            <h3>Código da Percepção</h3>
+            <p>
+              Entre aqui se você sente que está sendo lido abaixo do que vale, mas ainda não consegue enxergar com precisão o que está sabotando sua percepção.
+            </p>
+
+            <p class="card-pressure">
+              Você sente desalinhamento, percebe que sua presença não sustenta sua entrega, quer clareza antes de aprofundar e precisa identificar os sinais que hoje reduzem seu valor percebido.
+            </p>
+
+            <p class="card-pressure">
+              Você não precisa começar corrigindo. <strong>Precisa começar enxergando.</strong>
+            </p>
+
+            <div class="card-actions">
+              <a href="https://pay.kiwify.com.br/0gcrvZb" class="cta" target="_blank" rel="noopener noreferrer">COMEÇAR PELO CÓDIGO</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <small>Para quem já cansou de compensar no argumento</small>
+            <h3>Obsidian Method</h3>
+            <p>
+              Entre direto aqui se você já entendeu que está sendo mal percebido e agora quer corrigir, com estrutura, a leitura que o mercado faz da sua presença, do seu valor e da sua autoridade.
+            </p>
+
+            <p class="card-pressure">
+              Você já sabe que existe um erro de percepção, já cansou de explicar mais do que deveria, quer corrigir presença, coerência e posicionamento e não quer mais perder tempo só diagnosticando.
+            </p>
+
+            <p class="card-pressure">
+              Você não precisa de mais consciência. <strong>Precisa de correção.</strong>
+            </p>
+
+            <div class="card-actions">
+              <a href="https://pay.kiwify.com.br/gc4afe1" class="cta" target="_blank" rel="noopener noreferrer">IR DIRETO PARA O OBSIDIAN</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section center">
+      <div class="container fade-up">
+        <div class="eyebrow" style="justify-content:center;">Princípio</div>
+        <h2 style="margin-top:14px;">
+          Quem explica demais já começou perdendo força.
+        </h2>
+
+        <p>
+          Quando o mercado não conclui seu valor com rapidez, você entra num ciclo ruim: explica mais, tenta convencer mais, entrega mais, se desgasta mais e continua sendo lido abaixo do que vale.
+        </p>
+
+        <p>
+          O problema não é falta de esforço. É leitura errada.
+        </p>
+
+        <div class="statement-grid">
+          <div class="statement">
+            <small>Sem correção</small>
+            <p>Você tenta convencer o mercado do que já deveria estar evidente na sua presença.</p>
+          </div>
+
+          <div class="statement">
+            <small>Com correção</small>
+            <p>Sua imagem, linguagem e posicionamento começam a sustentar valor antes da sua defesa.</p>
+          </div>
+
+          <div class="statement">
+            <small>Resultado</small>
+            <p>Você deixa de depender só da competência e passa a sustentar também a leitura correta dessa competência.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section center">
+      <div class="container fade-up">
+        <div class="closing-panel">
+          <h2>
+            Você pode continuar sendo bom e parecer menor do que é. Ou corrigir isso agora.
+          </h2>
+
+          <p>
+            Existe uma diferença entre ter valor e ser percebido como alguém de valor. Essa diferença custa dinheiro, autoridade, energia e posição.
+          </p>
+
+          <p>
+            O Studio Iluminus existe para corrigir essa diferença.
+          </p>
+
+          <p>
+            Se ainda falta clareza, entre pelo Código. Se já existe clareza e falta correção, entre no Obsidian.
+          </p>
+
+          <div class="closing-actions">
+            <a href="https://pay.kiwify.com.br/0gcrvZb" class="cta" target="_blank" rel="noopener noreferrer">COMEÇAR PELO CÓDIGO</a>
+            <a href="https://pay.kiwify.com.br/gc4afe1" class="cta soft" target="_blank" rel="noopener noreferrer">IR DIRETO PARA O OBSIDIAN</a>
+          </div>
+
+          <div class="footer-note">Studio Iluminus</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    }, { threshold: 0.14 });
+
+    document.querySelectorAll(".fade-up").forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
