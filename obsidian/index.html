@@ -22,9 +22,6 @@
       --text-dim: rgba(244,239,231,0.54);
       --text-faint: rgba(244,239,231,0.36);
       --line: rgba(255,255,255,0.08);
-      --line-strong: rgba(255,255,255,0.14);
-      --surface: rgba(255,255,255,0.028);
-      --surface-2: rgba(255,255,255,0.018);
       --radius: 22px;
       --radius-lg: 28px;
       --shadow: 0 24px 90px rgba(0,0,0,0.46);
@@ -205,25 +202,34 @@
       padding: 24px 0 64px;
     }
 
-    .hero-copy h1 {
+    .hero-title {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+      font-family: var(--serif);
       font-size: clamp(2.9rem, 6vw, 6.1rem);
-      line-height: 0.94;
+      line-height: 0.9;
       letter-spacing: -0.04em;
-      max-width: 10ch;
       text-transform: uppercase;
       text-shadow:
         0 0 12px rgba(255,255,255,0.06),
         0 10px 40px rgba(0,0,0,0.55);
     }
 
-    .hero-copy h1 .muted {
+    .hero-title span {
       display: block;
-      color: rgba(244,239,231,0.72);
-      margin-top: 8px;
+      white-space: nowrap;
     }
 
-    .hero-copy h1 .strong-line {
+    .hero-title span:nth-child(1),
+    .hero-title span:nth-child(2),
+    .hero-title span:nth-child(4) {
       color: var(--text);
+    }
+
+    .hero-title span:nth-child(3) {
+      color: rgba(244,239,231,0.72);
     }
 
     .hero-kicker {
@@ -240,13 +246,6 @@
       font-size: 1rem;
     }
 
-    .hero-actions {
-      margin-top: 28px;
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
     .hero-info-line {
       margin-top: 18px;
       display: flex;
@@ -260,6 +259,13 @@
 
     .hero-info-line .sep {
       color: rgba(244,239,231,0.32);
+    }
+
+    .hero-actions {
+      margin-top: 28px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
     .hero-note {
@@ -734,10 +740,9 @@
           linear-gradient(90deg, rgba(0,0,0,0.84) 0%, rgba(0,0,0,0.54) 46%, rgba(0,0,0,0.34) 100%);
       }
 
-      .hero-copy h1 {
-        max-width: 9ch;
+      .hero-title {
         font-size: clamp(2.5rem, 10vw, 4rem);
-        line-height: 0.96;
+        line-height: 0.94;
         letter-spacing: -0.03em;
       }
 
@@ -809,11 +814,11 @@
         <div class="hero-copy fade-up">
           <div class="eyebrow">Obsidian Method</div>
 
-          <h1>
-            VOCÊ NÃO ESTÁ
-            <span class="muted strong-line">SENDO MAL PAGO.</span>
-            <span class="muted">ESTÁ SENDO</span>
-            <span class="strong-line">MAL INTERPRETADO.</span>
+          <h1 class="hero-title">
+            <span>VOCÊ NÃO ESTÁ</span>
+            <span>SENDO MAL PAGO.</span>
+            <span>ESTÁ SENDO</span>
+            <span>MAL INTERPRETADO.</span>
           </h1>
 
           <p class="hero-kicker">
