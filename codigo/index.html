@@ -6,31 +6,34 @@
   <title>O Código da Percepção</title>
   <meta
     name="description"
-    content="O Código da Percepção é um material de entrada para identificar por que você pode estar sendo lida abaixo do valor que realmente entrega."
+    content="O Código da Percepção é a entrada para identificar por que sua imagem, presença e sinais podem estar fazendo você ser lida abaixo do valor que realmente entrega."
   />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;700&display=swap"
     rel="stylesheet"
   >
 
   <style>
     :root {
       --bg: #000000;
+      --bg-soft: #060606;
       --surface: rgba(255,255,255,0.03);
-      --surface-soft: rgba(255,255,255,0.018);
+      --surface-2: rgba(255,255,255,0.018);
       --line: rgba(255,255,255,0.08);
+      --line-strong: rgba(255,255,255,0.14);
       --text: #f4efe7;
-      --text-soft: rgba(244,239,231,0.72);
-      --text-dim: rgba(244,239,231,0.54);
+      --text-soft: rgba(244,239,231,0.74);
+      --text-dim: rgba(244,239,231,0.56);
       --text-faint: rgba(244,239,231,0.38);
       --shadow: 0 24px 90px rgba(0,0,0,0.46);
-      --radius: 24px;
-      --max: 1240px;
       --serif: "Cormorant Garamond", serif;
       --sans: "DM Sans", sans-serif;
+      --max: 1220px;
+      --radius: 24px;
+      --radius-lg: 30px;
     }
 
     * {
@@ -45,10 +48,9 @@
     }
 
     body {
-      background-color: #000;
       background:
-        radial-gradient(circle at 80% 10%, rgba(255,255,255,0.045), transparent 18%),
-        radial-gradient(circle at 18% 45%, rgba(255,255,255,0.03), transparent 18%),
+        radial-gradient(circle at 82% 10%, rgba(255,255,255,0.04), transparent 18%),
+        radial-gradient(circle at 18% 44%, rgba(255,255,255,0.025), transparent 18%),
         linear-gradient(180deg, #020202 0%, #000000 100%);
       color: var(--text);
       font-family: var(--sans);
@@ -66,9 +68,9 @@
       inset: 0;
       pointer-events: none;
       z-index: 50;
-      opacity: 0.008;
+      opacity: 0.01;
       background-image:
-        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
     }
 
     .page-vignette {
@@ -76,7 +78,7 @@
       inset: 0;
       pointer-events: none;
       z-index: 0;
-      box-shadow: inset 0 0 155px rgba(0,0,0,0.52);
+      box-shadow: inset 0 0 160px rgba(0,0,0,0.54);
     }
 
     .container {
@@ -105,46 +107,10 @@
       display: block;
     }
 
-    .button-primary,
-    .button-secondary {
-      min-height: 54px;
-      border-radius: 999px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 22px;
-      font-size: 0.77rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      transition: transform 220ms ease, background 220ms ease, border-color 220ms ease, color 220ms ease;
-      cursor: pointer;
-      white-space: nowrap;
-    }
-
-    .button-primary {
-      background: rgba(255,255,255,0.09);
-      border: 1px solid rgba(255,255,255,0.18);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.06),
-        0 10px 30px rgba(0,0,0,0.18);
-    }
-
-    .button-primary:hover {
-      background: rgba(255,255,255,0.13);
-      transform: translateY(-1px);
-    }
-
-    .button-secondary {
-      border: 1px solid rgba(255,255,255,0.08);
-      color: var(--text-soft);
-      background: rgba(255,255,255,0.02);
-    }
-
-    .button-secondary:hover {
-      background: rgba(255,255,255,0.04);
-      border-color: rgba(255,255,255,0.12);
-      color: var(--text);
-      transform: translateY(-1px);
+    .section {
+      position: relative;
+      padding: 104px 0;
+      border-top: 1px solid rgba(255,255,255,0.04);
     }
 
     .hero {
@@ -153,6 +119,8 @@
       display: flex;
       align-items: center;
       overflow: hidden;
+      border-top: none;
+      isolation: isolate;
     }
 
     .hero-bg {
@@ -161,10 +129,9 @@
       background-image: url('./obsidiana-hero.jpg');
       background-size: cover;
       background-position: center;
-      filter: brightness(0.72) contrast(1.04) saturate(0.96);
+      filter: brightness(0.68) contrast(1.05) saturate(0.95);
       transform: scale(1.03);
       z-index: 0;
-      will-change: transform;
     }
 
     .hero-overlay {
@@ -172,8 +139,9 @@
       inset: 0;
       z-index: 1;
       background:
-        linear-gradient(90deg, rgba(0,0,0,0.34) 0%, rgba(0,0,0,0.14) 42%, rgba(0,0,0,0.04) 100%),
-        linear-gradient(180deg, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.18) 100%);
+        radial-gradient(circle at 70% 26%, rgba(255,255,255,0.05), transparent 16%),
+        linear-gradient(90deg, rgba(0,0,0,0.64) 0%, rgba(0,0,0,0.30) 42%, rgba(0,0,0,0.10) 100%),
+        linear-gradient(180deg, rgba(0,0,0,0.04) 0%, rgba(0,0,0,0.26) 100%);
     }
 
     .hero-fade {
@@ -183,20 +151,21 @@
       bottom: 0;
       height: 180px;
       z-index: 1;
-      background: linear-gradient(to bottom, transparent, #000 80%);
+      background: linear-gradient(to bottom, transparent, #000 82%);
     }
 
     .hero-grid {
       min-height: 100vh;
       display: grid;
-      grid-template-columns: 1fr;
       align-items: end;
       padding: 26px 0 28px;
+      position: relative;
+      z-index: 2;
     }
 
     .hero-copy {
-      max-width: 900px;
-      padding: 20px 0 56px;
+      max-width: 980px;
+      padding: 24px 0 64px;
     }
 
     .hero-title {
@@ -204,21 +173,17 @@
       flex-direction: column;
       align-items: flex-start;
       gap: 0;
-      margin-top: 20px;
       font-family: var(--serif);
       font-weight: 600;
-      font-size: clamp(3rem, 10vw, 6.2rem);
-      line-height: 0.9;
+      font-size: clamp(2.8rem, 8vw, 6.2rem);
+      line-height: 0.92;
       letter-spacing: -0.035em;
       text-transform: uppercase;
       text-shadow:
-        0 0 12px rgba(255,255,255,0.06),
+        0 0 12px rgba(255,255,255,0.05),
         0 10px 40px rgba(0,0,0,0.55);
       max-width: 12ch;
-    }
-
-    .hero-title span {
-      display: block;
+      margin-top: 18px;
     }
 
     .hero-title .muted {
@@ -226,27 +191,27 @@
       margin-top: 8px;
     }
 
-    .hero-description {
-      margin-top: 18px;
-      max-width: 42rem;
-      color: var(--text-soft);
-      font-size: 1rem;
-      line-height: 1.76;
+    .hero-kicker {
+      margin-top: 20px;
+      max-width: 44rem;
+      color: var(--text);
+      font-size: 1.02rem;
+      line-height: 1.62;
     }
 
-    .hero-subpressure {
+    .hero-body {
       margin-top: 16px;
-      max-width: 40rem;
-      color: var(--text);
-      font-size: 0.95rem;
-      line-height: 1.62;
+      max-width: 44rem;
+      color: var(--text-soft);
+      font-size: 1rem;
+      line-height: 1.78;
     }
 
     .hero-points {
       margin-top: 18px;
       display: grid;
       gap: 10px;
-      max-width: 42rem;
+      max-width: 44rem;
     }
 
     .hero-point {
@@ -263,14 +228,14 @@
       font-weight: 600;
     }
 
-    .hero-meta-line {
+    .hero-meta {
       margin-top: 18px;
       color: rgba(244,239,231,0.72);
       font-size: 0.88rem;
       line-height: 1.7;
     }
 
-    .hero-meta-line .sep {
+    .hero-meta .sep {
       color: rgba(244,239,231,0.28);
       margin: 0 8px;
     }
@@ -282,6 +247,48 @@
       flex-wrap: wrap;
     }
 
+    .button-primary,
+    .button-secondary {
+      min-height: 54px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 22px;
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      transition: transform 220ms ease, background 220ms ease, border-color 220ms ease, color 220ms ease;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .button-primary {
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.18);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.06),
+        0 10px 30px rgba(0,0,0,0.18);
+    }
+
+    .button-primary:hover {
+      background: rgba(255,255,255,0.14);
+      transform: translateY(-1px);
+    }
+
+    .button-secondary {
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--text-soft);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .button-secondary:hover {
+      background: rgba(255,255,255,0.04);
+      border-color: rgba(255,255,255,0.12);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
     .ghost-band {
       position: relative;
       z-index: 2;
@@ -290,11 +297,7 @@
       border-top: 1px solid rgba(255,255,255,0.03);
       border-bottom: 1px solid rgba(255,255,255,0.03);
       padding: 14px 0;
-      background: linear-gradient(
-        180deg,
-        rgba(255,255,255,0.006),
-        rgba(255,255,255,0.002)
-      );
+      background: linear-gradient(180deg, rgba(255,255,255,0.006), rgba(255,255,255,0.002));
     }
 
     .ghost-track {
@@ -321,254 +324,154 @@
       to { transform: translateX(-33.333%); }
     }
 
-    .section {
-      position: relative;
-      padding: 96px 0;
-      border-top: 1px solid rgba(255,255,255,0.04);
-    }
-
-    .impact-band,
-    .impact-center,
-    .offer-intro,
-    .who-intro,
-    .faq-intro,
-    .closing,
-    .routing-intro {
+    .center {
       text-align: center;
     }
 
-    .impact-band,
-    .text-panel,
-    .proof-card,
-    .offer-card,
-    .who-card,
-    .faq-item,
-    .closing-card,
-    .routing-card {
-      border: 1px solid rgba(255,255,255,0.08);
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015));
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(8px);
-    }
-
-    .impact-band {
-      padding: 30px 24px;
-      border-radius: 24px;
-    }
-
-    .impact-band h2,
-    .impact-center h2,
-    .offer-intro h2,
-    .who-intro h2,
-    .faq-intro h2,
-    .closing h2,
-    .routing-intro h2 {
-      font-family: var(--serif);
-      font-size: clamp(2.1rem, 6vw, 4.1rem);
-      line-height: 1.04;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-      text-wrap: balance;
-      max-width: 16ch;
-      margin-inline: auto;
-    }
-
-    .impact-center p,
-    .offer-intro p,
-    .who-intro p,
-    .faq-intro p,
-    .closing p,
-    .routing-intro p {
+    .center p {
       margin: 18px auto 0;
-      max-width: 44rem;
-      color: var(--text-soft);
-      font-size: 0.98rem;
-      line-height: 1.75;
+      max-width: 46rem;
     }
 
-    .split-premium {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 22px;
-      align-items: stretch;
-    }
-
-    .visual-panel,
-    .text-panel {
-      position: relative;
-      border-radius: 26px;
-      overflow: hidden;
+    .panel,
+    .card,
+    .price-box,
+    .faq-item,
+    .closing-panel {
       border: 1px solid rgba(255,255,255,0.08);
       background:
         linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015));
       box-shadow: var(--shadow);
+      border-radius: var(--radius-lg);
     }
 
-    .visual-panel {
-      min-height: 360px;
-      isolation: isolate;
-      background-color: #030303;
+    .panel,
+    .closing-panel {
+      padding: 40px 24px;
+      text-align: center;
     }
 
-    .visual-panel::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: url('./obsidiana-detail.jpg');
-      background-size: cover;
-      background-position: center;
-      filter: brightness(0.84) contrast(1.03) saturate(0.96);
-      transform: scale(1.02);
-      z-index: 0;
+    .grid-2,
+    .grid-3,
+    .grid-4 {
+      display: grid;
+      gap: 18px;
+      margin-top: 40px;
     }
 
-    .visual-panel::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.04), rgba(0,0,0,0.14));
-      z-index: 1;
+    .card {
+      padding: 22px 20px;
+      text-align: left;
     }
 
-    .visual-panel .floating-line {
-      position: absolute;
-      left: 20px;
-      right: 20px;
-      bottom: 20px;
-      z-index: 2;
-      padding: 16px 18px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(0,0,0,0.34);
-      backdrop-filter: blur(10px);
-    }
-
-    .floating-line small {
+    .card small,
+    .faq-item small {
       display: block;
-      color: var(--text-faint);
-      font-size: 0.68rem;
+      margin-bottom: 10px;
+      font-size: 12px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      margin-bottom: 8px;
+      color: rgba(255,255,255,0.4);
     }
 
-    .floating-line p {
-      color: var(--text);
+    .card h3 {
       font-family: var(--serif);
-      font-size: clamp(1.35rem, 4vw, 2.1rem);
-      line-height: 1.08;
+      font-size: 2rem;
+      line-height: 1;
+      margin-bottom: 12px;
+      text-transform: uppercase;
       letter-spacing: 0.01em;
-      font-weight: 600;
-      max-width: 18ch;
-      text-wrap: balance;
     }
 
-    .text-panel {
-      padding: 26px 22px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 24px;
-      text-align: left;
-    }
-
-    .text-panel h3 {
-      margin-top: 14px;
-      font-family: var(--serif);
-      font-size: clamp(1.9rem, 4.8vw, 3rem);
-      line-height: 1.08;
-      font-weight: 600;
-      max-width: 14ch;
-      text-wrap: balance;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-    }
-
-    .text-panel p {
+    .card p,
+    .faq-item p {
       color: var(--text-soft);
-      font-size: 0.96rem;
-      line-height: 1.8;
+      line-height: 1.7;
     }
 
-    .text-panel p strong {
+    .symptom-card p,
+    .result-card p,
+    .faq-item p strong {
       color: var(--text);
-      font-weight: 500;
     }
 
-    .text-blocks {
-      display: grid;
-      gap: 12px;
-    }
-
-    .micro-proof,
-    .who-grid,
-    .offer-grid,
-    .faq-grid,
-    .proof-grid,
-    .routing-grid {
-      display: grid;
-      gap: 12px;
-      grid-template-columns: 1fr;
-      margin-top: 32px;
-    }
-
-    .proof-card,
-    .who-card,
-    .offer-card,
-    .faq-item,
-    .routing-card {
-      padding: 18px 18px;
-      border-radius: 18px;
-      text-align: left;
-    }
-
-    .proof-card small,
-    .who-card small,
-    .offer-card small,
-    .faq-item small,
-    .routing-card small {
-      display: block;
-      color: var(--text-faint);
-      font-size: 0.68rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-
-    .proof-card p,
-    .who-card p,
-    .offer-card p,
-    .faq-item p,
-    .routing-card p {
-      color: var(--text-soft);
-      font-size: 0.9rem;
-      line-height: 1.65;
-    }
-
-    .routing-card .highlight {
-      margin-top: 12px;
-      color: var(--text);
-      font-size: 0.92rem;
-      line-height: 1.6;
-    }
-
-    .closing-card {
+    .price-box {
+      max-width: 720px;
+      margin: 40px auto 0;
       padding: 34px 26px;
-      border-radius: 26px;
+      text-align: center;
+    }
+
+    .price-old {
+      color: var(--text-dim);
+      text-decoration: line-through;
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+    }
+
+    .price-current {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 8vw, 5rem);
+      line-height: 0.95;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .price-sub {
+      color: var(--text-soft);
+      max-width: 34rem;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .bonus-list {
+      margin-top: 24px;
+      display: grid;
+      gap: 10px;
+      text-align: left;
+    }
+
+    .bonus-item {
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.02);
+      color: var(--text-soft);
+      line-height: 1.6;
+      position: relative;
+      padding-left: 42px;
+    }
+
+    .bonus-item::before {
+      content: "✓";
+      position: absolute;
+      left: 16px;
+      top: 14px;
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 40px;
+    }
+
+    .faq-item {
+      padding: 20px 20px;
+      text-align: left;
     }
 
     .closing-actions {
-      margin-top: 28px;
+      margin-top: 26px;
       display: flex;
       justify-content: center;
       gap: 12px;
       flex-wrap: wrap;
     }
 
-    .closing-note {
-      margin-top: 26px;
+    .footer-note {
+      margin-top: 24px;
       color: var(--text-faint);
       font-size: 0.74rem;
       letter-spacing: 0.18em;
@@ -586,23 +489,48 @@
       transform: translateY(0);
     }
 
-    @keyframes heroZoom {
-      0% { transform: scale(1.03); }
-      100% { transform: scale(1.06); }
+    @media (min-width: 768px) {
+      .container {
+        width: min(calc(100% - 56px), var(--max));
+      }
+
+      .hero-copy {
+        padding: 26px 0 72px;
+      }
+
+      .grid-2 {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .grid-3 {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      .grid-4 {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .section {
+        padding: 118px 0;
+      }
+
+      .panel,
+      .closing-panel {
+        padding: 48px 36px;
+      }
     }
 
-    @media (max-width: 759px) {
+    @media (max-width: 767px) {
       .hero-title {
-        font-size: clamp(2.2rem, 9vw, 3.5rem);
-        line-height: 0.95;
-        letter-spacing: -0.03em;
         max-width: 100%;
+        font-size: clamp(2.35rem, 9vw, 3.7rem);
+        line-height: 0.96;
+        letter-spacing: -0.03em;
       }
 
       .hero-actions,
       .closing-actions {
         flex-direction: column;
-        align-items: stretch;
       }
 
       .button-primary,
@@ -610,21 +538,9 @@
         width: 100%;
       }
 
-      .hero-description,
-      .hero-subpressure,
-      .impact-center p,
-      .offer-intro p,
-      .who-intro p,
-      .faq-intro p,
-      .closing p,
-      .routing-intro p {
-        font-size: 0.98rem;
-        line-height: 1.7;
-      }
-
-      .hero-points,
-      .hero-description,
-      .hero-subpressure {
+      .hero-kicker,
+      .hero-body,
+      .hero-points {
         max-width: 100%;
       }
 
@@ -639,101 +555,8 @@
 
       .ghost-track span {
         font-size: 0.82rem;
-        letter-spacing: 0.16em;
+        letter-spacing: 0.18em;
         color: rgba(255,255,255,0.038);
-      }
-
-      .impact-band h2,
-      .impact-center h2,
-      .offer-intro h2,
-      .who-intro h2,
-      .faq-intro h2,
-      .closing h2,
-      .routing-intro h2 {
-        max-width: 13ch;
-        font-size: clamp(1.9rem, 8vw, 2.6rem);
-        line-height: 1.08;
-      }
-
-      .text-panel h3 {
-        max-width: 12ch;
-        font-size: clamp(1.7rem, 7vw, 2.2rem);
-        line-height: 1.08;
-      }
-
-      .floating-line p {
-        max-width: 14ch;
-      }
-
-      .hero-meta-line .sep {
-        margin: 0 4px;
-      }
-    }
-
-    @media (min-width: 760px) {
-      .container {
-        width: min(calc(100% - 56px), var(--max));
-      }
-
-      .hero-copy {
-        padding: 26px 0 68px;
-      }
-
-      .hero-bg {
-        animation: heroZoom 18s ease-in-out infinite alternate;
-      }
-
-      .impact-band {
-        padding: 38px 36px;
-      }
-
-      .split-premium {
-        grid-template-columns: 1.04fr 0.96fr;
-        gap: 20px;
-      }
-
-      .text-panel {
-        padding: 36px 30px;
-      }
-
-      .micro-proof,
-      .who-grid,
-      .faq-grid,
-      .proof-grid,
-      .routing-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .offer-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .section {
-        padding: 118px 0;
-      }
-    }
-
-    @media (min-width: 1100px) {
-      .hero-title {
-        font-size: clamp(4.8rem, 7vw, 6.8rem);
-      }
-
-      .hero-description,
-      .closing p,
-      .impact-center p,
-      .offer-intro p,
-      .who-intro p,
-      .faq-intro p,
-      .routing-intro p {
-        font-size: 1.03rem;
-      }
-
-      .text-panel {
-        padding: 42px 36px;
-      }
-
-      .visual-panel {
-        min-height: 520px;
       }
     }
 
@@ -762,24 +585,24 @@
 
           <h1 class="hero-title">
             <span>VOCÊ NÃO ESTÁ SENDO MAL PAGO.</span>
-            <span class="muted">VOCÊ ESTÁ SENDO MAL PERCEBIDO.</span>
+            <span class="muted">ESTÁ SENDO MAL PERCEBIDO.</span>
           </h1>
 
-          <p class="hero-description">
-            Um material de entrada para identificar por que sua imagem, presença e sinais podem estar fazendo você ser lida abaixo do valor que realmente entrega.
+          <p class="hero-kicker">
+            Se sua presença não sustenta o valor que você entrega, seu preço encontra atrito antes da sua competência ser vista.
           </p>
 
-          <p class="hero-subpressure">
-            Ideal para quem sente desalinhamento, mas ainda não consegue localizar com clareza o que está enfraquecendo sua percepção.
+          <p class="hero-body">
+            O Código da Percepção é a entrada para identificar onde sua leitura de valor está quebrando — e por que isso faz você explicar demais, justificar preço e ainda ser lida abaixo do que realmente sustenta.
           </p>
 
           <div class="hero-points">
             <div class="hero-point"><strong>Produto digital com acesso imediato</strong></div>
-            <div class="hero-point"><strong>Leitura inicial clara e prática</strong></div>
-            <div class="hero-point"><strong>Feito para quem precisa entender o erro antes de corrigir</strong></div>
+            <div class="hero-point"><strong>Feito para diagnosticar o erro antes da correção profunda</strong></div>
+            <div class="hero-point"><strong>Ideal para quem sente desalinhamento, mas ainda não nomeou o problema com precisão</strong></div>
           </div>
 
-          <div class="hero-meta-line">
+          <div class="hero-meta">
             <span>R$ 47</span>
             <span class="sep">|</span>
             <span>Garantia de 7 dias</span>
@@ -822,248 +645,217 @@
       </div>
     </div>
 
-    <section class="section" id="o-que-e">
-      <div class="container impact-center fade-up">
+    <section class="section center" id="o-que-e">
+      <div class="container fade-up">
         <div class="eyebrow" style="justify-content:center;">O que é</div>
-        <h2>Um primeiro passo claro para quem sente que tem valor, mas está sendo lida abaixo dele.</h2>
+        <h2 style="margin-top:14px;">
+          O primeiro passo para parar de corrigir no escuro.
+        </h2>
         <p>
           O Código da Percepção é um material digital de entrada criado para ajudar você a identificar onde sua percepção de valor está falhando e por que isso afeta autoridade, preço e leitura profissional.
         </p>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container split-premium">
-        <div class="visual-panel fade-up">
-          <div class="floating-line">
-            <small>Função central</small>
-            <p>Você não compra o Código para parecer melhor. Compra para entender com clareza o que está fazendo você ser percebida abaixo do valor que realmente entrega.</p>
-          </div>
-        </div>
-
-        <div class="text-panel fade-up">
-          <div>
-            <div class="eyebrow">Diagnóstico inicial</div>
-            <h3>Primeiro entenda o erro. Depois decida como corrigir.</h3>
-          </div>
-
-          <div class="text-blocks">
-            <p>
-              O Código foi criado para quem sente que existe desalinhamento, mas ainda não consegue explicar por que sua presença não sustenta o valor que realmente tem.
-            </p>
-
-            <p>
-              Em vez de continuar tentando adivinhar o problema, você começa identificando com mais clareza os sinais que estão enfraquecendo sua leitura.
-            </p>
-
-            <p>
-              <strong>Ele organiza o que hoje está confuso.</strong> E isso já melhora a qualidade da sua decisão.
-            </p>
-          </div>
-
-          <div class="micro-proof">
-            <div class="proof-card">
-              <small>O que ele faz</small>
-              <p>Ajuda você a localizar o problema, separar percepção de competência e entender por que seu valor pode não estar sendo lido com a força certa.</p>
-            </div>
-
-            <div class="proof-card">
-              <small>Para quem faz sentido</small>
-              <p>Para quem entrega bem, mas sente atrito com autoridade, preço, presença ou leitura profissional.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container offer-intro fade-up">
-        <div class="eyebrow" style="justify-content:center;">O que você recebe</div>
-        <h2>Um material objetivo para parar de adivinhar e começar a enxergar o problema com clareza.</h2>
-        <p>
-          Ao entrar no Código, você recebe uma base prática para entender como a percepção funciona e identificar os sinais que podem estar fazendo você ser lida abaixo do seu valor.
-        </p>
-
-        <div class="offer-grid">
-          <div class="offer-card">
-            <small>Leitura de percepção</small>
-            <p>Uma explicação clara de como o mercado forma leitura antes mesmo de ouvir sua explicação.</p>
-          </div>
-
-          <div class="offer-card">
-            <small>Sinais que rebaixam valor</small>
-            <p>Os erros mais comuns que fazem profissionais competentes parecerem menores, mais fracos ou menos caros do que realmente são.</p>
-          </div>
-
-          <div class="offer-card">
-            <small>Diferenciação de problema</small>
-            <p>Uma estrutura inicial para distinguir falha de competência real de falha de percepção.</p>
-          </div>
-
-          <div class="offer-card">
-            <small>Leitura da sua presença</small>
-            <p>Um ponto de partida para entender onde sua imagem, sinais e presença podem estar quebrando coerência.</p>
-          </div>
-
-          <div class="offer-card">
-            <small>Direção de próximo passo</small>
-            <p>Clareza para perceber se seu caso pede apenas entendimento inicial ou uma correção mais profunda depois.</p>
-          </div>
-
-          <div class="offer-card">
-            <small>Baixo risco de entrada</small>
-            <p>Uma forma simples e acessível de começar sem continuar presa em tentativa, dúvida e interpretação confusa.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container impact-center fade-up">
+    <section class="section center">
+      <div class="container fade-up">
         <div class="eyebrow" style="justify-content:center;">Sintomas</div>
-        <h2>Como isso costuma aparecer na prática.</h2>
-        <p>
-          Você pode estar com um problema de percepção se vive uma ou mais destas situações:
-        </p>
+        <h2 style="margin-top:14px;">
+          Se estes sinais se repetem, o problema já não é só entrega.
+        </h2>
 
-        <div class="offer-grid">
-          <div class="offer-card">
+        <div class="grid-3">
+          <div class="card symptom-card">
             <small>Sinal 01</small>
             <p>Seu trabalho é melhor do que a forma como ele parece.</p>
           </div>
 
-          <div class="offer-card">
+          <div class="card symptom-card">
             <small>Sinal 02</small>
             <p>Você precisa explicar demais para ser levada a sério.</p>
           </div>
 
-          <div class="offer-card">
+          <div class="card symptom-card">
             <small>Sinal 03</small>
             <p>Seu preço gera atrito antes da sua entrega ser compreendida.</p>
           </div>
 
-          <div class="offer-card">
+          <div class="card symptom-card">
             <small>Sinal 04</small>
-            <p>Você sente que passa menos autoridade do que realmente tem.</p>
+            <p>Profissionais menos profundos parecem mais fortes do que você.</p>
+          </div>
+
+          <div class="card symptom-card">
+            <small>Sinal 05</small>
+            <p>Você sente desalinhamento, mas ainda não consegue localizar o erro.</p>
+          </div>
+
+          <div class="card symptom-card">
+            <small>Sinal 06</small>
+            <p>Você sabe que tem valor, mas sua presença ainda não sustenta essa leitura.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container impact-center fade-up">
-        <div class="eyebrow" style="justify-content:center;">Por que isso importa</div>
-        <h2>O problema não é só entrega. É a forma como ela está sendo lida.</h2>
-        <p>
-          Muita gente competente continua gerando atrito com preço, explicando demais o próprio valor e sendo percebida abaixo do que realmente entrega. Isso não acontece só por falta de competência. Muitas vezes, acontece por leitura errada.
-        </p>
+    <section class="section center">
+      <div class="container fade-up">
+        <div class="panel">
+          <div class="eyebrow" style="justify-content:center;">O problema</div>
+          <h2 style="margin-top:14px;">
+            Quando a leitura está errada, sua competência chega tarde.
+          </h2>
+
+          <p>
+            O mercado reage a sinais antes de reagir à sua explicação. Se esses sinais estão desalinhados, você enfrenta atrito com preço, perde autoridade e depende de esforço extra para provar um valor que já deveria estar evidente.
+          </p>
+
+          <p>
+            O erro mais caro não é cobrar pouco. É continuar sendo lida abaixo do que vale sem saber onde isso começa.
+          </p>
+        </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container routing-intro fade-up">
-        <div class="eyebrow" style="justify-content:center;">Para quem é</div>
-        <h2>O Código faz sentido para quem ainda precisa localizar o erro com clareza.</h2>
+    <section class="section center">
+      <div class="container fade-up">
+        <div class="eyebrow" style="justify-content:center;">O que você recebe</div>
+        <h2 style="margin-top:14px;">
+          Clareza prática para identificar o erro e parar de adivinhar.
+        </h2>
         <p>
-          Ele foi criado para quem sente que existe desalinhamento entre valor real e leitura externa, mas ainda não consegue identificar exatamente onde isso está quebrando.
+          Ao entrar no Código, você recebe uma base objetiva para entender como a percepção funciona, quais sinais rebaixam valor e como identificar o seu caso com mais precisão.
         </p>
 
-        <div class="routing-grid">
-          <div class="routing-card">
+        <div class="grid-2">
+          <div class="card">
+            <small>Leitura de percepção</small>
+            <p>Uma explicação clara de como o mercado forma leitura antes mesmo de ouvir sua explicação.</p>
+          </div>
+
+          <div class="card">
+            <small>Sinais que rebaixam valor</small>
+            <p>Os erros mais comuns que fazem profissionais competentes parecerem menores, mais fracos ou menos caros do que realmente são.</p>
+          </div>
+
+          <div class="card">
+            <small>Diferenciação de problema</small>
+            <p>Uma estrutura inicial para distinguir falha de competência real de falha de percepção.</p>
+          </div>
+
+          <div class="card">
+            <small>Direção de próximo passo</small>
+            <p>Clareza para perceber se seu caso pede apenas entendimento inicial ou correção mais profunda depois.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section center">
+      <div class="container fade-up">
+        <div class="eyebrow" style="justify-content:center;">O que muda</div>
+        <h2 style="margin-top:14px;">
+          Mais clareza sobre o problema. Menos correção na parte errada.
+        </h2>
+
+        <div class="grid-2">
+          <div class="card result-card">
+            <small>Você começa a enxergar</small>
+            <p>Se o que está travando sua autoridade vem de percepção, posicionamento ou leitura errada do seu valor.</p>
+          </div>
+
+          <div class="card result-card">
+            <small>Você evita</small>
+            <p>Tentar corrigir preço, estética ou comunicação sem antes identificar onde o erro realmente começa.</p>
+          </div>
+
+          <div class="card result-card">
+            <small>Você melhora</small>
+            <p>Seu critério para decidir o próximo passo, em vez de continuar tentando resolver tudo por intuição.</p>
+          </div>
+
+          <div class="card result-card">
+            <small>Você reduz</small>
+            <p>Confusão, desgaste e perda de tempo com ajustes que não atacam o problema central.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section center">
+      <div class="container fade-up">
+        <div class="eyebrow" style="justify-content:center;">Oferta</div>
+        <h2 style="margin-top:14px;">
+          Um ponto de entrada simples, claro e de baixo risco.
+        </h2>
+
+        <div class="price-box">
+          <div class="price-old">de R$ 97</div>
+          <div class="price-current">R$ 47</div>
+          <p class="price-sub">
+            Você entra com baixo atrito, acesso imediato e garantia de 7 dias para finalmente entender o que está enfraquecendo sua leitura de valor.
+          </p>
+
+          <div class="bonus-list">
+            <div class="bonus-item">O Código da Percepção em formato digital</div>
+            <div class="bonus-item">Estrutura inicial para identificar o erro de percepção</div>
+            <div class="bonus-item">Mapa dos sinais que mais rebaixam valor percebido</div>
+            <div class="bonus-item">Direção clara para decidir o próximo passo</div>
+            <div class="bonus-item">Garantia incondicional de 7 dias</div>
+          </div>
+
+          <div class="hero-actions" style="justify-content:center; margin-top: 28px;">
+            <a
+              href="https://pay.kiwify.com.br/0gcrvZb"
+              class="button-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Garantir meu acesso agora
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section center">
+      <div class="container fade-up">
+        <div class="eyebrow" style="justify-content:center;">Para quem é</div>
+        <h2 style="margin-top:14px;">
+          O Código faz sentido para quem ainda precisa localizar o erro com clareza.
+        </h2>
+
+        <div class="grid-2">
+          <div class="card">
             <small>Esse material é para você se</small>
             <p>você sente que entrega mais do que parece</p>
             <p>você precisa se explicar demais para ser levada a sério</p>
             <p>você percebe atrito com preço, autoridade ou posicionamento</p>
             <p>você sabe que algo está desalinhado, mas ainda não consegue nomear com precisão</p>
-            <div class="highlight">Clareza primeiro. Correção depois.</div>
           </div>
 
-          <div class="routing-card">
-            <small>O que você ganha ao entrar</small>
-            <p>mais nitidez sobre o que está enfraquecendo sua leitura</p>
-            <p>menos confusão entre valor real e percepção externa</p>
-            <p>mais critério para decidir o próximo passo</p>
-            <p>uma base mais inteligente antes de qualquer correção mais profunda</p>
-            <div class="highlight">Entrada leve. Leitura mais precisa.</div>
+          <div class="card">
+            <small>Esse material não é para você se</small>
+            <p>você busca truques vazios para parecer sofisticada</p>
+            <p>quer uma transformação estética sem critério</p>
+            <p>já sabe exatamente onde está o erro e quer correção profunda imediata</p>
+            <p>não quer revisar a forma como está sendo lida</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container impact-center fade-up">
-        <div class="eyebrow" style="justify-content:center;">O que muda</div>
-        <h2>Mais clareza sobre o problema. Menos tentativa no escuro.</h2>
-        <p>
-          O valor deste material não está em criar uma fantasia de imagem. Está em ajudar você a enxergar melhor o que está travando sua leitura de valor antes de continuar corrigindo a parte errada.
-        </p>
-
-        <div class="proof-grid">
-          <div class="proof-card">
-            <small>O que você começa a enxergar</small>
-            <p>Você entende se o que está travando sua autoridade vem de percepção, posicionamento ou leitura errada do seu valor.</p>
-          </div>
-
-          <div class="proof-card">
-            <small>O que isso evita</small>
-            <p>Você para de tentar corrigir preço, estética ou comunicação sem antes identificar onde o erro realmente começa.</p>
-          </div>
-
-          <div class="proof-card">
-            <small>O que isso melhora</small>
-            <p>Você ganha mais critério para decidir o próximo passo, em vez de continuar tentando resolver tudo por intuição.</p>
-          </div>
-
-          <div class="proof-card">
-            <small>Por que isso importa</small>
-            <p>Quando o erro fica claro, a sua decisão melhora. E isso evita desgaste, confusão e investimento na direção errada.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container who-intro fade-up">
-        <div class="eyebrow" style="justify-content:center;">O que não é</div>
-        <h2>Não é uma promessa vazia de imagem. É um ponto de partida para entender o problema certo.</h2>
-
-        <div class="who-grid">
-          <div class="who-card">
-            <small>O Código não é</small>
-            <p>um atalho para parecer sofisticada</p>
-            <p>uma aula genérica de estética</p>
-            <p>uma promessa superficial de posicionamento</p>
-            <p>uma solução mágica sem critério</p>
-          </div>
-
-          <div class="who-card">
-            <small>O Código é</small>
-            <p>um primeiro passo claro</p>
-            <p>uma leitura-base de baixo risco</p>
-            <p>uma forma de identificar o erro com mais precisão</p>
-            <p>uma entrada inteligente para quem precisa de clareza antes de avançar</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container faq-intro fade-up">
+    <section class="section center">
+      <div class="container fade-up">
         <div class="eyebrow" style="justify-content:center;">Perguntas frequentes</div>
-        <h2>O que precisa ficar claro antes da compra.</h2>
-        <p>
-          O Código da Percepção é um produto de entrada. A proposta é ajudar você a entender melhor o problema antes de continuar tentando resolver no escuro.
-        </p>
+        <h2 style="margin-top:14px;">
+          O que precisa estar claro antes da compra.
+        </h2>
 
-        <div class="faq-grid">
+        <div class="faq-list">
           <div class="faq-item">
             <small>Pergunta</small>
             <p><strong>O que exatamente eu recebo ao comprar?</strong><br>Você recebe um material digital de entrada com uma estrutura inicial para entender como a percepção funciona, quais sinais rebaixam valor e como identificar o seu caso.</p>
-          </div>
-
-          <div class="faq-item">
-            <small>Pergunta</small>
-            <p><strong>Esse material é para quem está começando?</strong><br>Também. Mas ele funciona especialmente para quem já tem entrega real e sente que ainda está sendo lida abaixo do próprio valor.</p>
           </div>
 
           <div class="faq-item">
@@ -1073,29 +865,32 @@
 
           <div class="faq-item">
             <small>Pergunta</small>
-            <p><strong>O Código resolve meu problema sozinho?</strong><br>Ele resolve a etapa da clareza. O objetivo é ajudar você a entender melhor o problema antes de decidir o próximo passo.</p>
+            <p><strong>Esse material resolve meu problema sozinho?</strong><br>Ele resolve a etapa da clareza. O objetivo é ajudar você a entender melhor o problema antes de decidir o próximo passo.</p>
           </div>
 
           <div class="faq-item">
             <small>Pergunta</small>
-            <p><strong>Esse material é muito técnico?</strong><br>Não. Ele foi pensado para ser direto, compreensível e útil, mesmo para quem ainda não consegue nomear com clareza o próprio erro de percepção.</p>
+            <p><strong>É para quem está começando?</strong><br>Também. Mas funciona especialmente para quem já tem entrega real e sente que ainda está sendo lida abaixo do próprio valor.</p>
           </div>
 
           <div class="faq-item">
             <small>Pergunta</small>
-            <p><strong>Para quem esse produto faz mais sentido?</strong><br>Para quem sente desalinhamento entre valor real e leitura externa e quer parar de adivinhar o que está sabotando sua percepção.</p>
+            <p><strong>E se eu perceber que não era isso?</strong><br>Você tem garantia de 7 dias. O risco de entrada é baixo justamente para permitir essa clareza sem fricção alta.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container closing fade-up">
-        <div class="closing-card">
+    <section class="section center">
+      <div class="container fade-up">
+        <div class="closing-panel">
           <div class="eyebrow" style="justify-content:center;">Decisão</div>
-          <h2>Este é o passo mais simples, claro e acessível para parar de adivinhar.</h2>
+          <h2 style="margin-top:14px;">
+            O próximo passo não é continuar tentando no escuro.
+          </h2>
+
           <p>
-            O Código da Percepção foi criado para quem precisa entender com mais precisão o que está enfraquecendo sua leitura de valor antes de continuar tentando corrigir no escuro.
+            Se você sente que entrega mais do que a forma como está sendo lida, o Código da Percepção é a entrada mais simples para identificar o erro antes de continuar perdendo força, preço e autoridade.
           </p>
 
           <div class="closing-actions">
@@ -1107,9 +902,13 @@
             >
               Quero acessar o Código agora
             </a>
+
+            <a href="/obsidian" class="button-secondary">
+              Já tenho clareza, quero corrigir
+            </a>
           </div>
 
-          <div class="closing-note">O Código da Percepção</div>
+          <div class="footer-note">O Código da Percepção</div>
         </div>
       </div>
     </section>
