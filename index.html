@@ -6,7 +6,7 @@
   <title>Studio Iluminus</title>
   <meta
     name="description"
-    content="O Studio Iluminus corrige a forma como o mercado lê você antes de qualquer explicação. Um sistema para entender o erro, corrigir a leitura e sustentar mais valor percebido."
+    content="O Studio Iluminus corrige a forma como o mercado lê você antes de qualquer explicação. Entenda o erro com o Código da Percepção ou corrija com profundidade no Obsidian Method."
   />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -100,7 +100,7 @@
     h2 {
       font-size: clamp(2.2rem, 7vw, 4.3rem);
       line-height: 1.02;
-      max-width: 12ch;
+      max-width: 13ch;
       margin-inline: auto;
     }
 
@@ -379,9 +379,7 @@
     }
 
     .system-grid,
-    .grid,
     .comparison-grid,
-    .proof-grid,
     .statement-grid,
     .symptom-grid,
     .route-grid {
@@ -391,9 +389,7 @@
     }
 
     .system-card,
-    .card,
     .comparison-card,
-    .proof-card,
     .statement,
     .symptom,
     .route-card {
@@ -407,9 +403,7 @@
     }
 
     .system-card small,
-    .card small,
     .comparison-card small,
-    .proof-card small,
     .statement small,
     .symptom small,
     .route-card small {
@@ -422,7 +416,6 @@
     }
 
     .system-card h3,
-    .card h3,
     .comparison-card h3,
     .route-card h3 {
       font-size: 2rem;
@@ -432,7 +425,6 @@
       letter-spacing: 0.01em;
     }
 
-    .card .card-pressure,
     .comparison-card .card-pressure,
     .route-card .card-pressure {
       margin-top: 14px;
@@ -481,16 +473,10 @@
       flex-wrap: wrap;
     }
 
-    .proof-card p {
+    .statement p,
+    .symptom p {
       color: var(--text);
       line-height: 1.72;
-    }
-
-    .proof-card .source {
-      margin-top: 12px;
-      color: var(--text-dim);
-      font-size: 0.84rem;
-      line-height: 1.5;
     }
 
     .closing-panel {
@@ -531,9 +517,7 @@
 
     @media (min-width: 768px) {
       .system-grid,
-      .grid,
       .comparison-grid,
-      .proof-grid,
       .route-grid {
         grid-template-columns: 1fr 1fr;
       }
@@ -673,25 +657,25 @@
           </p>
 
           <p class="hero-body">
-            O Studio Iluminus existe para corrigir essa diferença. Primeiro, você entende com clareza o erro. Depois, corrige com estrutura a forma como está sendo interpretado.
+            O Studio Iluminus organiza esse problema em dois caminhos: primeiro, você pode identificar o erro com clareza. Depois, pode corrigir com estrutura a forma como está sendo interpretado.
           </p>
 
           <div class="hero-route">
             <div class="hero-route-item">
-              <strong>Código da Percepção</strong> → para quem ainda precisa nomear o erro com clareza.
+              <strong>Código da Percepção</strong> → para quem ainda precisa entender onde a percepção está falhando.
             </div>
             <div class="hero-route-item">
-              <strong>Obsidian Method</strong> → para quem já entendeu o erro e quer corrigir agora.
+              <strong>Obsidian Method</strong> → para quem já entendeu o erro e quer corrigir isso agora.
             </div>
           </div>
 
           <div class="hero-actions">
-            <a href="#caminhos" class="cta">ESCOLHER MEU CAMINHO</a>
-            <a href="#como-funciona" class="cta soft">ENTENDER O SISTEMA</a>
+            <a href="/codigo" class="cta">CONHECER O CÓDIGO</a>
+            <a href="/obsidian" class="cta soft">CONHECER O OBSIDIAN</a>
           </div>
 
           <p class="hero-micro">
-            Clareza primeiro ou correção direta. O que não funciona mais é continuar sendo percebido abaixo do que sustenta.
+            A função desta página não é fechar tudo de uma vez. É direcionar você para a oferta certa.
           </p>
         </div>
       </div>
@@ -726,7 +710,7 @@
             <small>Etapa 1</small>
             <h3>Código da Percepção</h3>
             <p>
-              O ponto de entrada para entender com clareza o que está sabotando sua leitura de valor antes da correção completa.
+              A entrada para quem sente o desalinhamento, mas ainda não consegue nomear com precisão o que está enfraquecendo sua leitura de valor.
             </p>
             <div class="micro-list">
               <span>clareza inicial</span>
@@ -739,12 +723,12 @@
             <small>Etapa 2</small>
             <h3>Obsidian Method</h3>
             <p>
-              O método principal para corrigir, com estrutura, os sinais que fazem o mercado interpretar você abaixo do que realmente sustenta.
+              O método principal para corrigir, com mais profundidade, os sinais que fazem o mercado interpretar você abaixo do que realmente sustenta.
             </p>
             <div class="micro-list">
               <span>correção perceptiva</span>
               <span>mais profundidade</span>
-              <span>método principal do ecossistema</span>
+              <span>método principal do sistema</span>
             </div>
           </div>
         </div>
@@ -808,24 +792,6 @@
             <p>Você já percebeu que não basta ser bom. Também é preciso sustentar a leitura correta disso.</p>
           </div>
         </div>
-
-        <div class="comparison-grid">
-          <div class="comparison-card">
-            <small>Se isso é o seu caso</small>
-            <h3>Vá para o Código</h3>
-            <p>
-              Se o seu maior problema é sentir o desalinhamento, mas ainda não conseguir nomear com precisão o que está errado.
-            </p>
-          </div>
-
-          <div class="comparison-card">
-            <small>Se isso é o seu caso</small>
-            <h3>Vá para o Obsidian</h3>
-            <p>
-              Se você já entendeu que existe um erro de percepção e agora quer corrigir isso com estrutura.
-            </p>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -851,15 +817,15 @@
             </div>
 
             <p class="card-pressure">
-              Entre aqui se você ainda precisa clareza antes de investir numa correção mais profunda.
+              Escolha este caminho se você ainda precisa clareza antes de entrar numa correção mais profunda.
             </p>
 
             <div class="card-actions">
-              <a href="https://pay.kiwify.com.br/0gcrvZb" class="cta" target="_blank" rel="noopener noreferrer">COMEÇAR PELO CÓDIGO</a>
+              <a href="/codigo" class="cta">CONHECER O CÓDIGO</a>
             </div>
 
             <div class="micro-support">
-              acesso imediato • produto digital • garantia de 7 dias • ideal para clareza inicial
+              ideal para clareza inicial • entrada mais simples • caminho de baixo atrito
             </div>
           </div>
 
@@ -867,7 +833,7 @@
             <small>Método principal</small>
             <h3>Obsidian Method</h3>
             <p>
-              Método digital principal para corrigir estrutura de percepção, presença e posicionamento com mais profundidade.
+              Método principal para corrigir estrutura de percepção, presença e posicionamento com mais profundidade.
             </p>
 
             <div class="micro-list">
@@ -877,15 +843,15 @@
             </div>
 
             <p class="card-pressure">
-              Entre aqui se você já sabe que está sendo mal percebido e quer corrigir isso agora.
+              Escolha este caminho se você já sabe que está sendo mal percebido e quer corrigir isso agora.
             </p>
 
             <div class="card-actions">
-              <a href="https://pay.kiwify.com.br/gc4afe1" class="cta" target="_blank" rel="noopener noreferrer">IR DIRETO PARA O OBSIDIAN</a>
+              <a href="/obsidian" class="cta">CONHECER O OBSIDIAN</a>
             </div>
 
             <div class="micro-support">
-              método principal • acesso imediato • garantia de 7 dias • para quem quer correção direta
+              método principal • correção direta • para quem já tem clareza do problema
             </div>
           </div>
         </div>
@@ -894,70 +860,25 @@
 
     <section class="section center">
       <div class="container fade-up">
-        <div class="eyebrow" style="justify-content:center;">Princípio</div>
+        <div class="eyebrow" style="justify-content:center;">O que você evita</div>
         <h2 style="margin-top:14px;">
-          Quem explica demais já entrou em desvantagem.
+          O erro mais caro é tentar corrigir a parte errada.
         </h2>
-
-        <p>
-          Quando a leitura está errada, você explica mais, tenta convencer mais, entrega mais e continua sendo lido abaixo do que vale.
-        </p>
 
         <div class="statement-grid">
           <div class="statement">
-            <small>Sem correção</small>
-            <p>Você tenta convencer o mercado do que já deveria estar evidente na sua presença.</p>
+            <small>Sem clareza</small>
+            <p>Você tenta ajustar preço, estética ou discurso sem saber onde o problema realmente começa.</p>
+          </div>
+
+          <div class="statement">
+            <small>Com clareza</small>
+            <p>Você entende o que está enfraquecendo sua leitura e para de corrigir no escuro.</p>
           </div>
 
           <div class="statement">
             <small>Com correção</small>
-            <p>Sua imagem, linguagem e posicionamento começam a sustentar valor antes da sua defesa.</p>
-          </div>
-
-          <div class="statement">
-            <small>Resultado</small>
-            <p>Você deixa de depender só da competência e passa a sustentar também a leitura correta dessa competência.</p>
-          </div>
-        </div>
-
-        <div class="comparison-grid">
-          <div class="comparison-card">
-            <small>Se ainda falta clareza</small>
-            <h3>Entre pelo Código</h3>
-            <p>Entenda com precisão onde a sua leitura quebra antes de partir para a correção profunda.</p>
-          </div>
-
-          <div class="comparison-card">
-            <small>Se já existe clareza</small>
-            <h3>Vá para o Obsidian</h3>
-            <p>Corrija diretamente a forma como sua presença, coerência e valor estão sendo interpretados.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section center">
-      <div class="container fade-up">
-        <div class="eyebrow" style="justify-content:center;">Validação</div>
-        <h2 style="margin-top:14px;">
-          O ponto não é só parecer melhor. É finalmente entender o erro certo.
-        </h2>
-
-        <div class="proof-grid">
-          <div class="proof-card">
-            <small>Feedback</small>
-            <p>
-              “Foi a primeira vez que consegui separar falta de valor real de falta de leitura correta.”
-            </p>
-            <div class="source">— feedback de cliente / aluna</div>
-          </div>
-
-          <div class="proof-card">
-            <small>Feedback</small>
-            <p>
-              “Eu achava que o problema era preço. Percebi que a minha presença estava fazendo o mercado concluir menos.”
-            </p>
-            <div class="source">— feedback de cliente / aluna</div>
+            <p>Sua imagem, presença e posicionamento começam a sustentar o valor que sua competência já carrega.</p>
           </div>
         </div>
       </div>
@@ -966,21 +887,22 @@
     <section class="section center">
       <div class="container fade-up">
         <div class="closing-panel">
-          <h2>
+          <div class="eyebrow" style="justify-content:center;">Decisão</div>
+          <h2 style="margin-top:14px;">
             Existe um caminho certo para o seu momento.
           </h2>
 
           <p>
-            Se você ainda está tentando entender o erro, comece pelo Código.
+            Se você ainda está tentando entender o erro, comece pelo Código da Percepção.
           </p>
 
           <p>
-            Se já cansou de entender e quer corrigir, vá direto para o Obsidian.
+            Se já cansou de entender e quer corrigir, vá para o Obsidian Method.
           </p>
 
           <div class="closing-actions">
-            <a href="https://pay.kiwify.com.br/0gcrvZb" class="cta" target="_blank" rel="noopener noreferrer">COMEÇAR PELO CÓDIGO</a>
-            <a href="https://pay.kiwify.com.br/gc4afe1" class="cta soft" target="_blank" rel="noopener noreferrer">IR DIRETO PARA O OBSIDIAN</a>
+            <a href="/codigo" class="cta">CONHECER O CÓDIGO</a>
+            <a href="/obsidian" class="cta soft">CONHECER O OBSIDIAN</a>
           </div>
 
           <div class="footer-note">Studio Iluminus</div>
